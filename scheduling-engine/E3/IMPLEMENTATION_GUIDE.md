@@ -11,13 +11,13 @@
 
 ## Confirmed academic rules
 
-- Theory 3 credits: three separate one-hour sessions per week.
-- Theory 4 credits: two two-hour sessions on different days.
+- Theory: one one-hour session per credit per week (for example, 3 credits = 3 sessions and 4 credits = 4 sessions).
 - Lab 1 credit: one hour.
-- Lab 1.5 credits: two hours.
-- Lab 2 credits: four hours.
-- Labs must be uninterrupted. Breaks and lunch cannot be crossed.
-- Four-hour labs require an explicitly configured `SPECIAL_LAB` block.
+- Lab 1.5 credits: one uninterrupted two-hour session.
+- Lab 2 credits: one uninterrupted two-hour session.
+- Lab 3 credits: one uninterrupted three-hour session.
+- Labs run uninterrupted within the 08:00–12:00 lab window. The ordinary 15-minute break is not inserted into that lab window; the window ends before lunch.
+- Lab sessions are restricted to one, two or three hours; four-hour labs are not generated.
 
 ## Flexible time configuration
 
@@ -61,3 +61,31 @@ node scheduling-engine/E3/tests/runAllTests.js
 - Room selection is likewise currently constrained by `roomId`/room availability supplied to the scheduler; automatic room-choice domains require the same resource-choice expansion.
 - Existing `sourceSessionPreparer.js` and the sample fixture tests support the legacy timetable-audit workflow. They are not the new requirements-to-timetable generation pipeline. Do not use sample TTG IDs as institutional rules.
 - A live Supabase connection, real production schema, and frontend integration were not available in this offline review and must be tested in the team's environment.
+
+## Resource-aware timetable generation
+
+The original `generateTimetable(sessions, ...)` API remains available for legacy slot-only scheduling and its existing tests.
+
+For new academic-data-driven generation, use the resource-aware entry point:
+
+```js
+const { normalizeData } = require('./data/dataNormalizer');
+const { generateTimetableFromData } = require('./scheduler');
+
+const normalized = normalizeData(rawAcademicData);
+const result = generateTimetableFromData(normalized, {
+  // Optional: override the default code-generated college slots.
+  // availableSlots: getCollegeSlots(customTimeConfig)
+});
+
+if (!result.success) {
+  console.error(result.errors);
+} else {
+  // Each assignment contains { slots, facultyId, roomId }.
+  console.log([...result.assignments]);
+}
+```
+
+This path creates candidate combinations of eligible faculty, suitable rooms and valid time groups, then applies MRV backtracking with forward checking. Theory sessions require classroom-type rooms; lab sessions require lab-type rooms. Labs use uninterrupted one-, two- or three-hour blocks within the 08:00–12:00 lab window. The returned `assignments` map stores each combined assignment as `{ slots, facultyId, roomId }`.
+
+Availability inputs may be supplied through `options.facultyAvailability` and `options.roomAvailability` as maps keyed by resource ID, where each value is an array of allowed slot objects. The normalized data arrays `facultyAvailability` and `roomAvailability` are also supported when each row contains a resource ID and a `slot`, `timeSlot`, or slot-shaped record.

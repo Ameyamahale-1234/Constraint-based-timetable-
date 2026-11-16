@@ -1,486 +1,134 @@
+const { generateSessions } = require('./sessionGenerator');
+const { getCollegeSlots, getConsecutiveSlotGroups, getLabWindowSlots, getLabWindowGroups } = require('./collegeTimeConfig');
+const { forwardChecking, hasConstraintConflict } = require('./forwardChecking');
+const { getResourceConflicts } = require('./graphBuilder');
+const { validateTimetable } = require('./timetableValidator');
 
-const { generateSessions } = require("./sessionGenerator");
-
-const {
-    getCollegeSlots,
-    getConsecutiveSlotGroups
-} = require("./collegeTimeConfig");
-
-const {
-    forwardChecking,
-    hasConstraintConflict
-} = require("./forwardChecking");
-
-const { getResourceConflicts } = require("./graphBuilder");
-
-const { validateTimetable } = require("./timetableValidator");
-
-// Convert availability records into a resource-wise lookup.
 function normalizeAvailability(rows, resourceKey) {
-    if (!Array.isArray(rows) || rows.length === 0) {
-        return null;
-    }
-
-    const result = {};
-
-    for (const row of rows) {
-        const id =
-            row[resourceKey] ??
-            row.resourceId ??
-            row.id;
-
-        if (id == null) continue;
-
-        const slot = row.slot ?? row.timeSlot ?? row;
-
-        if (!result[id]) result[id] = [];
-
-        result[id].push(slot);
-    }
-
-    return result;
+  if (!rows || !rows.length) return null;
+  const result = {};
+  for (const row of rows) {
+    const id = row[resourceKey] ?? row.resourceId ?? row.id;
+    if (id == null) continue;
+    const slot = row.slot ?? row.timeSlot ?? row;
+    (result[id] ||= []).push(slot);
+  }
+  return result;
 }
 
 function slotKey(slot) {
-    if (!slot || typeof slot !== "object") {
-        return String(slot);
-    }
-
-    return `${slot.day}-${slot.slotId}`;
+  return slot && typeof slot === 'object' ? `${slot.day}-${slot.slotId}` : String(slot);
 }
-
-function availableFor(candidateSlots, availability, resourceId) {
-    if (!availability) return true;
-
-    const allowed = availability[resourceId];
-
-    if (!allowed) return false;
-
-    const allowedKeys = new Set(allowed.map(slotKey));
-
-    return candidateSlots.every(slot =>
-        allowedKeys.has(slotKey(slot))
-    );
+function asSlots(value) { return Array.isArray(value) ? value : [value]; }
+function availableFor(candidateSlots, availability, id) {
+  if (!availability) return true;
+  const allowed = availability[id];
+  if (!allowed) return false;
+  const keys = new Set(allowed.map(slotKey));
+  return asSlots(candidateSlots).every(slot => keys.has(slotKey(slot)));
 }
-
-// Match theory courses with classrooms and labs with laboratories.
-function roomMatches(room, requiredType) {
-    const type = String(
-        room.roomType ?? room.room_type ?? ""
-    ).toUpperCase();
-
-    if (requiredType === "LAB") {
-        return type.includes("LAB");
-    }
-
-    return (
-        type.includes("CLASS") ||
-        type.includes("LECTURE") ||
-        type === "ROOM"
-    );
+function roomMatches(room, required) {
+  const type = String(room.roomType ?? room.room_type ?? '').toUpperCase();
+  if (required === 'LAB') return type.includes('LAB');
+  return type.includes('CLASS') || type.includes('LECTURE') || type === 'ROOM';
 }
-
-// Generate valid time combinations for a session.
-function candidateSlots(session, availableSlots) {
-    const duration = Number(session.durationHours || 1);
-
-    if (duration === 1) {
-        return availableSlots
-            .filter(slot => slot.type !== "SPECIAL_LAB")
-            .map(slot => [slot]);
-    }
-
-    if (duration === 4) {
-        return availableSlots
-            .filter(slot =>
-                slot.type === "SPECIAL_LAB" &&
-                slot.durationMinutes >= 240
-            )
-            .map(slot => [slot]);
-    }
-
-    const regularSlots = availableSlots.filter(
-        slot => slot.type !== "SPECIAL_LAB"
-    );
-
-    return getConsecutiveSlotGroups(
-        regularSlots,
-        duration
-    );
+function candidateSlots(session, slots, labSlots = []) {
+  const duration = Number(session.durationHours || 1);
+  if (session.isLab || String(session.courseType || session.type).toUpperCase() === 'LAB') {
+    return getLabWindowGroups(labSlots, duration);
+  }
+  if (duration === 1) return slots.filter(slot => slot.type !== 'SPECIAL_LAB' && slot.type !== 'LAB_WINDOW').map(slot => [slot]);
+  return getConsecutiveSlotGroups(slots.filter(slot => slot.type !== 'SPECIAL_LAB' && slot.type !== 'LAB_WINDOW'), duration);
 }
-
-// Build edges between sessions that may compete for resources.
-
 function buildResourceGraph(sessions, facultyOptions, roomOptions) {
-    const graph = new Map(
-        sessions.map(session => [session.id, []])
-    );
-
-    for (let i = 0; i < sessions.length; i++) {
-        for (let j = i + 1; j < sessions.length; j++) {
-            const a = sessions[i];
-            const b = sessions[j];
-
-            const reasons = [];
-
-
-// Four-credit theory sessions must occur on different days.
-if (
-    a.distinctDayGroup &&
-    b.distinctDayGroup &&
-    a.distinctDayGroup === b.distinctDayGroup &&
-    String(a.courseId) === String(b.courseId) &&
-    String(a.divisionId) === String(b.divisionId)
-) {
-    reasons.push("DAY_SEPARATION");
-}
-
-            // Check division and batch conflicts.
-            const structuralConflicts =
-                getResourceConflicts(a, b);
-
-            for (const reason of structuralConflicts) {
-                if (
-                    ["DIVISION", "BATCH"].includes(reason) &&
-                    !reasons.includes(reason)
-                ) {
-                    reasons.push(reason);
-                }
-            }
-
-            // Check whether sessions could use the same faculty.
-            const facultyA = (facultyOptions.get(a.id) || [])
-                .map(String);
-
-            const facultyB = (facultyOptions.get(b.id) || [])
-                .map(String);
-
-            const sharedFaculty = facultyA.some(id =>
-                facultyB.includes(id)
-            );
-
-            if (sharedFaculty) {
-                reasons.push("FACULTY");
-            }
-
-            // Check whether sessions could use the same room.
-            const roomsA = (roomOptions.get(a.id) || [])
-                .map(String);
-
-            const roomsB = (roomOptions.get(b.id) || [])
-                .map(String);
-
-            const sharedRoom = roomsA.some(id =>
-                roomsB.includes(id)
-            );
-
-            if (sharedRoom) {
-                reasons.push("ROOM");
-            }
-
-            // Add an edge only when a genuine shared
-            // resource or structural constraint exists.
-            if (reasons.length === 0) {
-                continue;
-            }
-
-            graph.get(a.id).push({
-                sessionId: b.id,
-                reasons
-            });
-
-            graph.get(b.id).push({
-                sessionId: a.id,
-                reasons
-            });
-        }
+  const graph = new Map(sessions.map(s => [s.id, []]));
+  for (let i = 0; i < sessions.length; i++) for (let j = i + 1; j < sessions.length; j++) {
+    const a = sessions[i], b = sessions[j];
+    const reasons = getResourceConflicts(a, b).filter(x => x !== 'FACULTY' && x !== 'ROOM' && x !== 'DAY_SEPARATION');
+    if ((facultyOptions.get(a.id) || []).some(x => (facultyOptions.get(b.id) || []).includes(x))) reasons.push('FACULTY');
+    if ((roomOptions.get(a.id) || []).some(x => (roomOptions.get(b.id) || []).includes(x))) reasons.push('ROOM');
+    if (a.distinctDayGroup && a.distinctDayGroup === b.distinctDayGroup) reasons.push('DAY_SEPARATION');
+    if (reasons.length) {
+      graph.get(a.id).push({ sessionId: b.id, reasons });
+      graph.get(b.id).push({ sessionId: a.id, reasons });
     }
-
-    return graph;
+  }
+  return graph;
 }
-
-
-// MRV + Backtracking + Forward Checking.
+function candidateConflict(edge, a, b) {
+  return hasConstraintConflict(edge, a, b);
+}
 function solveResourceCsp(graph, domains) {
-    function solve(currentDomains, assignments) {
-        if (assignments.size === domains.size) {
-            return new Map(assignments);
-        }
-
-        // Minimum Remaining Values.
-        const remaining = [...currentDomains.keys()]
-            .filter(id => !assignments.has(id));
-
-        remaining.sort((a, b) => {
-            const sizeDifference =
-                currentDomains.get(a).length -
-                currentDomains.get(b).length;
-
-            if (sizeDifference !== 0) {
-                return sizeDifference;
-            }
-
-            return (
-                (graph.get(b) || []).length -
-                (graph.get(a) || []).length
-            );
-        });
-
-        const sessionId = remaining[0];
-
-        if (!sessionId) return null;
-
-        const candidates =
-            currentDomains.get(sessionId) || [];
-
-        for (const candidate of candidates) {
-            let conflict = false;
-
-            for (const edge of graph.get(sessionId) || []) {
-                const otherAssignment =
-                    assignments.get(edge.sessionId);
-
-                if (!otherAssignment) continue;
-
-                if (
-                    hasConstraintConflict(
-                        edge,
-                        candidate,
-                        otherAssignment
-                    )
-                ) {
-                    conflict = true;
-                    break;
-                }
-            }
-
-            if (conflict) continue;
-
-            const nextAssignments = new Map(assignments);
-
-            nextAssignments.set(sessionId, candidate);
-
-            const result = forwardChecking(
-                graph,
-                currentDomains,
-                sessionId,
-                candidate,
-                nextAssignments
-            );
-
-            if (!result.success) continue;
-
-            const solved = solve(
-                result.domains,
-                nextAssignments
-            );
-
-            if (solved) return solved;
-        }
-
-        return null;
+  function solve(current, assignments) {
+    if (assignments.size === domains.size) return new Map(assignments);
+    const remaining = [...current.keys()].filter(id => !assignments.has(id));
+    remaining.sort((a, b) => (current.get(a).length - current.get(b).length) ||
+      (graph.get(b).length - graph.get(a).length));
+    const id = remaining[0];
+    for (const candidate of current.get(id) || []) {
+      let conflict = false;
+      for (const edge of graph.get(id) || []) {
+        const other = assignments.get(edge.sessionId);
+        if (other && candidateConflict(edge, candidate, other)) { conflict = true; break; }
+      }
+      if (conflict) continue;
+      const nextAssignments = new Map(assignments);
+      nextAssignments.set(id, candidate);
+      const pruned = forwardChecking(graph, current, id, candidate, nextAssignments);
+      if (!pruned.success) continue;
+      const result = solve(pruned.domains, nextAssignments);
+      if (result) return result;
     }
-
-    return solve(domains, new Map());
+    return null;
+  }
+  return solve(domains, new Map());
 }
 
-// Main resource-aware timetable generation function.
+/** Full source-independent generation path: choose faculty, room and time together. */
 function generateTimetableFromData(data, options = {}) {
-    const sessions = generateSessions(data, options);
+  const sessions = generateSessions(data, options);
+  const slots = options.availableSlots || getCollegeSlots(options.timeConfig);
+  const labSlots = options.labSlots || getLabWindowSlots(options.labWindow || {});
+  const validationSlots = [...slots, ...labSlots];
+  const facultyAvailability = options.facultyAvailability || normalizeAvailability(data.facultyAvailability, 'facultyId');
+  const roomAvailability = options.roomAvailability || normalizeAvailability(data.roomAvailability, 'roomId');
+  const facultyById = new Map((data.faculty || []).map(f => [String(f.facultyId ?? f.faculty_id), f]));
+  const rooms = data.rooms || [];
+  const facultyOptions = new Map();
+  const roomOptions = new Map();
+  const domains = new Map();
+  const errors = [];
 
-    const availableSlots =
-        options.availableSlots ||
-        getCollegeSlots(options.timeConfig);
-
-    const facultyAvailability =
-        options.facultyAvailability ||
-        normalizeAvailability(
-            data.facultyAvailability,
-            "facultyId"
-        );
-
-    const roomAvailability =
-        options.roomAvailability ||
-        normalizeAvailability(
-            data.roomAvailability,
-            "roomId"
-        );
-
-    const facultyById = new Map(
-        (data.faculty || []).map(faculty => [
-            String(faculty.facultyId ?? faculty.faculty_id),
-            faculty
-        ])
-    );
-
-    const rooms = data.rooms || [];
-
-    const facultyOptions = new Map();
-    const roomOptions = new Map();
-    const domains = new Map();
-    const errors = [];
-
-    for (const session of sessions) {
-        const eligibleFaculty = (
-            session.eligibleFacultyIds || []
-        ).filter(id =>
-            id != null && facultyById.has(String(id))
-        );
-
-        const matchingRooms = rooms.filter(room =>
-            roomMatches(room, session.isLab ? "LAB" : "CLASSROOM")
-        );
-
-        facultyOptions.set(
-            session.id,
-            eligibleFaculty
-        );
-
-        roomOptions.set(
-            session.id,
-            matchingRooms.map(room =>
-                room.roomId ?? room.room_id
-            )
-        );
-
-        if (eligibleFaculty.length === 0) {
-            errors.push(
-                `${session.id}: No eligible faculty available`
-            );
-        }
-
-        if (matchingRooms.length === 0) {
-            errors.push(
-                `${session.id}: No suitable room available`
-            );
-        }
-
-        const timeCandidates = candidateSlots(
-            session,
-            availableSlots
-        );
-
-        const candidates = [];
-
-        for (const facultyId of eligibleFaculty) {
-            for (const room of matchingRooms) {
-                const roomId = room.roomId ?? room.room_id;
-
-                for (const slots of timeCandidates) {
-                    if (
-                        !availableFor(
-                            slots,
-                            facultyAvailability,
-                            facultyId
-                        )
-                    ) {
-                        continue;
-                    }
-
-                    if (
-                        !availableFor(
-                            slots,
-                            roomAvailability,
-                            roomId
-                        )
-                    ) {
-                        continue;
-                    }
-
-                    candidates.push({
-                        slots,
-                        facultyId,
-                        roomId
-                    });
-                }
-            }
-        }
-
-        domains.set(session.id, candidates);
-
-        if (candidates.length === 0) {
-            errors.push(
-                `${session.id}: No valid faculty-room-time combination`
-            );
-        }
+  for (const session of sessions) {
+    const eligible = (session.eligibleFacultyIds || []).filter(id => id != null && facultyById.has(String(id)));
+    const matchingRooms = rooms.filter(room => roomMatches(room, session.requiresRoomType) && (room.roomId ?? room.room_id) != null);
+    facultyOptions.set(session.id, eligible);
+    roomOptions.set(session.id, matchingRooms.map(r => r.roomId ?? r.room_id));
+    if (!eligible.length) errors.push(`${session.id}: No eligible faculty available`);
+    if (!matchingRooms.length) errors.push(`${session.id}: No suitable room available`);
+    const times = candidateSlots(session, slots, labSlots);
+    const candidates = [];
+    for (const facultyId of eligible) for (const room of matchingRooms) for (const group of times) {
+      if (!availableFor(group, facultyAvailability, facultyId) || !availableFor(group, roomAvailability, room.roomId ?? room.room_id)) continue;
+      candidates.push({ slots: group, facultyId, roomId: room.roomId ?? room.room_id });
     }
+    domains.set(session.id, candidates);
+    if (!candidates.length) errors.push(`${session.id}: No valid faculty-room-time combination`);
+  }
+  if (errors.length) return { success: false, method: 'ResourceBacktracking', sessions, assignments: null, errors, domains };
 
-    if (errors.length > 0) {
-        return {
-            success: false,
-            method: "ResourceBacktracking",
-            sessions,
-            assignments: null,
-            errors,
-            domains
-        };
-    }
+  const graph = buildResourceGraph(sessions, facultyOptions, roomOptions);
+  const assignments = solveResourceCsp(graph, domains);
+  if (!assignments) return { success: false, method: 'ResourceBacktracking', sessions, assignments: null, errors: ['No conflict-free combination of faculty, room and time slots exists'], domains };
 
-    const graph = buildResourceGraph(
-        sessions,
-        facultyOptions,
-        roomOptions
-    );
-
-    const assignments = solveResourceCsp(
-        graph,
-        domains
-    );
-
-    if (!assignments) {
-        return {
-            success: false,
-            method: "ResourceBacktracking",
-            sessions,
-            assignments: null,
-            errors: [
-                "No conflict-free combination of faculty, room and time slots exists."
-            ],
-            domains
-        };
-    }
-
-    const validation = validateTimetable(
-        sessions,
-        assignments,
-        { availableSlots }
-    );
-
-    const resourceErrors = [];
-
-    for (const session of sessions) {
-        const assignment = assignments.get(session.id);
-
-        if (
-            !assignment ||
-            assignment.facultyId == null ||
-            assignment.roomId == null
-        ) {
-            resourceErrors.push(
-                `${session.id}: Faculty or room assignment missing`
-            );
-        }
-    }
-
-    const allErrors = [
-        ...validation.errors,
-        ...resourceErrors
-    ];
-
-    return {
-        success: allErrors.length === 0,
-        method: "ResourceBacktracking",
-        sessions,
-        assignments: allErrors.length === 0
-            ? assignments
-            : null,
-        errors: allErrors,
-        domains
-    };
+  const validation = validateTimetable(sessions, assignments, { availableSlots: validationSlots });
+  const resourceErrors = [];
+  for (const session of sessions) {
+    const assigned = assignments.get(session.id);
+    if (assigned?.facultyId == null || assigned?.roomId == null) resourceErrors.push(`${session.id}: Faculty or room assignment missing`);
+  }
+  const allErrors = [...validation.errors, ...resourceErrors];
+  return { success: allErrors.length === 0, method: 'ResourceBacktracking', sessions, assignments, errors: allErrors, validation, domains };
 }
 
-module.exports = {
-    generateTimetableFromData,
-    buildResourceGraph,
-    solveResourceCsp
-};
+module.exports = { generateTimetableFromData, buildResourceGraph, solveResourceCsp, candidateSlots };

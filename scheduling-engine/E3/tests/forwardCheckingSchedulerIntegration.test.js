@@ -9,7 +9,7 @@ const graph = buildConflictGraph([a,b]);
 const result = backtracking(graph, new Map([['A', [slots[0]]], ['B', [slots[0], slots[1]]]]));
 assert.ok(result);
 assert.notEqual(result.get('A').slotId, result.get('B').slotId);
-// Sessions in a four-credit theory pair must be placed on different days.
+// Weekly sessions in the same multi-credit course offering must be placed on different days.
 const c = { id:'C1', divisionId:'D3', distinctDayGroup:'COURSE-D3' };
 const d = { id:'C2', divisionId:'D3', distinctDayGroup:'COURSE-D3' };
 const dayGraph = buildConflictGraph([c,d]);

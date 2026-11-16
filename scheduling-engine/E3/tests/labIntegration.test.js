@@ -29,7 +29,7 @@ const slots = [
 ];
 
 const result = generateTimetable(sessions, slots);
-    console.log("DEBUG RESULT:", result);
+
 assert.strictEqual(result.success, true);
 
 const labAssignment = result.assignments.get("LAB1");
@@ -41,5 +41,4 @@ assert.strictEqual(theoryAssignment, "11-12 PM");
 
 console.log("Lab assignment:", labAssignment);
 console.log("Theory assignment:", theoryAssignment);
-
 console.log("Lab integration tests passed!");

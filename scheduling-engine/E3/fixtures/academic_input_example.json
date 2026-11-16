@@ -1,0 +1,1973 @@
+{
+  "department": [
+    {
+      "dept_id": 1,
+      "dept_name": "Computer Science and Engineering",
+      "dept_code": "CSE"
+    },
+    {
+      "dept_id": 2,
+      "dept_name": "Mathematics",
+      "dept_code": "MATH"
+    }
+  ],
+  "faculty": [
+    {
+      "faculty_id": 1,
+      "faculty_name": "Dr. Vijayalakshmi M",
+      "designation": "Prof. & Head",
+      "dept_id": 1,
+      "email": "viju11@kletech.ac.in, hod_cse@kletech.ac.in",
+      "phone_number": "9480461780"
+    },
+    {
+      "faculty_id": 2,
+      "faculty_name": "Dr. Satyadhyan Chickerur",
+      "designation": "Professor",
+      "dept_id": 1,
+      "email": "chickerursr@kletech.ac.in",
+      "phone_number": "9632601460"
+    },
+    {
+      "faculty_id": 3,
+      "faculty_name": "Dr. Shrinivas Desai",
+      "designation": "Professor",
+      "dept_id": 1,
+      "email": "sd_desai@kletech.ac.in",
+      "phone_number": "9845275066"
+    },
+    {
+      "faculty_id": 4,
+      "faculty_name": "Dr. Sujata C",
+      "designation": "Professor",
+      "dept_id": 1,
+      "email": "sujata_c@kletech.ac.in",
+      "phone_number": "9449170497"
+    },
+    {
+      "faculty_id": 5,
+      "faculty_name": "Dr. S.G. Kanakareddi",
+      "designation": "Professor",
+      "dept_id": 1,
+      "email": "suvarna_gk@kletech.ac.in",
+      "phone_number": "9448630969"
+    },
+    {
+      "faculty_id": 6,
+      "faculty_name": "Dr. P.G. Sunitha Hiremath",
+      "designation": "Professor",
+      "dept_id": 1,
+      "email": "pgshiremath@kletech.ac.in",
+      "phone_number": "8147885826"
+    },
+    {
+      "faculty_id": 7,
+      "faculty_name": "Dr. Jayalaxmi G.N.",
+      "designation": "Professor",
+      "dept_id": 1,
+      "email": "jaya_gn@kletech.ac.in",
+      "phone_number": "7676272744"
+    },
+    {
+      "faculty_id": 8,
+      "faculty_name": "Dr. G. S. Hanchinamani",
+      "designation": "Assc. Prof",
+      "dept_id": 1,
+      "email": "gs_hanchinamani@kletech.ac.in",
+      "phone_number": "9341961485"
+    },
+    {
+      "faculty_id": 9,
+      "faculty_name": "Dr. Meenaxi M. Raikar",
+      "designation": "Assc. Prof",
+      "dept_id": 1,
+      "email": "mmraikar@kletech.ac.in",
+      "phone_number": "9448631132"
+    },
+    {
+      "faculty_id": 10,
+      "faculty_name": "Dr. Shantala Giraddi",
+      "designation": "Assc. Prof",
+      "dept_id": 1,
+      "email": "shantala@kletech.ac.in",
+      "phone_number": "9739191188"
+    },
+    {
+      "faculty_id": 11,
+      "faculty_name": "Ms. Vidya Handur",
+      "designation": "Assc. Prof",
+      "dept_id": 1,
+      "email": "vidya_handur@kletech.ac.in",
+      "phone_number": "9980184239"
+    },
+    {
+      "faculty_id": 12,
+      "faculty_name": "Mr. K M M Rajashekharaiah",
+      "designation": "Assc. Prof",
+      "dept_id": 1,
+      "email": "kmmr@kletech.ac.in",
+      "phone_number": "8904011173"
+    },
+    {
+      "faculty_id": 13,
+      "faculty_name": "Dr. Guruprasad S K",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "guruprasad.konnurmath@kletech.ac.in",
+      "phone_number": "9538012981"
+    },
+    {
+      "faculty_id": 14,
+      "faculty_name": "Mr. Manjunath Gonal",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "mkgonal@kletech.ac.in",
+      "phone_number": "7760897029"
+    },
+    {
+      "faculty_id": 15,
+      "faculty_name": "Mr. Parikshit P. Hegde",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "parikshit@kletech.ac.in",
+      "phone_number": "9845047973"
+    },
+    {
+      "faculty_id": 16,
+      "faculty_name": "Mr. Anand S Meti",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "anandsmeti@kletech.ac.in",
+      "phone_number": "9620911775"
+    },
+    {
+      "faculty_id": 17,
+      "faculty_name": "Ms. Nirmala Patil",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "nirmalapatil@kletech.ac.in",
+      "phone_number": "9632455607"
+    },
+    {
+      "faculty_id": 18,
+      "faculty_name": "Mr. Sunil V.G",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "svgurlahosur@kletech.ac.in",
+      "phone_number": "9964232620"
+    },
+    {
+      "faculty_id": 19,
+      "faculty_name": "Ms. Manjula Pawar",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "manjulap@kletech.ac.in",
+      "phone_number": "9886837026"
+    },
+    {
+      "faculty_id": 20,
+      "faculty_name": "Ms. Priyadarshini Patil",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "priyadarshini.patil@kletech.ac.in",
+      "phone_number": "8277397796"
+    },
+    {
+      "faculty_id": 21,
+      "faculty_name": "Mr. Prashant M Narayankar",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "prashant_narayankar@kletech.ac.in",
+      "phone_number": "9743167677"
+    },
+    {
+      "faculty_id": 22,
+      "faculty_name": "Ms. Neha Tarannum",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "neha_ip@kletech.ac.in",
+      "phone_number": "9731455956"
+    },
+    {
+      "faculty_id": 23,
+      "faculty_name": "Mr. Sandeep Kulkarni",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "sandeep.kulkarni@kletech.ac.in",
+      "phone_number": "9620059446"
+    },
+    {
+      "faculty_id": 24,
+      "faculty_name": "Ms. Nagaratna Yaligar",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "nagaratna.yaligar@kletech.ac.in",
+      "phone_number": "8147455992"
+    },
+    {
+      "faculty_id": 25,
+      "faculty_name": "Ms. Vijayalakshmi Sajjanar",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "vijayalakshmi.sajjanar@kletech.ac.in",
+      "phone_number": "9611291054"
+    },
+    {
+      "faculty_id": 26,
+      "faculty_name": "Ms. Preethi Y R",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "preethi.yr@kletech.ac.in",
+      "phone_number": "8197826799"
+    },
+    {
+      "faculty_id": 27,
+      "faculty_name": "Ms. Uma M Hiremath",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "uma.hiremath@kletech.ac.in",
+      "phone_number": "8867022781"
+    },
+    {
+      "faculty_id": 28,
+      "faculty_name": "Mr. Channabasappa Muttal",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "channabasappa.muttal@kletech.ac.in",
+      "phone_number": "9632201113"
+    },
+    {
+      "faculty_id": 29,
+      "faculty_name": "Ms. Geeta Sannakki",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "geeta.sannakki@kletech.ac.in",
+      "phone_number": "9620161698"
+    },
+    {
+      "faculty_id": 30,
+      "faculty_name": "Ms. Sweta Patil",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "sweta.patil@kletech.ac.in",
+      "phone_number": "9739865909"
+    },
+    {
+      "faculty_id": 31,
+      "faculty_name": "Ms. Soundarya Hadimani",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "soundarya.hadimani@kletech.ac.in",
+      "phone_number": "8861933740"
+    },
+    {
+      "faculty_id": 32,
+      "faculty_name": "Ms. Sudha Tuppad",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "sudha.tuppad@kletech.ac.in",
+      "phone_number": "9483870268"
+    },
+    {
+      "faculty_id": 33,
+      "faculty_name": "Ms. Neha Panchal",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "neha.panchal@kletech.ac.in",
+      "phone_number": "9845326241"
+    },
+    {
+      "faculty_id": 34,
+      "faculty_name": "Ms. Muskan Indikar",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "muskan.indikar@kletech.ac.in",
+      "phone_number": "6363218082"
+    },
+    {
+      "faculty_id": 35,
+      "faculty_name": "Ms. Shrushti Gunjal",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "shrushti.gunjal@kletech.ac.in",
+      "phone_number": "8105312700"
+    },
+    {
+      "faculty_id": 36,
+      "faculty_name": "Ms. Sumayya Kadampur",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "sumayya.kadampur@kletech.ac.in",
+      "phone_number": "8762244115"
+    },
+    {
+      "faculty_id": 37,
+      "faculty_name": "Mrs. Ashrafunissa A. Mulla",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "ashrafunissa.mulla@kletech.ac.in",
+      "phone_number": "9880711638"
+    },
+    {
+      "faculty_id": 38,
+      "faculty_name": "Ms. Sarala D",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "sarala.d@kletech.ac.in",
+      "phone_number": "9986618985"
+    },
+    {
+      "faculty_id": 39,
+      "faculty_name": "Ms. Shilpa S. Hotagi",
+      "designation": "T.A",
+      "dept_id": 1,
+      "email": "shilpa.hotagi@kletech.ac.in",
+      "phone_number": "8088584734"
+    },
+    {
+      "faculty_id": 40,
+      "faculty_name": "Ms. Kavya Kori",
+      "designation": "T.A",
+      "dept_id": 1,
+      "email": "kavya.kori@kletech.ac.in",
+      "phone_number": "7975437651"
+    },
+    {
+      "faculty_id": 41,
+      "faculty_name": "Ms. Vaishnavi Mahendrakar",
+      "designation": "T.A",
+      "dept_id": 1,
+      "email": "vaishnavi.mahendrakar@kletech.ac.in",
+      "phone_number": "6361209264"
+    },
+    {
+      "faculty_id": 42,
+      "faculty_name": "Ms. Swati S Naik",
+      "designation": "T.A",
+      "dept_id": 1,
+      "email": "swati.naik@kletech.ac.in",
+      "phone_number": "8762838925"
+    },
+    {
+      "faculty_id": 43,
+      "faculty_name": "Dr. Padmashri Desai",
+      "designation": "Assc. Prof",
+      "dept_id": 1,
+      "email": "padmashri.desai@kletech.ac.in",
+      "phone_number": "9000000001"
+    },
+    {
+      "faculty_id": 44,
+      "faculty_name": "Dr. Sumaiya Pathan",
+      "designation": "Asst. Prof",
+      "dept_id": 1,
+      "email": "sumaiya.pathan@kletech.ac.in",
+      "phone_number": "9000000002"
+    },
+    {
+      "faculty_id": 45,
+      "faculty_name": "Dr. Narayan D.G.",
+      "designation": "Assc. Prof",
+      "dept_id": 1,
+      "email": "narayan.dg@kletech.ac.in",
+      "phone_number": "9000000003"
+    },
+    {
+      "faculty_id": 46,
+      "faculty_name": "Dr. Math Faculty 1",
+      "designation": "Assc. Prof",
+      "dept_id": 2,
+      "email": "math.faculty1@kletech.ac.in",
+      "phone_number": "9000000004"
+    },
+    {
+      "faculty_id": 47,
+      "faculty_name": "Dr. Math Faculty 2",
+      "designation": "Asst. Prof",
+      "dept_id": 2,
+      "email": "math.faculty2@kletech.ac.in",
+      "phone_number": "9000000005"
+    },
+    {
+      "faculty_id": 48,
+      "faculty_name": "Dr. Math Faculty 3",
+      "designation": "Asst. Prof",
+      "dept_id": 2,
+      "email": "math.faculty3@kletech.ac.in",
+      "phone_number": "9000000006"
+    }
+  ],
+  "courses": [
+    {
+      "course_id": 1,
+      "course_name": "Machine Learning",
+      "course_type": "Theory",
+      "credits": 3,
+      "dept_id": 1
+    },
+    {
+      "course_id": 2,
+      "course_name": "Machine Learning Lab",
+      "course_type": "Lab",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 3,
+      "course_name": "Computer Networks",
+      "course_type": "Theory",
+      "credits": 4,
+      "dept_id": 1
+    },
+    {
+      "course_id": 4,
+      "course_name": "Computer Networks Lab",
+      "course_type": "Lab",
+      "credits": 1.5,
+      "dept_id": 1
+    },
+    {
+      "course_id": 5,
+      "course_name": "Software Engineering",
+      "course_type": "Theory",
+      "credits": 3,
+      "dept_id": 1
+    },
+    {
+      "course_id": 6,
+      "course_name": "OOPS",
+      "course_type": "Theory",
+      "credits": 4,
+      "dept_id": 1
+    },
+    {
+      "course_id": 7,
+      "course_name": "OOPS Lab",
+      "course_type": "Lab",
+      "credits": 1.5,
+      "dept_id": 1
+    },
+    {
+      "course_id": 8,
+      "course_name": "Web Technology",
+      "course_type": "Lab",
+      "credits": 2,
+      "dept_id": 1
+    },
+    {
+      "course_id": 9,
+      "course_name": "GEN AI",
+      "course_type": "Theory",
+      "credits": 3,
+      "dept_id": 1
+    },
+    {
+      "course_id": 10,
+      "course_name": "GEN AI Lab",
+      "course_type": "Lab",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 11,
+      "course_name": "Wireless and Mobile Networks",
+      "course_type": "Theory",
+      "credits": 3,
+      "dept_id": 1
+    },
+    {
+      "course_id": 12,
+      "course_name": "Wireless and Mobile Networks Lab",
+      "course_type": "Lab",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 13,
+      "course_name": "Embedded and IoT",
+      "course_type": "Theory",
+      "credits": 2,
+      "dept_id": 1
+    },
+    {
+      "course_id": 14,
+      "course_name": "Embedded and IoT Lab",
+      "course_type": "Lab",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 15,
+      "course_name": "Informatica Intelligent Data Management Cloud",
+      "course_type": "Theory",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 16,
+      "course_name": "Informatica Intelligent Data Management Cloud Lab",
+      "course_type": "Lab",
+      "credits": 2,
+      "dept_id": 1
+    },
+    {
+      "course_id": 17,
+      "course_name": "Blockchain and Distributed Ledgers",
+      "course_type": "Theory",
+      "credits": 2,
+      "dept_id": 1
+    },
+    {
+      "course_id": 18,
+      "course_name": "Blockchain and Distributed Ledgers Lab",
+      "course_type": "Lab",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 19,
+      "course_name": "Embedded Intelligent System",
+      "course_type": "Theory",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 20,
+      "course_name": "Embedded Intelligent System Lab",
+      "course_type": "Lab",
+      "credits": 2,
+      "dept_id": 1
+    },
+    {
+      "course_id": 21,
+      "course_name": "Advanced Computational Medicine",
+      "course_type": "Theory",
+      "credits": 2,
+      "dept_id": 1
+    },
+    {
+      "course_id": 22,
+      "course_name": "Advanced Computational Medicine Lab",
+      "course_type": "Lab",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 23,
+      "course_name": "Web Security",
+      "course_type": "Theory",
+      "credits": 2,
+      "dept_id": 1
+    },
+    {
+      "course_id": 24,
+      "course_name": "Web Security Lab",
+      "course_type": "Lab",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 25,
+      "course_name": "Edge Computing",
+      "course_type": "Theory",
+      "credits": 2,
+      "dept_id": 1
+    },
+    {
+      "course_id": 26,
+      "course_name": "Edge Computing Lab",
+      "course_type": "Lab",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 27,
+      "course_name": "Minor Project",
+      "course_type": "Project",
+      "credits": 2,
+      "dept_id": 1
+    },
+    {
+      "course_id": 28,
+      "course_name": "MVC",
+      "course_type": "Theory",
+      "credits": 3,
+      "dept_id": 2
+    },
+    {
+      "course_id": 29,
+      "course_name": "FLA",
+      "course_type": "Theory",
+      "credits": 3,
+      "dept_id": 2
+    },
+    {
+      "course_id": 30,
+      "course_name": "FLA Lab",
+      "course_type": "Lab",
+      "credits": 1,
+      "dept_id": 2
+    },
+    {
+      "course_id": 31,
+      "course_name": "PALR",
+      "course_type": "Theory",
+      "credits": 1,
+      "dept_id": 1
+    },
+    {
+      "course_id": 32,
+      "course_name": "APS",
+      "course_type": "Lab",
+      "credits": 2,
+      "dept_id": 1
+    }
+  ],
+  "divisions": [
+    {
+      "division_id": 1,
+      "division_name": "A",
+      "semester": 4,
+      "dept_id": 1
+    },
+    {
+      "division_id": 2,
+      "division_name": "B",
+      "semester": 4,
+      "dept_id": 1
+    },
+    {
+      "division_id": 3,
+      "division_name": "C",
+      "semester": 4,
+      "dept_id": 1
+    },
+    {
+      "division_id": 4,
+      "division_name": "D",
+      "semester": 4,
+      "dept_id": 1
+    },
+    {
+      "division_id": 5,
+      "division_name": "E",
+      "semester": 4,
+      "dept_id": 1
+    },
+    {
+      "division_id": 6,
+      "division_name": "A",
+      "semester": 6,
+      "dept_id": 1
+    },
+    {
+      "division_id": 7,
+      "division_name": "B",
+      "semester": 6,
+      "dept_id": 1
+    },
+    {
+      "division_id": 8,
+      "division_name": "C",
+      "semester": 6,
+      "dept_id": 1
+    },
+    {
+      "division_id": 9,
+      "division_name": "D",
+      "semester": 6,
+      "dept_id": 1
+    },
+    {
+      "division_id": 10,
+      "division_name": "E",
+      "semester": 6,
+      "dept_id": 1
+    }
+  ],
+  "rooms": [
+    {
+      "room_id": 1,
+      "room_name": "107",
+      "room_type": "Classroom",
+      "location": "Central Lecture Hall"
+    },
+    {
+      "room_id": 2,
+      "room_name": "204",
+      "room_type": "Classroom",
+      "location": "Central Lecture Hall"
+    },
+    {
+      "room_id": 3,
+      "room_name": "208",
+      "room_type": "Classroom",
+      "location": "Central Lecture Hall"
+    },
+    {
+      "room_id": 4,
+      "room_name": "209",
+      "room_type": "Classroom",
+      "location": "Central Lecture Hall"
+    },
+    {
+      "room_id": 5,
+      "room_name": "210",
+      "room_type": "Classroom",
+      "location": "Central Lecture Hall"
+    },
+    {
+      "room_id": 6,
+      "room_name": "LAB1",
+      "room_type": "Lab",
+      "location": "Clite"
+    },
+    {
+      "room_id": 7,
+      "room_name": "CLAB2",
+      "room_type": "Lab",
+      "location": "Clite"
+    },
+    {
+      "room_id": 8,
+      "room_name": "LAB3",
+      "room_type": "Lab",
+      "location": "Clite"
+    },
+    {
+      "room_id": 9,
+      "room_name": "LAB4",
+      "room_type": "Lab",
+      "location": "Clite"
+    },
+    {
+      "room_id": 10,
+      "room_name": "LAB5",
+      "room_type": "Lab",
+      "location": "Clite"
+    },
+    {
+      "room_id": 11,
+      "room_name": "LAB6",
+      "room_type": "Lab",
+      "location": "Clite"
+    },
+    {
+      "room_id": 12,
+      "room_name": "LAB7",
+      "room_type": "Lab",
+      "location": "Clite"
+    },
+    {
+      "room_id": 13,
+      "room_name": "CLH303",
+      "room_type": "Classroom",
+      "location": "Central Lecture Hall"
+    },
+    {
+      "room_id": 14,
+      "room_name": "CLH308",
+      "room_type": "Classroom",
+      "location": "Central Lecture Hall"
+    },
+    {
+      "room_id": 15,
+      "room_name": "LAB2",
+      "room_type": "Lab",
+      "location": "Clite"
+    },
+    {
+      "room_id": 16,
+      "room_name": "CLH304",
+      "room_type": "Classroom",
+      "location": "Central Lecture Hall"
+    },
+    {
+      "room_id": 17,
+      "room_name": "CLH309",
+      "room_type": "Classroom",
+      "location": "Central Lecture Hall"
+    },
+    {
+      "room_id": 18,
+      "room_name": "CLH310",
+      "room_type": "Classroom",
+      "location": "Central Lecture Hall"
+    },
+    {
+      "room_id": 19,
+      "room_name": "CLAB1",
+      "room_type": "Lab",
+      "location": "Clite"
+    },
+    {
+      "room_id": 20,
+      "room_name": "CAIR LAB",
+      "room_type": "Lab",
+      "location": "Clite"
+    }
+  ],
+  "courseFaculty": [
+    {
+      "course_id": 1,
+      "faculty_id": 4,
+      "division_batch": "A",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 1,
+      "faculty_id": 20,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 1,
+      "faculty_id": 21,
+      "division_batch": "C",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 1,
+      "faculty_id": 22,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 1,
+      "faculty_id": 24,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 2,
+      "faculty_id": 4,
+      "division_batch": "A",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 2,
+      "faculty_id": 20,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 2,
+      "faculty_id": 21,
+      "division_batch": "B, C, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 2,
+      "faculty_id": 22,
+      "division_batch": "B, C, D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 2,
+      "faculty_id": 24,
+      "division_batch": "A, B, C, D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 3,
+      "faculty_id": 15,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 3,
+      "faculty_id": 16,
+      "division_batch": "C, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 3,
+      "faculty_id": 23,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 3,
+      "faculty_id": 26,
+      "division_batch": "A",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 4,
+      "faculty_id": 15,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 4,
+      "faculty_id": 16,
+      "division_batch": "C, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 4,
+      "faculty_id": 23,
+      "division_batch": "D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 4,
+      "faculty_id": 26,
+      "division_batch": "A, B, D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 4,
+      "faculty_id": 39,
+      "division_batch": "C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 4,
+      "faculty_id": 42,
+      "division_batch": "A, B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 5,
+      "faculty_id": 6,
+      "division_batch": "C",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 5,
+      "faculty_id": 10,
+      "division_batch": "A",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 5,
+      "faculty_id": 34,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 5,
+      "faculty_id": 38,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 5,
+      "faculty_id": 41,
+      "division_batch": "A, B, D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 5,
+      "faculty_id": 43,
+      "division_batch": "B",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 6,
+      "faculty_id": 8,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 6,
+      "faculty_id": 12,
+      "division_batch": "E",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 6,
+      "faculty_id": 14,
+      "division_batch": "A",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 6,
+      "faculty_id": 17,
+      "division_batch": "C",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 6,
+      "faculty_id": 25,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 7,
+      "faculty_id": 8,
+      "division_batch": "A, B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 7,
+      "faculty_id": 12,
+      "division_batch": "C, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 7,
+      "faculty_id": 14,
+      "division_batch": "A, B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 7,
+      "faculty_id": 17,
+      "division_batch": "C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 7,
+      "faculty_id": 25,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 7,
+      "faculty_id": 35,
+      "division_batch": "A",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 7,
+      "faculty_id": 40,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 7,
+      "faculty_id": 41,
+      "division_batch": "A",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 7,
+      "faculty_id": 43,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 8,
+      "faculty_id": 6,
+      "division_batch": "C",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 8,
+      "faculty_id": 19,
+      "division_batch": "A",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 8,
+      "faculty_id": 30,
+      "division_batch": "B",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 8,
+      "faculty_id": 31,
+      "division_batch": "C",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 8,
+      "faculty_id": 37,
+      "division_batch": "D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 8,
+      "faculty_id": 39,
+      "division_batch": "C, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 8,
+      "faculty_id": 41,
+      "division_batch": "A, B, D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 9,
+      "faculty_id": 5,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 9,
+      "faculty_id": 13,
+      "division_batch": "A, D",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 9,
+      "faculty_id": 44,
+      "division_batch": "B, C",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 10,
+      "faculty_id": 5,
+      "division_batch": "C, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 10,
+      "faculty_id": 10,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 10,
+      "faculty_id": 13,
+      "division_batch": "A, B, C, D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 10,
+      "faculty_id": 35,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 10,
+      "faculty_id": 44,
+      "division_batch": "B, C",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 11,
+      "faculty_id": 1,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 11,
+      "faculty_id": 7,
+      "division_batch": "C",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 11,
+      "faculty_id": 9,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 11,
+      "faculty_id": 11,
+      "division_batch": "A, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 12,
+      "faculty_id": 1,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 12,
+      "faculty_id": 7,
+      "division_batch": "B, C",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 12,
+      "faculty_id": 9,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 12,
+      "faculty_id": 11,
+      "division_batch": "A, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 12,
+      "faculty_id": 23,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 12,
+      "faculty_id": 40,
+      "division_batch": "A, B, C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 13,
+      "faculty_id": 3,
+      "division_batch": "A",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 13,
+      "faculty_id": 9,
+      "division_batch": "C",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 13,
+      "faculty_id": 29,
+      "division_batch": "D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 13,
+      "faculty_id": 33,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 14,
+      "faculty_id": 3,
+      "division_batch": "A, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 14,
+      "faculty_id": 9,
+      "division_batch": "C",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 14,
+      "faculty_id": 29,
+      "division_batch": "B, C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 14,
+      "faculty_id": 33,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 14,
+      "faculty_id": 42,
+      "division_batch": "A, B, C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 15,
+      "faculty_id": 28,
+      "division_batch": "C, D",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 15,
+      "faculty_id": 36,
+      "division_batch": "A, B, C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 16,
+      "faculty_id": 28,
+      "division_batch": "A, B, C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 16,
+      "faculty_id": 36,
+      "division_batch": "A, B, C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 17,
+      "faculty_id": 19,
+      "division_batch": "C",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 17,
+      "faculty_id": 27,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 17,
+      "faculty_id": 32,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 17,
+      "faculty_id": 35,
+      "division_batch": "A, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 18,
+      "faculty_id": 19,
+      "division_batch": "C",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 18,
+      "faculty_id": 27,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 18,
+      "faculty_id": 32,
+      "division_batch": "A, B, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 18,
+      "faculty_id": 35,
+      "division_batch": "A, B, C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 18,
+      "faculty_id": 36,
+      "division_batch": "C, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 18,
+      "faculty_id": 41,
+      "division_batch": "A, B, D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 19,
+      "faculty_id": 18,
+      "division_batch": "B",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 20,
+      "faculty_id": 18,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 21,
+      "faculty_id": 2,
+      "division_batch": "A",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 22,
+      "faculty_id": 2,
+      "division_batch": "A",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 23,
+      "faculty_id": 33,
+      "division_batch": "A, B, C, D, E",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 24,
+      "faculty_id": 33,
+      "division_batch": "A, B, C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 25,
+      "faculty_id": 45,
+      "division_batch": "D",
+      "is_coordinator": "Yes"
+    },
+    {
+      "course_id": 26,
+      "faculty_id": 45,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 27,
+      "faculty_id": 18,
+      "division_batch": "A, B, C, D, E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 28,
+      "faculty_id": 46,
+      "division_batch": "A, B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 28,
+      "faculty_id": 47,
+      "division_batch": "C, D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 28,
+      "faculty_id": 48,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 29,
+      "faculty_id": 47,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 29,
+      "faculty_id": 48,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 30,
+      "faculty_id": 47,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 30,
+      "faculty_id": 48,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 31,
+      "faculty_id": 3,
+      "division_batch": "A",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 31,
+      "faculty_id": 10,
+      "division_batch": "E",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 31,
+      "faculty_id": 19,
+      "division_batch": "C",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 31,
+      "faculty_id": 23,
+      "division_batch": "D",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 31,
+      "faculty_id": 28,
+      "division_batch": "B",
+      "is_coordinator": "No"
+    },
+    {
+      "course_id": 32,
+      "faculty_id": 32,
+      "division_batch": "A, E",
+      "is_coordinator": "No"
+    }
+  ],
+  "courseDivision": [
+    {
+      "course_id": 1,
+      "division_id": 1
+    },
+    {
+      "course_id": 1,
+      "division_id": 2
+    },
+    {
+      "course_id": 1,
+      "division_id": 3
+    },
+    {
+      "course_id": 1,
+      "division_id": 4
+    },
+    {
+      "course_id": 1,
+      "division_id": 5
+    },
+    {
+      "course_id": 2,
+      "division_id": 1
+    },
+    {
+      "course_id": 2,
+      "division_id": 2
+    },
+    {
+      "course_id": 2,
+      "division_id": 3
+    },
+    {
+      "course_id": 2,
+      "division_id": 4
+    },
+    {
+      "course_id": 2,
+      "division_id": 5
+    },
+    {
+      "course_id": 3,
+      "division_id": 1
+    },
+    {
+      "course_id": 3,
+      "division_id": 2
+    },
+    {
+      "course_id": 3,
+      "division_id": 3
+    },
+    {
+      "course_id": 3,
+      "division_id": 4
+    },
+    {
+      "course_id": 3,
+      "division_id": 5
+    },
+    {
+      "course_id": 4,
+      "division_id": 1
+    },
+    {
+      "course_id": 4,
+      "division_id": 2
+    },
+    {
+      "course_id": 4,
+      "division_id": 3
+    },
+    {
+      "course_id": 4,
+      "division_id": 4
+    },
+    {
+      "course_id": 4,
+      "division_id": 5
+    },
+    {
+      "course_id": 5,
+      "division_id": 1
+    },
+    {
+      "course_id": 5,
+      "division_id": 2
+    },
+    {
+      "course_id": 5,
+      "division_id": 3
+    },
+    {
+      "course_id": 5,
+      "division_id": 4
+    },
+    {
+      "course_id": 5,
+      "division_id": 5
+    },
+    {
+      "course_id": 6,
+      "division_id": 1
+    },
+    {
+      "course_id": 6,
+      "division_id": 2
+    },
+    {
+      "course_id": 6,
+      "division_id": 3
+    },
+    {
+      "course_id": 6,
+      "division_id": 4
+    },
+    {
+      "course_id": 6,
+      "division_id": 5
+    },
+    {
+      "course_id": 7,
+      "division_id": 1
+    },
+    {
+      "course_id": 7,
+      "division_id": 2
+    },
+    {
+      "course_id": 7,
+      "division_id": 3
+    },
+    {
+      "course_id": 7,
+      "division_id": 4
+    },
+    {
+      "course_id": 7,
+      "division_id": 5
+    },
+    {
+      "course_id": 8,
+      "division_id": 1
+    },
+    {
+      "course_id": 8,
+      "division_id": 2
+    },
+    {
+      "course_id": 8,
+      "division_id": 3
+    },
+    {
+      "course_id": 8,
+      "division_id": 4
+    },
+    {
+      "course_id": 8,
+      "division_id": 5
+    },
+    {
+      "course_id": 9,
+      "division_id": 6
+    },
+    {
+      "course_id": 9,
+      "division_id": 7
+    },
+    {
+      "course_id": 9,
+      "division_id": 8
+    },
+    {
+      "course_id": 9,
+      "division_id": 9
+    },
+    {
+      "course_id": 9,
+      "division_id": 10
+    },
+    {
+      "course_id": 10,
+      "division_id": 6
+    },
+    {
+      "course_id": 10,
+      "division_id": 7
+    },
+    {
+      "course_id": 10,
+      "division_id": 8
+    },
+    {
+      "course_id": 10,
+      "division_id": 9
+    },
+    {
+      "course_id": 10,
+      "division_id": 10
+    },
+    {
+      "course_id": 11,
+      "division_id": 6
+    },
+    {
+      "course_id": 11,
+      "division_id": 7
+    },
+    {
+      "course_id": 11,
+      "division_id": 8
+    },
+    {
+      "course_id": 11,
+      "division_id": 9
+    },
+    {
+      "course_id": 11,
+      "division_id": 10
+    },
+    {
+      "course_id": 12,
+      "division_id": 6
+    },
+    {
+      "course_id": 12,
+      "division_id": 7
+    },
+    {
+      "course_id": 12,
+      "division_id": 8
+    },
+    {
+      "course_id": 12,
+      "division_id": 9
+    },
+    {
+      "course_id": 12,
+      "division_id": 10
+    },
+    {
+      "course_id": 13,
+      "division_id": 6
+    },
+    {
+      "course_id": 13,
+      "division_id": 7
+    },
+    {
+      "course_id": 13,
+      "division_id": 8
+    },
+    {
+      "course_id": 13,
+      "division_id": 9
+    },
+    {
+      "course_id": 13,
+      "division_id": 10
+    },
+    {
+      "course_id": 14,
+      "division_id": 6
+    },
+    {
+      "course_id": 14,
+      "division_id": 7
+    },
+    {
+      "course_id": 14,
+      "division_id": 8
+    },
+    {
+      "course_id": 14,
+      "division_id": 9
+    },
+    {
+      "course_id": 14,
+      "division_id": 10
+    },
+    {
+      "course_id": 15,
+      "division_id": 8
+    },
+    {
+      "course_id": 15,
+      "division_id": 9
+    },
+    {
+      "course_id": 16,
+      "division_id": 6
+    },
+    {
+      "course_id": 16,
+      "division_id": 7
+    },
+    {
+      "course_id": 16,
+      "division_id": 8
+    },
+    {
+      "course_id": 16,
+      "division_id": 9
+    },
+    {
+      "course_id": 16,
+      "division_id": 10
+    },
+    {
+      "course_id": 17,
+      "division_id": 6
+    },
+    {
+      "course_id": 17,
+      "division_id": 7
+    },
+    {
+      "course_id": 17,
+      "division_id": 8
+    },
+    {
+      "course_id": 17,
+      "division_id": 9
+    },
+    {
+      "course_id": 17,
+      "division_id": 10
+    },
+    {
+      "course_id": 18,
+      "division_id": 6
+    },
+    {
+      "course_id": 18,
+      "division_id": 7
+    },
+    {
+      "course_id": 18,
+      "division_id": 8
+    },
+    {
+      "course_id": 18,
+      "division_id": 9
+    },
+    {
+      "course_id": 18,
+      "division_id": 10
+    },
+    {
+      "course_id": 19,
+      "division_id": 7
+    },
+    {
+      "course_id": 20,
+      "division_id": 10
+    },
+    {
+      "course_id": 21,
+      "division_id": 6
+    },
+    {
+      "course_id": 22,
+      "division_id": 6
+    },
+    {
+      "course_id": 23,
+      "division_id": 6
+    },
+    {
+      "course_id": 23,
+      "division_id": 7
+    },
+    {
+      "course_id": 23,
+      "division_id": 8
+    },
+    {
+      "course_id": 23,
+      "division_id": 9
+    },
+    {
+      "course_id": 23,
+      "division_id": 10
+    },
+    {
+      "course_id": 24,
+      "division_id": 6
+    },
+    {
+      "course_id": 24,
+      "division_id": 7
+    },
+    {
+      "course_id": 24,
+      "division_id": 8
+    },
+    {
+      "course_id": 24,
+      "division_id": 9
+    },
+    {
+      "course_id": 24,
+      "division_id": 10
+    },
+    {
+      "course_id": 25,
+      "division_id": 9
+    },
+    {
+      "course_id": 26,
+      "division_id": 9
+    },
+    {
+      "course_id": 27,
+      "division_id": 6
+    },
+    {
+      "course_id": 27,
+      "division_id": 7
+    },
+    {
+      "course_id": 27,
+      "division_id": 8
+    },
+    {
+      "course_id": 27,
+      "division_id": 9
+    },
+    {
+      "course_id": 27,
+      "division_id": 10
+    },
+    {
+      "course_id": 28,
+      "division_id": 1
+    },
+    {
+      "course_id": 28,
+      "division_id": 2
+    },
+    {
+      "course_id": 28,
+      "division_id": 3
+    },
+    {
+      "course_id": 28,
+      "division_id": 4
+    },
+    {
+      "course_id": 28,
+      "division_id": 5
+    },
+    {
+      "course_id": 29,
+      "division_id": 4
+    },
+    {
+      "course_id": 29,
+      "division_id": 5
+    },
+    {
+      "course_id": 30,
+      "division_id": 4
+    },
+    {
+      "course_id": 30,
+      "division_id": 5
+    },
+    {
+      "course_id": 31,
+      "division_id": 6
+    },
+    {
+      "course_id": 31,
+      "division_id": 7
+    },
+    {
+      "course_id": 31,
+      "division_id": 8
+    },
+    {
+      "course_id": 31,
+      "division_id": 9
+    },
+    {
+      "course_id": 31,
+      "division_id": 10
+    },
+    {
+      "course_id": 32,
+      "division_id": 6
+    },
+    {
+      "course_id": 32,
+      "division_id": 10
+    }
+  ],
+  "metadata": {
+    "note": "Academic master-data example only. The Timetable and Time_Slot sheets are intentionally not imported as fixed assignments. Replace these records with the authoritative academic data before production use."
+  }
+}

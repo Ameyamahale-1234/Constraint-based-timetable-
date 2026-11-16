@@ -6,10 +6,6 @@ const { validateTimetable } = require("./timetableValidator");
 const { generateConflictReport } = require("./conflictReporter");
 
 const {
-    generateTimetableFromData
-} = require("./resourceScheduler");
-
-const {
     getCollegeSlots,
     getConsecutiveSlotGroups
 } = require("./collegeTimeConfig");
@@ -17,11 +13,9 @@ const {
 const { filterAllowedSlots } = require("./timeRestrictions");
 const { filterWorkingHours } = require("./workingHours");
 const { prepareSourceSessions } = require("./sourceSessionPreparer");
+const { generateTimetableFromData } = require('./resourceScheduler');
 
-// --------------------------------------------------
-// 1. SLOT UTILITIES
-// --------------------------------------------------
-
+// Convert a slot or group of slots into a comparable key.
 function slotKey(slot) {
     if (Array.isArray(slot)) {
         return slot.map(slotKey).join("|");
@@ -44,10 +38,7 @@ function assignmentsOverlap(a, b) {
     return second.some(slot => keys.has(slotKey(slot)));
 }
 
-// --------------------------------------------------
-// 2. RESOURCE CONFLICTS
-// --------------------------------------------------
-
+// Check whether two sessions share a resource.
 function getResourceConflicts(a, b) {
     const reasons = [];
 
@@ -100,10 +91,7 @@ function getResourceConflicts(a, b) {
     return reasons;
 }
 
-// --------------------------------------------------
-// 3. AVAILABILITY CHECKING
-// --------------------------------------------------
-
+// Check faculty and room availability for a candidate.
 function isAvailable(candidate, availability, resourceId) {
     if (availability === null) return true;
 
@@ -122,10 +110,7 @@ function isAvailable(candidate, availability, resourceId) {
     });
 }
 
-// --------------------------------------------------
-// 4. BUILD CANDIDATE DOMAINS
-// --------------------------------------------------
-
+// Create valid candidate slots for each session.
 function buildDomains(
     sessions,
     availableSlots,
@@ -156,17 +141,6 @@ function buildDomains(
                 durationHours
             );
 
-            // Four-hour labs require explicitly configured
-            // special uninterrupted slots.
-            if (durationHours === 4) {
-                const specialSlots = availableSlots.filter(
-                    slot =>
-                        slot.type === "SPECIAL_LAB" &&
-                        slot.durationMinutes >= 240
-                );
-
-                candidates = specialSlots.map(slot => [slot]);
-            }
         } else if (isLab) {
             // Legacy string-slot support for existing tests.
             const duration = session.durationSlots || 2;
@@ -241,20 +215,14 @@ function buildDomains(
     return domains;
 }
 
-// --------------------------------------------------
-// 5. BACKTRACKING SOLVER
-// --------------------------------------------------
-
+// Main solver delegates to the shared MRV + forward-checking implementation.
 function solveSchedule(sessions, domains, preassigned = new Map()) {
     const graph = buildConflictGraph(sessions);
-
     return backtracking(graph, domains, preassigned);
 }
 
-// --------------------------------------------------
-// 6. SOURCE SESSION PREPARATION
-// --------------------------------------------------
-
+// Combine prepared source sessions with any extra caller-supplied metadata.
+// Source-prepared day/slot/fixed values take precedence.
 function mergePreparedSessions(callerSessions, preparedSessions) {
     const callerById = new Map(
         (Array.isArray(callerSessions) ? callerSessions : [])
@@ -284,8 +252,7 @@ function getOriginalSlot(session, sourceData) {
         : [];
 
     const matchingSlot = timeSlots.find(slot =>
-        String(slot.day).toUpperCase() ===
-            String(session.day).toUpperCase() &&
+        String(slot.day).toUpperCase() === String(session.day).toUpperCase() &&
         Number(slot.slotId) === Number(session.slotId)
     );
 
@@ -295,10 +262,7 @@ function getOriginalSlot(session, sourceData) {
     };
 }
 
-// --------------------------------------------------
-// 7. LEGACY TIMETABLE GENERATION
-// --------------------------------------------------
-
+// Generate timetable.
 function generateTimetable(
     sessions,
     availableSlots = null,
@@ -310,7 +274,6 @@ function generateTimetable(
 ) {
     let sourceValidation = null;
     let sourcePreparation = null;
-
     const preassigned = new Map();
 
     // Prepare source records when sourceData is supplied.
@@ -319,16 +282,16 @@ function generateTimetable(
         sourceValidation = sourcePreparation.validation;
 
         // Use source-prepared sessions as the scheduling input.
+        // Fixed invalid sessions (e.g. TTG026) are excluded.
+        // Non-fixed invalid sessions (e.g. TTG225) have day/slot cleared.
         sessions = mergePreparedSessions(
             sessions,
             sourcePreparation.sessionsForScheduling
         );
 
-        // Approved exceptions are pinned to their source assignments.
-        for (
-            const approvedSession of
-            sourcePreparation.approvedExceptionSessions
-        ) {
+        // Approved exceptions (e.g. TTG222 and TTG223) keep their
+        // original assignments and are pinned during backtracking.
+        for (const approvedSession of sourcePreparation.approvedExceptionSessions) {
             const included = sessions.some(
                 session => session.id === approvedSession.id
             );
@@ -359,6 +322,7 @@ function generateTimetable(
     );
 
     // Approved exceptions are pinned to their source assignments.
+    // They are not moved by the solver.
     for (const [sessionId, assignment] of preassigned) {
         domains.set(sessionId, [assignment]);
     }
@@ -462,17 +426,9 @@ function generateTimetable(
     };
 }
 
-// --------------------------------------------------
-// 8. EXPORTS
-// --------------------------------------------------
-
 module.exports = {
     generateTimetable,
-
-    // New resource-aware generation entry point.
     generateTimetableFromData,
-
-    // Existing utility exports.
     assignmentsOverlap,
     buildDomains,
     solveSchedule,

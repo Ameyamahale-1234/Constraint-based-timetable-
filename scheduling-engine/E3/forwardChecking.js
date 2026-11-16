@@ -1,47 +1,6 @@
 
-/*
- * E3 - Scheduling & Conflict Resolution
- * Module: Forward Checking
- *
- * Supports:
- * 1. Single-slot assignments
- * 2. Multiple consecutive slots
- * 3. Resource-aware assignments
- * 4. Faculty conflicts
- * 5. Room conflicts
- * 6. Division and batch conflicts
- * 7. Different-day constraints
- * 8. Actual time-interval overlap detection
- * 9. Forward checking with domain pruning
- */
-
-// --------------------------------------------------
-// 1. EXTRACT SLOTS FROM AN ASSIGNMENT
-// --------------------------------------------------
-
-function getAssignmentSlots(assignment) {
-    if (
-        assignment &&
-        !Array.isArray(assignment) &&
-        typeof assignment === "object" &&
-        Array.isArray(assignment.slots)
-    ) {
-        return assignment.slots;
-    }
-
-    return Array.isArray(assignment)
-        ? assignment
-        : assignment == null
-            ? []
-            : [assignment];
-}
-
-
-// --------------------------------------------------
-// 2. SLOT KEY
-// --------------------------------------------------
-
 function slotKey(slot) {
+    if (slot && typeof slot === 'object' && Array.isArray(slot.slots)) return slot.slots.map(slotKey).join('|');
     if (Array.isArray(slot)) {
         return slot.map(slotKey).join("|");
     }
@@ -53,231 +12,47 @@ function slotKey(slot) {
     return String(slot);
 }
 
-
-// --------------------------------------------------
-// 3. CONVERT TIME TO MINUTES
-// --------------------------------------------------
-
-function timeToMinutes(value) {
-    if (typeof value === "number") {
-        return value;
-    }
-
-    if (value == null) {
-        return null;
-    }
-
-    const parts = String(value).split(":");
-
-    if (parts.length !== 2) {
-        return null;
-    }
-
-    const hour = Number(parts[0]);
-    const minute = Number(parts[1]);
-
-    if (
-        !Number.isInteger(hour) ||
-        !Number.isInteger(minute)
-    ) {
-        return null;
-    }
-
-    return hour * 60 + minute;
+function intervalsOverlap(a, b) {
+    return a && b && typeof a === 'object' && typeof b === 'object' &&
+        a.day && a.day === b.day &&
+        Number.isFinite(a.startMinutes) && Number.isFinite(a.endMinutes) &&
+        Number.isFinite(b.startMinutes) && Number.isFinite(b.endMinutes) &&
+        a.startMinutes < b.endMinutes && b.startMinutes < a.endMinutes;
 }
-
-
-// --------------------------------------------------
-// 4. CHECK TWO INDIVIDUAL SLOT INTERVALS
-// --------------------------------------------------
-
-function slotsOverlap(slotA, slotB) {
-    if (!slotA || !slotB) {
-        return false;
-    }
-
-    if (
-        typeof slotA !== "object" ||
-        typeof slotB !== "object"
-    ) {
-        return slotKey(slotA) === slotKey(slotB);
-    }
-
-    if (
-        String(slotA.day).toUpperCase() !==
-        String(slotB.day).toUpperCase()
-    ) {
-        return false;
-    }
-
-    const startA = timeToMinutes(
-        slotA.startMinutes ?? slotA.start
-    );
-
-    const endA = timeToMinutes(
-        slotA.endMinutes ?? slotA.end
-    );
-
-    const startB = timeToMinutes(
-        slotB.startMinutes ?? slotB.start
-    );
-
-    const endB = timeToMinutes(
-        slotB.endMinutes ?? slotB.end
-    );
-
-    // Use actual intervals when available.
-    if (
-        startA !== null &&
-        endA !== null &&
-        startB !== null &&
-        endB !== null
-    ) {
-        return startA < endB && startB < endA;
-    }
-
-    // Backward compatibility for ID-only slots.
-    return slotKey(slotA) === slotKey(slotB);
+function hasOverlap(slotA, slotB) {
+    if (slotA && !Array.isArray(slotA) && Array.isArray(slotA.slots)) slotA = slotA.slots;
+    if (slotB && !Array.isArray(slotB) && Array.isArray(slotB.slots)) slotB = slotB.slots;
+    const slotsA = Array.isArray(slotA) ? slotA : [slotA];
+    const slotsB = Array.isArray(slotB) ? slotB : [slotB];
+    return slotsA.some(a => slotsB.some(b => {
+        if (intervalsOverlap(a, b)) return true;
+        return slotKey(a) === slotKey(b);
+    }));
 }
-
-
-// --------------------------------------------------
-// 5. CHECK ASSIGNMENT OVERLAP
-// --------------------------------------------------
-
-function hasOverlap(assignmentA, assignmentB) {
-    const slotsA = getAssignmentSlots(assignmentA);
-    const slotsB = getAssignmentSlots(assignmentB);
-
-    return slotsA.some(slotA =>
-        slotsB.some(slotB =>
-            slotsOverlap(slotA, slotB)
-        )
-    );
-}
-
-
-// --------------------------------------------------
-// 6. GET DAYS OCCUPIED BY AN ASSIGNMENT
-// --------------------------------------------------
 
 function getDays(assignment) {
-    const slots = getAssignmentSlots(assignment);
-
-    return new Set(
-        slots
-            .filter(slot =>
-                slot &&
-                typeof slot === "object" &&
-                slot.day
-            )
-            .map(slot =>
-                String(slot.day).toUpperCase()
-            )
-    );
+    if (assignment && !Array.isArray(assignment) && Array.isArray(assignment.slots)) assignment = assignment.slots;
+    const values = Array.isArray(assignment) ? assignment : [assignment];
+    return new Set(values.filter(x => x && typeof x === "object" && x.day).map(x => x.day));
 }
-
-
-// --------------------------------------------------
-// 7. CHECK SHARED FACULTY OR ROOM
-// --------------------------------------------------
-
-function sharesResource(assignmentA, assignmentB) {
-    if (!assignmentA || !assignmentB) {
-        return false;
+function hasConstraintConflict(edge, a, b) {
+    const reasons = edge.reasons || [];
+    const resourceCandidates = !!(a && b && !Array.isArray(a) && !Array.isArray(b) &&
+        Array.isArray(a.slots) && Array.isArray(b.slots));
+    if (hasOverlap(a, b)) {
+        // Legacy domains contain only slots: an edge means the sessions
+        // cannot share any overlapping slot (preserves existing API behavior).
+        if (!resourceCandidates) return true;
+        if (reasons.includes('FACULTY') && a.facultyId != null && a.facultyId === b.facultyId) return true;
+        if (reasons.includes('ROOM') && a.roomId != null && a.roomId === b.roomId) return true;
+        if (reasons.some(r => ['DIVISION', 'BATCH'].includes(r))) return true;
     }
-
-    const facultyConflict =
-        assignmentA.facultyId != null &&
-        assignmentB.facultyId != null &&
-        String(assignmentA.facultyId) ===
-        String(assignmentB.facultyId);
-
-    const roomConflict =
-        assignmentA.roomId != null &&
-        assignmentB.roomId != null &&
-        String(assignmentA.roomId) ===
-        String(assignmentB.roomId);
-
-    return facultyConflict || roomConflict;
-}
-
-
-// --------------------------------------------------
-// 8. CHECK CONSTRAINT CONFLICT
-// --------------------------------------------------
-
-function hasConstraintConflict(
-    edge,
-    assignmentA,
-    assignmentB
-) {
-    if (!assignmentA || !assignmentB) {
-        return false;
-    }
-
-    const reasons = edge?.reasons || [];
-
-    // Different-day constraint.
     if (reasons.includes("DAY_SEPARATION")) {
-        const daysA = getDays(assignmentA);
-        const daysB = getDays(assignmentB);
-
-        if (
-            [...daysA].some(day => daysB.has(day))
-        ) {
-            return true;
-        }
+        const daysA = getDays(a), daysB = getDays(b);
+        return [...daysA].some(day => daysB.has(day));
     }
-
-    // Resource and student-group conflicts matter
-    // only when the assignments overlap in time.
-    if (!hasOverlap(assignmentA, assignmentB)) {
-        return false;
-    }
-
-    // Same division or batch cannot attend
-    // two sessions at the same time.
-    if (
-        reasons.includes("DIVISION") ||
-        reasons.includes("BATCH")
-    ) {
-        return true;
-    }
-
-    // Actual selected resources.
-    if (sharesResource(assignmentA, assignmentB)) {
-        return true;
-    }
-
-    // Legacy compatibility.
-    if (
-        reasons.includes("FACULTY") &&
-        (
-            assignmentA.facultyId == null ||
-            assignmentB.facultyId == null
-        )
-    ) {
-        return true;
-    }
-
-    if (
-        reasons.includes("ROOM") &&
-        (
-            assignmentA.roomId == null ||
-            assignmentB.roomId == null
-        )
-    ) {
-        return true;
-    }
-
     return false;
 }
-
-
-// --------------------------------------------------
-// 9. FORWARD CHECKING
-// --------------------------------------------------
 
 function forwardChecking(
     graph,
@@ -286,52 +61,36 @@ function forwardChecking(
     assignedSlot,
     assignments = new Map()
 ) {
-    // Copy domains to avoid modifying parent recursion state.
     const updatedDomains = new Map();
 
-    for (const [id, candidates] of domains) {
-        updatedDomains.set(id, [...candidates]);
+    for (const [id, slots] of domains) {
+        updatedDomains.set(id, [...slots]);
     }
 
-    // Lock the selected candidate.
     updatedDomains.set(sessionId, [assignedSlot]);
 
-    // Process neighbouring sessions.
     for (const edge of graph.get(sessionId) || []) {
         const neighbourId = edge.sessionId;
 
-        // Already assigned sessions are checked
-        // by the backtracking solver.
-        if (assignments.has(neighbourId)) {
+        // Do not prune already-assigned sessions.
+        if (
+            neighbourId === sessionId ||
+            assignments.has(neighbourId)
+        ) {
             continue;
         }
 
-        const neighbourDomain =
-            updatedDomains.get(neighbourId);
+        const neighbourDomain = updatedDomains.get(neighbourId);
 
-        if (!neighbourDomain) {
-            continue;
-        }
+        if (!neighbourDomain) continue;
 
-        // Remove candidates conflicting with
-        // the newly selected assignment.
-        const remainingCandidates =
-            neighbourDomain.filter(candidate =>
-                !hasConstraintConflict(
-                    edge,
-                    candidate,
-                    assignedSlot
-                )
-            );
-
-        updatedDomains.set(
-            neighbourId,
-            remainingCandidates
+        const remainingSlots = neighbourDomain.filter(
+            slot => !hasConstraintConflict(edge, slot, assignedSlot)
         );
 
-        // Empty domain means this branch cannot
-        // produce a valid timetable.
-        if (remainingCandidates.length === 0) {
+        updatedDomains.set(neighbourId, remainingSlots);
+
+        if (remainingSlots.length === 0) {
             return {
                 success: false,
                 domains: updatedDomains,
@@ -347,19 +106,9 @@ function forwardChecking(
     };
 }
 
-
-// --------------------------------------------------
-// 10. EXPORTS
-// --------------------------------------------------
-
 module.exports = {
-    getAssignmentSlots,
-    slotKey,
-    timeToMinutes,
-    slotsOverlap,
+    forwardChecking,
     hasOverlap,
-    getDays,
-    sharesResource,
-    hasConstraintConflict,
-    forwardChecking
+    intervalsOverlap,
+    hasConstraintConflict
 };
