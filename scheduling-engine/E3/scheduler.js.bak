@@ -1,0 +1,427 @@
+
+const { buildConflictGraph } = require("./graphBuilder");
+const { greedySchedule } = require("./greedyScheduler");
+const { validateTimetable } = require("./timetableValidator");
+const { generateConflictReport } = require("./conflictReporter");
+
+const {
+    getCollegeSlots,
+    getConsecutiveSlotGroups
+} = require("./collegeTimeConfig");
+
+const { filterAllowedSlots } = require("./timeRestrictions");
+const { filterWorkingHours } = require("./workingHours");
+const { validateSourceData } = require("./sourceDataValidator");
+
+// Convert a slot or group of slots into a comparable key.
+function slotKey(slot) {
+    if (Array.isArray(slot)) {
+        return slot.map(slotKey).join("|");
+    }
+
+    if (typeof slot === "object" && slot !== null) {
+        return `${slot.day}-${slot.slotId}`;
+    }
+
+    return String(slot);
+}
+
+// Check whether two assignments overlap.
+function assignmentsOverlap(a, b) {
+    const first = Array.isArray(a) ? a : [a];
+    const second = Array.isArray(b) ? b : [b];
+
+    const keys = new Set(first.map(slotKey));
+
+    return second.some(slot => keys.has(slotKey(slot)));
+}
+
+// Check whether two sessions share a resource.
+function getResourceConflicts(a, b) {
+    const reasons = [];
+
+    const facultyA = a.facultyIds ||
+        (a.facultyId != null ? [a.facultyId] : []);
+
+    const facultyB = b.facultyIds ||
+        (b.facultyId != null ? [b.facultyId] : []);
+
+    if (facultyA.some(id => facultyB.includes(id))) {
+        reasons.push("FACULTY");
+    }
+
+    if (
+        a.roomId != null &&
+        b.roomId != null &&
+        a.roomId === b.roomId
+    ) {
+        reasons.push("ROOM");
+    }
+
+    if (
+        a.divisionId != null &&
+        b.divisionId != null &&
+        a.divisionId === b.divisionId
+    ) {
+        const batchesA = a.batchIds ||
+            (a.batch ? [a.batch] : []);
+
+        const batchesB = b.batchIds ||
+            (b.batch ? [b.batch] : []);
+
+        const fullA = !a.batch ||
+            String(a.batch).toLowerCase().includes("(full)");
+
+        const fullB = !b.batch ||
+            String(b.batch).toLowerCase().includes("(full)");
+
+        const sharedBatch = batchesA.some(batch =>
+            batchesB.includes(batch)
+        );
+
+        if (sharedBatch) {
+            reasons.push("BATCH");
+        } else if (fullA || fullB) {
+            reasons.push("DIVISION");
+        }
+    }
+
+    return reasons;
+}
+
+// Check faculty and room availability for a candidate.
+function isAvailable(candidate, availability, resourceId) {
+    if (availability === null) return true;
+
+    if (resourceId == null) return true;
+
+    const allowed = availability[resourceId] || [];
+
+    const required = Array.isArray(candidate)
+        ? candidate
+        : [candidate];
+
+    return required.every(slot => {
+        const key = slotKey(slot);
+
+        return allowed.some(item => slotKey(item) === key);
+    });
+}
+
+// Create valid candidate slots for each session.
+function buildDomains(
+    sessions,
+    availableSlots,
+    facultyAvailability,
+    roomAvailability,
+    blockedSlots,
+    workingSlots
+) {
+    const domains = new Map();
+
+    for (const session of sessions) {
+        const isLab =
+            session.isLab === true ||
+            session.type === "LAB";
+
+        const durationHours = session.durationHours ||
+            (session.durationSlots ? session.durationSlots : 1);
+
+        let candidates;
+
+        if (
+            isLab &&
+            availableSlots.length > 0 &&
+            typeof availableSlots[0] === "object"
+        ) {
+            candidates = getConsecutiveSlotGroups(
+                availableSlots,
+                durationHours
+            );
+
+            // Four-hour labs require explicitly configured
+            // special uninterrupted slots.
+            if (durationHours === 4) {
+                const specialSlots = availableSlots.filter(
+                    slot =>
+                        slot.type === "SPECIAL_LAB" &&
+                        slot.durationMinutes >= 240
+                );
+
+                candidates = specialSlots.map(slot => [slot]);
+            }
+        } else if (isLab) {
+            // Legacy string-slot support for existing tests.
+            const duration = session.durationSlots || 2;
+            candidates = [];
+
+            for (
+                let i = 0;
+                i <= availableSlots.length - duration;
+                i++
+            ) {
+                candidates.push(
+                    availableSlots.slice(i, i + duration)
+                );
+            }
+        } else {
+            candidates = [...availableSlots];
+        }
+
+        // Remove blocked slots.
+        candidates = candidates.filter(candidate => {
+            const group = Array.isArray(candidate)
+                ? candidate
+                : [candidate];
+
+            return group.every(slot =>
+                !blockedSlots.some(
+                    blocked => slotKey(blocked) === slotKey(slot)
+                )
+            );
+        });
+
+        // Apply working-hour restrictions to legacy string slots.
+        if (
+            workingSlots !== null &&
+            availableSlots.length > 0 &&
+            typeof availableSlots[0] !== "object"
+        ) {
+            candidates = filterWorkingHours(
+                candidates,
+                workingSlots
+            );
+        }
+
+        // Faculty availability.
+        const facultyIds = session.facultyIds ||
+            (session.facultyId != null
+                ? [session.facultyId]
+                : []);
+
+        candidates = candidates.filter(candidate =>
+            facultyIds.every(facultyId =>
+                isAvailable(
+                    candidate,
+                    facultyAvailability,
+                    facultyId
+                )
+            )
+        );
+
+        // Room availability.
+        candidates = candidates.filter(candidate =>
+            isAvailable(
+                candidate,
+                roomAvailability,
+                session.roomId
+            )
+        );
+
+        domains.set(session.id, candidates);
+    }
+
+    return domains;
+}
+
+// Backtracking with MRV and overlap checking.
+function solveSchedule(sessions, domains) {
+    const assignments = new Map();
+
+    function solve() {
+        if (assignments.size === sessions.length) {
+            return new Map(assignments);
+        }
+
+        const remaining = sessions
+            .filter(session => !assignments.has(session.id))
+            .sort((a, b) =>
+                (domains.get(a.id) || []).length -
+                (domains.get(b.id) || []).length
+            );
+
+        const session = remaining[0];
+
+        if (!session) return null;
+
+        const candidates = domains.get(session.id) || [];
+
+        for (const candidate of candidates) {
+            let valid = true;
+
+            for (const other of sessions) {
+                if (!assignments.has(other.id)) continue;
+
+                const otherAssignment = assignments.get(other.id);
+
+                if (!assignmentsOverlap(candidate, otherAssignment)) {
+                    continue;
+                }
+
+                if (
+                    getResourceConflicts(session, other).length > 0
+                ) {
+                    valid = false;
+                    break;
+                }
+            }
+
+            if (!valid) continue;
+
+            assignments.set(session.id, candidate);
+
+            const result = solve();
+
+            if (result !== null) return result;
+
+            assignments.delete(session.id);
+        }
+
+        return null;
+    }
+
+    return solve();
+}
+
+// Generate timetable.
+function generateTimetable(
+    sessions,
+    availableSlots = null,
+    facultyAvailability = null,
+    roomAvailability = null,
+    blockedSlots = [],
+    workingSlots = null,
+    sourceData = null
+) {
+    let sourceValidation = null;
+
+    // Optional source-data validation.
+    if (sourceData !== null) {
+        sourceValidation = validateSourceData(sourceData);
+
+        // Fixed invalid sessions require coordinator approval.
+        if (sourceValidation.manualReview.length > 0) {
+            return {
+                success: false,
+                method: "Source Validation",
+                assignments: null,
+                errors: [
+                    "Fixed source sessions require coordinator approval."
+                ],
+                sourceValidation
+            };
+        }
+    }
+
+    // Default to the college's configured timetable slots.
+    if (availableSlots === null) {
+        availableSlots = getCollegeSlots();
+    }
+
+    const graph = buildConflictGraph(sessions);
+
+    const domains = buildDomains(
+        sessions,
+        availableSlots,
+        facultyAvailability,
+        roomAvailability,
+        blockedSlots,
+        workingSlots
+    );
+
+    // Use the existing greedy scheduler for unrestricted
+    // theory sessions with legacy string slots.
+    const hasLab = sessions.some(
+        session =>
+            session.isLab === true ||
+            session.type === "LAB"
+    );
+
+    const usesCollegeObjects =
+        availableSlots.length > 0 &&
+        typeof availableSlots[0] === "object";
+
+    if (
+        !hasLab &&
+        !usesCollegeObjects &&
+        facultyAvailability === null &&
+        roomAvailability === null &&
+        blockedSlots.length === 0 &&
+        workingSlots === null
+    ) {
+        const greedyResult = greedySchedule(
+            graph,
+            sessions,
+            availableSlots
+        );
+
+        if (greedyResult !== null) {
+            const validation = validateTimetable(
+                sessions,
+                greedyResult
+            );
+
+            if (validation.valid) {
+                return {
+                    success: true,
+                    method: "Greedy",
+                    assignments: greedyResult,
+                    errors: [],
+                    sourceValidation
+                };
+            }
+        }
+    }
+
+    // Backtracking scheduling.
+    const result = solveSchedule(sessions, domains);
+
+    if (result !== null) {
+        const validation = validateTimetable(
+            sessions,
+            result
+        );
+
+        if (validation.valid) {
+            return {
+                success: true,
+                method: "Backtracking",
+                assignments: result,
+                errors: [],
+                sourceValidation
+            };
+        }
+
+        return {
+            success: false,
+            method: "Backtracking",
+            assignments: null,
+            errors: validation.errors,
+            sourceValidation
+        };
+    }
+
+    // No valid timetable found.
+    const conflictReport = generateConflictReport(
+        sessions,
+        graph,
+        domains
+    );
+
+    return {
+        success: false,
+        method: "None",
+        assignments: null,
+        errors: ["No valid timetable found."],
+        conflictReport,
+        sourceValidation
+    };
+}
+
+module.exports = {
+    generateTimetable,
+    assignmentsOverlap,
+    buildDomains,
+    solveSchedule,
+    getResourceConflicts
+};

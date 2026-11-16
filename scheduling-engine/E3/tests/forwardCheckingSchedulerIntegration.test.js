@@ -1,0 +1,21 @@
+const assert = require('node:assert/strict');
+const { buildConflictGraph } = require('../graphBuilder');
+const { backtracking } = require('../backtracking');
+const { getCollegeSlots } = require('../collegeTimeConfig');
+const a = { id:'A', facultyId:'F1', divisionId:'D1' };
+const b = { id:'B', facultyId:'F1', divisionId:'D2' };
+const slots = getCollegeSlots().slice(0, 2);
+const graph = buildConflictGraph([a,b]);
+const result = backtracking(graph, new Map([['A', [slots[0]]], ['B', [slots[0], slots[1]]]]));
+assert.ok(result);
+assert.notEqual(result.get('A').slotId, result.get('B').slotId);
+// Sessions in a four-credit theory pair must be placed on different days.
+const c = { id:'C1', divisionId:'D3', distinctDayGroup:'COURSE-D3' };
+const d = { id:'C2', divisionId:'D3', distinctDayGroup:'COURSE-D3' };
+const dayGraph = buildConflictGraph([c,d]);
+const mon = slots[0];
+const tue = getCollegeSlots().find(x => x.day === 'TUE');
+const dayResult = backtracking(dayGraph, new Map([['C1',[mon]],['C2',[mon,tue]]]));
+assert.ok(dayResult);
+assert.notEqual(dayResult.get('C1').day, dayResult.get('C2').day);
+console.log('Main backtracking + forward-checking integration tests passed.');

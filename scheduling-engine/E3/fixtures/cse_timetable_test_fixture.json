@@ -1,0 +1,5104 @@
+{
+  "sourceWorkbook": "Academic_data_updated (1) (1)(1).xlsx",
+  "scope": {
+    "department": "CSE",
+    "departmentId": 1,
+    "semesters": [
+      4,
+      6
+    ],
+    "divisions": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "summary": {
+    "sourceRows": 313,
+    "groupedSessions": 225,
+    "multiFacultySessions": 75
+  },
+  "courses": {
+    "1": {
+      "courseName": "Machine Learning",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "2": {
+      "courseName": "Machine Learning Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "3": {
+      "courseName": "Computer Networks",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "4": {
+      "courseName": "Computer Networks Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "5": {
+      "courseName": "Software Engineering",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "6": {
+      "courseName": "OOPS",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "7": {
+      "courseName": "OOPS Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "8": {
+      "courseName": "Web Technology",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "9": {
+      "courseName": "GEN AI",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "10": {
+      "courseName": "GEN AI Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "11": {
+      "courseName": "Wireless and Mobile Networks",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "12": {
+      "courseName": "Wireless and Mobile Networks Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "13": {
+      "courseName": "Embedded and IoT",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "14": {
+      "courseName": "Embedded and IoT Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "15": {
+      "courseName": "Informatica Intelligent Data Management Cloud",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "16": {
+      "courseName": "Informatica Intelligent Data Management Cloud Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "17": {
+      "courseName": "Blockchain and Distributed Ledgers",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "18": {
+      "courseName": "Blockchain and Distributed Ledgers Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "19": {
+      "courseName": "Embedded Intelligent System",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "20": {
+      "courseName": "Embedded Intelligent System Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "21": {
+      "courseName": "Advanced Computational Medicine",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "22": {
+      "courseName": "Advanced Computational Medicine Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "23": {
+      "courseName": "Web Security",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "24": {
+      "courseName": "Web Security Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "25": {
+      "courseName": "Edge Computing",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "26": {
+      "courseName": "Edge Computing Lab",
+      "courseType": "Lab",
+      "departmentId": 1
+    },
+    "27": {
+      "courseName": "Minor Project",
+      "courseType": "Project",
+      "departmentId": 1
+    },
+    "28": {
+      "courseName": "MVC",
+      "courseType": "Theory",
+      "departmentId": 2
+    },
+    "29": {
+      "courseName": "FLA",
+      "courseType": "Theory",
+      "departmentId": 2
+    },
+    "30": {
+      "courseName": "FLA Lab",
+      "courseType": "Lab",
+      "departmentId": 2
+    },
+    "31": {
+      "courseName": "PALR",
+      "courseType": "Theory",
+      "departmentId": 1
+    },
+    "32": {
+      "courseName": "APS",
+      "courseType": "Lab",
+      "departmentId": 1
+    }
+  },
+  "rooms": {
+    "1": {
+      "roomName": "107",
+      "roomType": "Classroom"
+    },
+    "2": {
+      "roomName": "204",
+      "roomType": "Classroom"
+    },
+    "3": {
+      "roomName": "208",
+      "roomType": "Classroom"
+    },
+    "4": {
+      "roomName": "209",
+      "roomType": "Classroom"
+    },
+    "5": {
+      "roomName": "210",
+      "roomType": "Classroom"
+    },
+    "6": {
+      "roomName": "LAB1",
+      "roomType": "Lab"
+    },
+    "7": {
+      "roomName": "CLAB2",
+      "roomType": "Lab"
+    },
+    "8": {
+      "roomName": "LAB3",
+      "roomType": "Lab"
+    },
+    "9": {
+      "roomName": "LAB4",
+      "roomType": "Lab"
+    },
+    "10": {
+      "roomName": "LAB5",
+      "roomType": "Lab"
+    },
+    "11": {
+      "roomName": "LAB6",
+      "roomType": "Lab"
+    },
+    "12": {
+      "roomName": "LAB7",
+      "roomType": "Lab"
+    },
+    "13": {
+      "roomName": "CLH303",
+      "roomType": "Classroom"
+    },
+    "14": {
+      "roomName": "CLH308",
+      "roomType": "Classroom"
+    },
+    "15": {
+      "roomName": "LAB2",
+      "roomType": "Lab"
+    },
+    "16": {
+      "roomName": "CLH304",
+      "roomType": "Classroom"
+    },
+    "17": {
+      "roomName": "CLH309",
+      "roomType": "Classroom"
+    },
+    "18": {
+      "roomName": "CLH310",
+      "roomType": "Classroom"
+    },
+    "19": {
+      "roomName": "CLAB1",
+      "roomType": "Lab"
+    },
+    "20": {
+      "roomName": "CAIR LAB",
+      "roomType": "Lab"
+    }
+  },
+  "timeSlots": [
+    {
+      "slotId": 1,
+      "day": "MON",
+      "startTime": "8:00",
+      "endTime": "9:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 2,
+      "day": "MON",
+      "startTime": "9:00",
+      "endTime": "10:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 3,
+      "day": "MON",
+      "startTime": "10:15",
+      "endTime": "11:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 4,
+      "day": "MON",
+      "startTime": "11:15",
+      "endTime": "12:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 5,
+      "day": "MON",
+      "startTime": "12:30",
+      "endTime": "1:30",
+      "slotType": "Lunch Break"
+    },
+    {
+      "slotId": 6,
+      "day": "MON",
+      "startTime": "1:30",
+      "endTime": "2:30",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 7,
+      "day": "MON",
+      "startTime": "2:45",
+      "endTime": "3:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 8,
+      "day": "MON",
+      "startTime": "3:45",
+      "endTime": "4:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 9,
+      "day": "MON",
+      "startTime": "4:45",
+      "endTime": "5:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 10,
+      "day": "TUE",
+      "startTime": "8:00",
+      "endTime": "9:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 11,
+      "day": "TUE",
+      "startTime": "9:00",
+      "endTime": "10:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 12,
+      "day": "TUE",
+      "startTime": "10:15",
+      "endTime": "11:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 13,
+      "day": "TUE",
+      "startTime": "11:15",
+      "endTime": "12:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 14,
+      "day": "TUE",
+      "startTime": "12:30",
+      "endTime": "1:30",
+      "slotType": "Lunch Break"
+    },
+    {
+      "slotId": 15,
+      "day": "TUE",
+      "startTime": "1:30",
+      "endTime": "2:30",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 16,
+      "day": "TUE",
+      "startTime": "2:45",
+      "endTime": "3:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 17,
+      "day": "TUE",
+      "startTime": "3:45",
+      "endTime": "4:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 18,
+      "day": "TUE",
+      "startTime": "4:45",
+      "endTime": "5:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 19,
+      "day": "WED",
+      "startTime": "8:00",
+      "endTime": "9:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 20,
+      "day": "WED",
+      "startTime": "9:00",
+      "endTime": "10:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 21,
+      "day": "WED",
+      "startTime": "10:15",
+      "endTime": "11:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 22,
+      "day": "WED",
+      "startTime": "11:15",
+      "endTime": "12:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 23,
+      "day": "WED",
+      "startTime": "12:30",
+      "endTime": "1:30",
+      "slotType": "Lunch Break"
+    },
+    {
+      "slotId": 24,
+      "day": "WED",
+      "startTime": "1:30",
+      "endTime": "2:30",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 25,
+      "day": "WED",
+      "startTime": "2:45",
+      "endTime": "3:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 26,
+      "day": "WED",
+      "startTime": "3:45",
+      "endTime": "4:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 27,
+      "day": "WED",
+      "startTime": "4:45",
+      "endTime": "5:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 28,
+      "day": "THU",
+      "startTime": "8:00",
+      "endTime": "9:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 29,
+      "day": "THU",
+      "startTime": "9:00",
+      "endTime": "10:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 30,
+      "day": "THU",
+      "startTime": "10:15",
+      "endTime": "11:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 31,
+      "day": "THU",
+      "startTime": "11:15",
+      "endTime": "12:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 32,
+      "day": "THU",
+      "startTime": "12:30",
+      "endTime": "1:30",
+      "slotType": "Lunch Break"
+    },
+    {
+      "slotId": 33,
+      "day": "THU",
+      "startTime": "1:30",
+      "endTime": "2:30",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 34,
+      "day": "THU",
+      "startTime": "2:45",
+      "endTime": "3:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 35,
+      "day": "THU",
+      "startTime": "3:45",
+      "endTime": "4:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 36,
+      "day": "THU",
+      "startTime": "4:45",
+      "endTime": "5:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 37,
+      "day": "FRI",
+      "startTime": "8:00",
+      "endTime": "9:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 38,
+      "day": "FRI",
+      "startTime": "9:00",
+      "endTime": "10:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 39,
+      "day": "FRI",
+      "startTime": "10:15",
+      "endTime": "11:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 40,
+      "day": "FRI",
+      "startTime": "11:15",
+      "endTime": "12:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 41,
+      "day": "FRI",
+      "startTime": "12:30",
+      "endTime": "1:30",
+      "slotType": "Lunch Break"
+    },
+    {
+      "slotId": 42,
+      "day": "FRI",
+      "startTime": "1:30",
+      "endTime": "2:30",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 43,
+      "day": "FRI",
+      "startTime": "2:45",
+      "endTime": "3:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 44,
+      "day": "FRI",
+      "startTime": "3:45",
+      "endTime": "4:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 45,
+      "day": "FRI",
+      "startTime": "4:45",
+      "endTime": "5:45",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 46,
+      "day": "SAT",
+      "startTime": "8:00",
+      "endTime": "9:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 47,
+      "day": "SAT",
+      "startTime": "9:00",
+      "endTime": "10:00",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 48,
+      "day": "SAT",
+      "startTime": "10:15",
+      "endTime": "11:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 49,
+      "day": "SAT",
+      "startTime": "11:15",
+      "endTime": "12:15",
+      "slotType": "Class Hour"
+    },
+    {
+      "slotId": 50,
+      "day": "SAT",
+      "startTime": "12:30",
+      "endTime": "1:30",
+      "slotType": "Day Off"
+    },
+    {
+      "slotId": 51,
+      "day": "SAT",
+      "startTime": "1:30",
+      "endTime": "2:30",
+      "slotType": "Day Off"
+    },
+    {
+      "slotId": 52,
+      "day": "SAT",
+      "startTime": "2:45",
+      "endTime": "3:45",
+      "slotType": "Day Off"
+    },
+    {
+      "slotId": 53,
+      "day": "SAT",
+      "startTime": "3:45",
+      "endTime": "4:45",
+      "slotType": "Day Off"
+    },
+    {
+      "slotId": 54,
+      "day": "SAT",
+      "startTime": "4:45",
+      "endTime": "5:45",
+      "slotType": "Day Off"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "TTG001",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 1,
+      "slotId": 2,
+      "day": "MON",
+      "batch": "A(full)",
+      "sourceText": "CN(PYR)",
+      "isFixed": null,
+      "facultyIds": [
+        26
+      ],
+      "sourceTimetableIds": [
+        1
+      ]
+    },
+    {
+      "id": "TTG002",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 1,
+      "slotId": 3,
+      "day": "MON",
+      "batch": "A(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        46
+      ],
+      "sourceTimetableIds": [
+        2
+      ]
+    },
+    {
+      "id": "TTG003",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 1,
+      "slotId": 4,
+      "day": "MON",
+      "batch": "A(full)",
+      "sourceText": "OOP(MKG)",
+      "isFixed": null,
+      "facultyIds": [
+        14
+      ],
+      "sourceTimetableIds": [
+        3
+      ]
+    },
+    {
+      "id": "TTG004",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 7,
+      "roomId": 6,
+      "slotId": 6,
+      "day": "MON",
+      "batch": "A1",
+      "sourceText": "OOPS(A1)(MKG,VS,VM)(LAB1)",
+      "isFixed": null,
+      "facultyIds": [
+        14,
+        25,
+        41
+      ],
+      "sourceTimetableIds": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "TTG005",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 4,
+      "roomId": 7,
+      "slotId": 6,
+      "day": "MON",
+      "batch": "A2",
+      "sourceText": "CN(A2)(PYR, SWATI)(CLAB2)",
+      "isFixed": null,
+      "facultyIds": [
+        26,
+        42
+      ],
+      "sourceTimetableIds": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": "TTG006",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 8,
+      "roomId": 8,
+      "slotId": 2,
+      "day": "MON",
+      "batch": "B1",
+      "sourceText": "WT(B1)(SP, VM)(LAB3)(9 - 1)",
+      "isFixed": null,
+      "facultyIds": [
+        30,
+        41
+      ],
+      "sourceTimetableIds": [
+        9,
+        10
+      ]
+    },
+    {
+      "id": "TTG007",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 2,
+      "roomId": 10,
+      "slotId": 3,
+      "day": "MON",
+      "batch": "B2",
+      "sourceText": "ML LAB(B2)(LAB5) (NT, PN ,Vijay)(10.15-12.15)",
+      "isFixed": null,
+      "facultyIds": [
+        21,
+        22
+      ],
+      "sourceTimetableIds": [
+        11,
+        12
+      ]
+    },
+    {
+      "id": "TTG008",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 2,
+      "slotId": 6,
+      "day": "MON",
+      "batch": "B(full)",
+      "sourceText": "CN(PPH)",
+      "isFixed": null,
+      "facultyIds": [
+        15
+      ],
+      "sourceTimetableIds": [
+        13
+      ]
+    },
+    {
+      "id": "TTG009",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 3,
+      "slotId": 3,
+      "day": "MON",
+      "batch": "C(full)",
+      "sourceText": "OOP(NP)",
+      "isFixed": null,
+      "facultyIds": [
+        17
+      ],
+      "sourceTimetableIds": [
+        14
+      ]
+    },
+    {
+      "id": "TTG010",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 3,
+      "slotId": 4,
+      "day": "MON",
+      "batch": "C(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        47
+      ],
+      "sourceTimetableIds": [
+        15
+      ]
+    },
+    {
+      "id": "TTG011",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 8,
+      "roomId": 8,
+      "slotId": 6,
+      "day": "MON",
+      "batch": "C1",
+      "sourceText": "WT(C1)(Soundarya, SHILPA)(LAB3)(1.30-5.30)",
+      "isFixed": null,
+      "facultyIds": [
+        31,
+        39
+      ],
+      "sourceTimetableIds": [
+        16,
+        17
+      ]
+    },
+    {
+      "id": "TTG012",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 2,
+      "roomId": 10,
+      "slotId": 6,
+      "day": "MON",
+      "batch": "C2",
+      "sourceText": "ML(C2)(PN, NY Vijay, ) (LAB5)(1.30-3.30)",
+      "isFixed": null,
+      "facultyIds": [
+        21,
+        24
+      ],
+      "sourceTimetableIds": [
+        18,
+        19
+      ]
+    },
+    {
+      "id": "TTG013",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 4,
+      "slotId": 1,
+      "day": "MON",
+      "batch": "D(full)",
+      "sourceText": "SE(MI)",
+      "isFixed": null,
+      "facultyIds": [
+        34
+      ],
+      "sourceTimetableIds": [
+        20
+      ]
+    },
+    {
+      "id": "TTG014",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 4,
+      "slotId": 2,
+      "day": "MON",
+      "batch": "D(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        47
+      ],
+      "sourceTimetableIds": [
+        21
+      ]
+    },
+    {
+      "id": "TTG015",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 1,
+      "roomId": 4,
+      "slotId": 4,
+      "day": "MON",
+      "batch": "D(full)",
+      "sourceText": "ML(NY)",
+      "isFixed": null,
+      "facultyIds": [
+        24
+      ],
+      "sourceTimetableIds": [
+        22
+      ]
+    },
+    {
+      "id": "TTG016",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 30,
+      "roomId": 8,
+      "slotId": 7,
+      "day": "MON",
+      "batch": "D(full)",
+      "sourceText": "FLA LAB(2.30 \u2013 4.30)(RA,ST)",
+      "isFixed": "Yes",
+      "facultyIds": [
+        47
+      ],
+      "sourceTimetableIds": [
+        23
+      ]
+    },
+    {
+      "id": "TTG017",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 7,
+      "roomId": 6,
+      "slotId": 2,
+      "day": "MON",
+      "batch": "E1",
+      "sourceText": "OOPS(E1)(KMMR, VS)(LAB1)",
+      "isFixed": null,
+      "facultyIds": [
+        12,
+        25
+      ],
+      "sourceTimetableIds": [
+        24,
+        25
+      ]
+    },
+    {
+      "id": "TTG018",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 4,
+      "roomId": 7,
+      "slotId": 2,
+      "day": "MON",
+      "batch": "E2",
+      "sourceText": "CN(E2)(AM, SNK)(9-12)(CLAB2)",
+      "isFixed": null,
+      "facultyIds": [
+        16,
+        23
+      ],
+      "sourceTimetableIds": [
+        26,
+        27
+      ]
+    },
+    {
+      "id": "TTG019",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 5,
+      "slotId": 6,
+      "day": "MON",
+      "batch": "E(full)",
+      "sourceText": "OOP(KMMR)",
+      "isFixed": null,
+      "facultyIds": [
+        12
+      ],
+      "sourceTimetableIds": [
+        28
+      ]
+    },
+    {
+      "id": "TTG020",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 30,
+      "roomId": 8,
+      "slotId": 7,
+      "day": "MON",
+      "batch": "E(full)",
+      "sourceText": "FLA LAB(2.30 - 4.30)(RA,ST)",
+      "isFixed": "Yes",
+      "facultyIds": [
+        48
+      ],
+      "sourceTimetableIds": [
+        29
+      ]
+    },
+    {
+      "id": "TTG021",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 1,
+      "slotId": 11,
+      "day": "TUE",
+      "batch": "A(full)",
+      "sourceText": "OOP(MKG)",
+      "isFixed": null,
+      "facultyIds": [
+        14
+      ],
+      "sourceTimetableIds": [
+        30
+      ]
+    },
+    {
+      "id": "TTG022",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 1,
+      "roomId": 1,
+      "slotId": 13,
+      "day": "TUE",
+      "batch": "A(full)",
+      "sourceText": "ML(SC)",
+      "isFixed": null,
+      "facultyIds": [
+        4
+      ],
+      "sourceTimetableIds": [
+        31
+      ]
+    },
+    {
+      "id": "TTG023",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 1,
+      "slotId": 15,
+      "day": "TUE",
+      "batch": "A(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        46
+      ],
+      "sourceTimetableIds": [
+        32
+      ]
+    },
+    {
+      "id": "TTG024",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 1,
+      "slotId": 16,
+      "day": "TUE",
+      "batch": "A(full)",
+      "sourceText": "SE(SGG)",
+      "isFixed": null,
+      "facultyIds": [
+        10
+      ],
+      "sourceTimetableIds": [
+        33
+      ]
+    },
+    {
+      "id": "TTG025",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 1,
+      "roomId": 2,
+      "slotId": 12,
+      "day": "TUE",
+      "batch": "B(full)",
+      "sourceText": "ML(NT)",
+      "isFixed": null,
+      "facultyIds": [
+        22
+      ],
+      "sourceTimetableIds": [
+        34
+      ]
+    },
+    {
+      "id": "TTG026",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 2,
+      "slotId": 14,
+      "day": "TUE",
+      "batch": "B(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        46
+      ],
+      "sourceTimetableIds": [
+        35
+      ]
+    },
+    {
+      "id": "TTG027",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 7,
+      "roomId": 6,
+      "slotId": 15,
+      "day": "TUE",
+      "batch": "B1",
+      "sourceText": "OOPS(B1)(GSH,MKG,PDD)(LAB1)",
+      "isFixed": null,
+      "facultyIds": [
+        8,
+        14,
+        43
+      ],
+      "sourceTimetableIds": [
+        36,
+        37,
+        38
+      ]
+    },
+    {
+      "id": "TTG028",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 4,
+      "roomId": 7,
+      "slotId": 15,
+      "day": "TUE",
+      "batch": "B2",
+      "sourceText": "CN(B2)(PPH, PYR)(CLAB2)(1.30-4.30)",
+      "isFixed": null,
+      "facultyIds": [
+        15,
+        26
+      ],
+      "sourceTimetableIds": [
+        39,
+        40
+      ]
+    },
+    {
+      "id": "TTG029",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 7,
+      "roomId": 6,
+      "slotId": 11,
+      "day": "TUE",
+      "batch": "C1",
+      "sourceText": "OOPS(C1)(NP,VS)(LAB1)",
+      "isFixed": null,
+      "facultyIds": [
+        17,
+        25
+      ],
+      "sourceTimetableIds": [
+        41,
+        42
+      ]
+    },
+    {
+      "id": "TTG030",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 4,
+      "roomId": 7,
+      "slotId": 11,
+      "day": "TUE",
+      "batch": "C2",
+      "sourceText": "CN(C2)(AM,SHILPA)(CLAB2)(9-12)",
+      "isFixed": null,
+      "facultyIds": [
+        16,
+        39
+      ],
+      "sourceTimetableIds": [
+        43,
+        44
+      ]
+    },
+    {
+      "id": "TTG031",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 3,
+      "slotId": 15,
+      "day": "TUE",
+      "batch": "C(full)",
+      "sourceText": "CN(AM)",
+      "isFixed": null,
+      "facultyIds": [
+        16
+      ],
+      "sourceTimetableIds": [
+        45
+      ]
+    },
+    {
+      "id": "TTG032",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 3,
+      "slotId": 16,
+      "day": "TUE",
+      "batch": "C(full)",
+      "sourceText": "OOP(NP)",
+      "isFixed": null,
+      "facultyIds": [
+        17
+      ],
+      "sourceTimetableIds": [
+        46
+      ]
+    },
+    {
+      "id": "TTG033",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 1,
+      "roomId": 4,
+      "slotId": 11,
+      "day": "TUE",
+      "batch": "D(full)",
+      "sourceText": "ML(NY)",
+      "isFixed": null,
+      "facultyIds": [
+        24
+      ],
+      "sourceTimetableIds": [
+        47
+      ]
+    },
+    {
+      "id": "TTG034",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 4,
+      "slotId": 12,
+      "day": "TUE",
+      "batch": "D(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        47
+      ],
+      "sourceTimetableIds": [
+        48
+      ]
+    },
+    {
+      "id": "TTG035",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 29,
+      "roomId": 4,
+      "slotId": 13,
+      "day": "TUE",
+      "batch": "D(full)",
+      "sourceText": "FLA",
+      "isFixed": "Yes",
+      "facultyIds": [
+        47
+      ],
+      "sourceTimetableIds": [
+        49
+      ]
+    },
+    {
+      "id": "TTG036",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 8,
+      "roomId": 8,
+      "slotId": 15,
+      "day": "TUE",
+      "batch": "D1",
+      "sourceText": "WT(D1)( ASHRAF,SP)(LAB3)(1.30-5.30)",
+      "isFixed": null,
+      "facultyIds": [
+        30,
+        37
+      ],
+      "sourceTimetableIds": [
+        50,
+        51
+      ]
+    },
+    {
+      "id": "TTG037",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 2,
+      "roomId": 10,
+      "slotId": 15,
+      "day": "TUE",
+      "batch": "D2",
+      "sourceText": "ML(D2)(NY, NT,VIJAY)(LAB5)(1.30-3.30)",
+      "isFixed": null,
+      "facultyIds": [
+        22,
+        24
+      ],
+      "sourceTimetableIds": [
+        52,
+        53
+      ]
+    },
+    {
+      "id": "TTG038",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 5,
+      "slotId": 11,
+      "day": "TUE",
+      "batch": "E(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        48
+      ],
+      "sourceTimetableIds": [
+        54
+      ]
+    },
+    {
+      "id": "TTG039",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 5,
+      "slotId": 12,
+      "day": "TUE",
+      "batch": "E(full)",
+      "sourceText": "OOP (KMMR)",
+      "isFixed": null,
+      "facultyIds": [
+        12
+      ],
+      "sourceTimetableIds": [
+        55
+      ]
+    },
+    {
+      "id": "TTG040",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 29,
+      "roomId": 5,
+      "slotId": 13,
+      "day": "TUE",
+      "batch": "E(full)",
+      "sourceText": "FLA",
+      "isFixed": "Yes",
+      "facultyIds": [
+        48
+      ],
+      "sourceTimetableIds": [
+        56
+      ]
+    },
+    {
+      "id": "TTG041",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 1,
+      "roomId": 5,
+      "slotId": 16,
+      "day": "TUE",
+      "batch": "E(full)",
+      "sourceText": "ML(PP)",
+      "isFixed": null,
+      "facultyIds": [
+        20
+      ],
+      "sourceTimetableIds": [
+        57
+      ]
+    },
+    {
+      "id": "TTG042",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 5,
+      "slotId": 17,
+      "day": "TUE",
+      "batch": "E(full)",
+      "sourceText": "CN(AM)",
+      "isFixed": null,
+      "facultyIds": [
+        16
+      ],
+      "sourceTimetableIds": [
+        58
+      ]
+    },
+    {
+      "id": "TTG043",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 7,
+      "roomId": 6,
+      "slotId": 20,
+      "day": "WED",
+      "batch": "A2",
+      "sourceText": "OOPS(A2)(MKG,GSH,SG)(LAB1)",
+      "isFixed": null,
+      "facultyIds": [
+        8,
+        14,
+        35
+      ],
+      "sourceTimetableIds": [
+        59,
+        60,
+        61
+      ]
+    },
+    {
+      "id": "TTG044",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 4,
+      "roomId": 7,
+      "slotId": 20,
+      "day": "WED",
+      "batch": "A1",
+      "sourceText": "CN(A1)(PYR,SWATI )(CLAB2)",
+      "isFixed": null,
+      "facultyIds": [
+        26,
+        42
+      ],
+      "sourceTimetableIds": [
+        62,
+        63
+      ]
+    },
+    {
+      "id": "TTG045",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 1,
+      "roomId": 1,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "A(full)",
+      "sourceText": "ML(SC)",
+      "isFixed": null,
+      "facultyIds": [
+        4
+      ],
+      "sourceTimetableIds": [
+        64
+      ]
+    },
+    {
+      "id": "TTG046",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 1,
+      "slotId": 26,
+      "day": "WED",
+      "batch": "A(full)",
+      "sourceText": "SE(SGG)",
+      "isFixed": null,
+      "facultyIds": [
+        10
+      ],
+      "sourceTimetableIds": [
+        65
+      ]
+    },
+    {
+      "id": "TTG047",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 1,
+      "roomId": 2,
+      "slotId": 20,
+      "day": "WED",
+      "batch": "B(full)",
+      "sourceText": "ML(NT)",
+      "isFixed": null,
+      "facultyIds": [
+        22
+      ],
+      "sourceTimetableIds": [
+        66
+      ]
+    },
+    {
+      "id": "TTG048",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 2,
+      "slotId": 22,
+      "day": "WED",
+      "batch": "B(full)",
+      "sourceText": "SE(PDD)",
+      "isFixed": null,
+      "facultyIds": [
+        43
+      ],
+      "sourceTimetableIds": [
+        67
+      ]
+    },
+    {
+      "id": "TTG049",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 2,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "B(full)",
+      "sourceText": "OOPS(GSH)",
+      "isFixed": null,
+      "facultyIds": [
+        8
+      ],
+      "sourceTimetableIds": [
+        68
+      ]
+    },
+    {
+      "id": "TTG050",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 2,
+      "slotId": 26,
+      "day": "WED",
+      "batch": "B(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        46
+      ],
+      "sourceTimetableIds": [
+        69
+      ]
+    },
+    {
+      "id": "TTG051",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 1,
+      "roomId": 3,
+      "slotId": 20,
+      "day": "WED",
+      "batch": "C(full)",
+      "sourceText": "ML(PN)",
+      "isFixed": null,
+      "facultyIds": [
+        21
+      ],
+      "sourceTimetableIds": [
+        70
+      ]
+    },
+    {
+      "id": "TTG052",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 3,
+      "slotId": 21,
+      "day": "WED",
+      "batch": "C(full)",
+      "sourceText": "CN(AM)",
+      "isFixed": null,
+      "facultyIds": [
+        16
+      ],
+      "sourceTimetableIds": [
+        71
+      ]
+    },
+    {
+      "id": "TTG053",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 3,
+      "slotId": 22,
+      "day": "WED",
+      "batch": "C(full)",
+      "sourceText": "OOP(NP)",
+      "isFixed": null,
+      "facultyIds": [
+        17
+      ],
+      "sourceTimetableIds": [
+        72
+      ]
+    },
+    {
+      "id": "TTG054",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 8,
+      "roomId": 8,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "C2",
+      "sourceText": "WT(C2)(Soundary,SHILPA,PGSH) (LAB3)(1-5)",
+      "isFixed": null,
+      "facultyIds": [
+        6,
+        31,
+        39
+      ],
+      "sourceTimetableIds": [
+        73,
+        74,
+        75
+      ]
+    },
+    {
+      "id": "TTG055",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 2,
+      "roomId": 10,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "C1",
+      "sourceText": "ML(C1)(PN,NT,Vijay)(LAB5)(1.30-3.30)",
+      "isFixed": null,
+      "facultyIds": [
+        21,
+        22
+      ],
+      "sourceTimetableIds": [
+        76,
+        77
+      ]
+    },
+    {
+      "id": "TTG056",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 4,
+      "slotId": 19,
+      "day": "WED",
+      "batch": "D(full)",
+      "sourceText": "SE(MI)",
+      "isFixed": null,
+      "facultyIds": [
+        34
+      ],
+      "sourceTimetableIds": [
+        78
+      ]
+    },
+    {
+      "id": "TTG057",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 4,
+      "slotId": 20,
+      "day": "WED",
+      "batch": "D(full)",
+      "sourceText": "CN(SNK)",
+      "isFixed": null,
+      "facultyIds": [
+        23
+      ],
+      "sourceTimetableIds": [
+        79
+      ]
+    },
+    {
+      "id": "TTG058",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 4,
+      "slotId": 22,
+      "day": "WED",
+      "batch": "D(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        47
+      ],
+      "sourceTimetableIds": [
+        80
+      ]
+    },
+    {
+      "id": "TTG059",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 7,
+      "roomId": 6,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "D1",
+      "sourceText": "OOPS(D1)(VS,NP)(LAB1)",
+      "isFixed": null,
+      "facultyIds": [
+        17,
+        25
+      ],
+      "sourceTimetableIds": [
+        81,
+        82
+      ]
+    },
+    {
+      "id": "TTG060",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 4,
+      "roomId": 7,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "D2",
+      "sourceText": "CN(D2)(SNK,PYR)(CLAB2)",
+      "isFixed": null,
+      "facultyIds": [
+        23,
+        26
+      ],
+      "sourceTimetableIds": [
+        83,
+        84
+      ]
+    },
+    {
+      "id": "TTG061",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 8,
+      "roomId": 8,
+      "slotId": 19,
+      "day": "WED",
+      "batch": "E1",
+      "sourceText": "WT(E1)( ASHRAF,SP)(LAB3 )(8-12)",
+      "isFixed": null,
+      "facultyIds": [
+        30,
+        37
+      ],
+      "sourceTimetableIds": [
+        85,
+        86
+      ]
+    },
+    {
+      "id": "TTG062",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 2,
+      "roomId": 10,
+      "slotId": 21,
+      "day": "WED",
+      "batch": "E2",
+      "sourceText": "ML(E2)(PP,PN,VIJAY)(LAB5)(10-12.00)",
+      "isFixed": null,
+      "facultyIds": [
+        20,
+        21
+      ],
+      "sourceTimetableIds": [
+        87,
+        88
+      ]
+    },
+    {
+      "id": "TTG063",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 5,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "E(full)",
+      "sourceText": "CN(AM)",
+      "isFixed": null,
+      "facultyIds": [
+        16
+      ],
+      "sourceTimetableIds": [
+        89
+      ]
+    },
+    {
+      "id": "TTG064",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 1,
+      "roomId": 5,
+      "slotId": 25,
+      "day": "WED",
+      "batch": "E(full)",
+      "sourceText": "ML(PP)",
+      "isFixed": null,
+      "facultyIds": [
+        20
+      ],
+      "sourceTimetableIds": [
+        90
+      ]
+    },
+    {
+      "id": "TTG065",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 8,
+      "roomId": 8,
+      "slotId": 28,
+      "day": "THU",
+      "batch": "A1",
+      "sourceText": "WT(A1)(MKP,VM) )(8-12) (LAB3)",
+      "isFixed": null,
+      "facultyIds": [
+        19,
+        41
+      ],
+      "sourceTimetableIds": [
+        91,
+        92
+      ]
+    },
+    {
+      "id": "TTG066",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 2,
+      "roomId": 10,
+      "slotId": 30,
+      "day": "THU",
+      "batch": "A2",
+      "sourceText": "ML(A2)(SC,NY,Vijay)(LAB5)()(10.15-12.15)",
+      "isFixed": null,
+      "facultyIds": [
+        4,
+        24
+      ],
+      "sourceTimetableIds": [
+        93,
+        94
+      ]
+    },
+    {
+      "id": "TTG067",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 1,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "A(full)",
+      "sourceText": "OOP(MKG)",
+      "isFixed": null,
+      "facultyIds": [
+        14
+      ],
+      "sourceTimetableIds": [
+        95
+      ]
+    },
+    {
+      "id": "TTG068",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 1,
+      "slotId": 34,
+      "day": "THU",
+      "batch": "A(full)",
+      "sourceText": "CN(PYR)",
+      "isFixed": null,
+      "facultyIds": [
+        26
+      ],
+      "sourceTimetableIds": [
+        96
+      ]
+    },
+    {
+      "id": "TTG069",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 2,
+      "slotId": 29,
+      "day": "THU",
+      "batch": "B(full)",
+      "sourceText": "CN(PPH)",
+      "isFixed": null,
+      "facultyIds": [
+        15
+      ],
+      "sourceTimetableIds": [
+        97
+      ]
+    },
+    {
+      "id": "TTG070",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 2,
+      "slotId": 30,
+      "day": "THU",
+      "batch": "B(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        46
+      ],
+      "sourceTimetableIds": [
+        98
+      ]
+    },
+    {
+      "id": "TTG071",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 2,
+      "slotId": 31,
+      "day": "THU",
+      "batch": "B(full)",
+      "sourceText": "SE(PDD)",
+      "isFixed": null,
+      "facultyIds": [
+        43
+      ],
+      "sourceTimetableIds": [
+        99
+      ]
+    },
+    {
+      "id": "TTG072",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 8,
+      "roomId": 8,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "B2",
+      "sourceText": "WT(B2)(SP,Soundarya)(LAB3)(1 - 5)",
+      "isFixed": null,
+      "facultyIds": [
+        30,
+        31
+      ],
+      "sourceTimetableIds": [
+        100,
+        101
+      ]
+    },
+    {
+      "id": "TTG073",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 2,
+      "roomId": 10,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "B1",
+      "sourceText": "ML(B1)(NT,NY,Vijay)(LAB5)(1.30-3.30)",
+      "isFixed": null,
+      "facultyIds": [
+        22,
+        24
+      ],
+      "sourceTimetableIds": [
+        102,
+        103
+      ]
+    },
+    {
+      "id": "TTG074",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 1,
+      "roomId": 3,
+      "slotId": 30,
+      "day": "THU",
+      "batch": "C(full)",
+      "sourceText": "ML(PN)",
+      "isFixed": null,
+      "facultyIds": [
+        21
+      ],
+      "sourceTimetableIds": [
+        104
+      ]
+    },
+    {
+      "id": "TTG075",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 3,
+      "slotId": 31,
+      "day": "THU",
+      "batch": "C(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        47
+      ],
+      "sourceTimetableIds": [
+        105
+      ]
+    },
+    {
+      "id": "TTG076",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 3,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "C(full)",
+      "sourceText": "SE(PGSH)",
+      "isFixed": null,
+      "facultyIds": [
+        6
+      ],
+      "sourceTimetableIds": [
+        106
+      ]
+    },
+    {
+      "id": "TTG077",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 7,
+      "roomId": 6,
+      "slotId": 28,
+      "day": "THU",
+      "batch": "D2",
+      "sourceText": "OOPS(D2)(VS, NP)(LAB1)",
+      "isFixed": null,
+      "facultyIds": [
+        17,
+        25
+      ],
+      "sourceTimetableIds": [
+        107,
+        108
+      ]
+    },
+    {
+      "id": "TTG078",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 4,
+      "roomId": 7,
+      "slotId": 28,
+      "day": "THU",
+      "batch": "D1",
+      "sourceText": "CN(D1)(SNK,SHILPA)(CLAB2)",
+      "isFixed": null,
+      "facultyIds": [
+        23,
+        39
+      ],
+      "sourceTimetableIds": [
+        109,
+        110
+      ]
+    },
+    {
+      "id": "TTG079",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 29,
+      "roomId": 4,
+      "slotId": 31,
+      "day": "THU",
+      "batch": "D(full)",
+      "sourceText": "FLA",
+      "isFixed": "Yes",
+      "facultyIds": [
+        47
+      ],
+      "sourceTimetableIds": [
+        111
+      ]
+    },
+    {
+      "id": "TTG080",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 4,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "D(full)",
+      "sourceText": "OOP(VS)",
+      "isFixed": null,
+      "facultyIds": [
+        25
+      ],
+      "sourceTimetableIds": [
+        112
+      ]
+    },
+    {
+      "id": "TTG081",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 4,
+      "slotId": 35,
+      "day": "THU",
+      "batch": "D(full)",
+      "sourceText": "SE(MI)",
+      "isFixed": null,
+      "facultyIds": [
+        34
+      ],
+      "sourceTimetableIds": [
+        113
+      ]
+    },
+    {
+      "id": "TTG082",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 5,
+      "slotId": 28,
+      "day": "THU",
+      "batch": "E(full)",
+      "sourceText": "CN(AM)",
+      "isFixed": null,
+      "facultyIds": [
+        16
+      ],
+      "sourceTimetableIds": [
+        114
+      ]
+    },
+    {
+      "id": "TTG083",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 5,
+      "slotId": 29,
+      "day": "THU",
+      "batch": "E(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        48
+      ],
+      "sourceTimetableIds": [
+        115
+      ]
+    },
+    {
+      "id": "TTG084",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 5,
+      "slotId": 30,
+      "day": "THU",
+      "batch": "E(full)",
+      "sourceText": "SE (SARALA)",
+      "isFixed": null,
+      "facultyIds": [
+        38
+      ],
+      "sourceTimetableIds": [
+        116
+      ]
+    },
+    {
+      "id": "TTG085",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 29,
+      "roomId": 5,
+      "slotId": 31,
+      "day": "THU",
+      "batch": "E(full)",
+      "sourceText": "FLA",
+      "isFixed": "Yes",
+      "facultyIds": [
+        48
+      ],
+      "sourceTimetableIds": [
+        117
+      ]
+    },
+    {
+      "id": "TTG086",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 7,
+      "roomId": 6,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "E2",
+      "sourceText": "OOPS(E2)(KMMR, NP)(LAB1)",
+      "isFixed": null,
+      "facultyIds": [
+        12,
+        17
+      ],
+      "sourceTimetableIds": [
+        118,
+        119
+      ]
+    },
+    {
+      "id": "TTG087",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 4,
+      "roomId": 7,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "E1",
+      "sourceText": "CN(E1)(AM,SHILPA)(CLAB2)",
+      "isFixed": null,
+      "facultyIds": [
+        16,
+        39
+      ],
+      "sourceTimetableIds": [
+        120,
+        121
+      ]
+    },
+    {
+      "id": "TTG088",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 1,
+      "slotId": 38,
+      "day": "FRI",
+      "batch": "A(full)",
+      "sourceText": "CN(PYR)",
+      "isFixed": null,
+      "facultyIds": [
+        26
+      ],
+      "sourceTimetableIds": [
+        122
+      ]
+    },
+    {
+      "id": "TTG089",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 1,
+      "slotId": 39,
+      "day": "FRI",
+      "batch": "A(full)",
+      "sourceText": "SE(SGG)",
+      "isFixed": null,
+      "facultyIds": [
+        10
+      ],
+      "sourceTimetableIds": [
+        123
+      ]
+    },
+    {
+      "id": "TTG090",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 1,
+      "slotId": 40,
+      "day": "FRI",
+      "batch": "A(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        46
+      ],
+      "sourceTimetableIds": [
+        124
+      ]
+    },
+    {
+      "id": "TTG091",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 8,
+      "roomId": 8,
+      "slotId": 42,
+      "day": "FRI",
+      "batch": "A2",
+      "sourceText": "WT(A2)( MKP,Soundarya) (1-5) (LAB3)",
+      "isFixed": null,
+      "facultyIds": [
+        19,
+        31
+      ],
+      "sourceTimetableIds": [
+        125,
+        126
+      ]
+    },
+    {
+      "id": "TTG092",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 2,
+      "roomId": 10,
+      "slotId": 42,
+      "day": "FRI",
+      "batch": "A1",
+      "sourceText": "ML(A1)(SC,NY,Vijay)(LAB5)(1.30.-3.30)",
+      "isFixed": null,
+      "facultyIds": [
+        4,
+        24
+      ],
+      "sourceTimetableIds": [
+        127,
+        128
+      ]
+    },
+    {
+      "id": "TTG093",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 7,
+      "roomId": 6,
+      "slotId": 37,
+      "day": "FRI",
+      "batch": "B2",
+      "sourceText": "OOPS(B2)(GSH, MKG , KK)(LAB1)",
+      "isFixed": null,
+      "facultyIds": [
+        8,
+        14,
+        40
+      ],
+      "sourceTimetableIds": [
+        129,
+        130,
+        131
+      ]
+    },
+    {
+      "id": "TTG094",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 4,
+      "roomId": 7,
+      "slotId": 38,
+      "day": "FRI",
+      "batch": "B1",
+      "sourceText": "CN(B1)(PPH, SWATI)(CLAB2)(9-12)",
+      "isFixed": null,
+      "facultyIds": [
+        15,
+        42
+      ],
+      "sourceTimetableIds": [
+        132,
+        133
+      ]
+    },
+    {
+      "id": "TTG095",
+      "divisionId": 2,
+      "divisionName": "B",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 2,
+      "slotId": 42,
+      "day": "FRI",
+      "batch": "B(full)",
+      "sourceText": "OOPS(GSH)",
+      "isFixed": null,
+      "facultyIds": [
+        8
+      ],
+      "sourceTimetableIds": [
+        134
+      ]
+    },
+    {
+      "id": "TTG096",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 3,
+      "slotId": 38,
+      "day": "FRI",
+      "batch": "C(full)",
+      "sourceText": "CN(AM)",
+      "isFixed": null,
+      "facultyIds": [
+        16
+      ],
+      "sourceTimetableIds": [
+        135
+      ]
+    },
+    {
+      "id": "TTG097",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 3,
+      "slotId": 39,
+      "day": "FRI",
+      "batch": "C(full)",
+      "sourceText": "SE(PGSH)",
+      "isFixed": null,
+      "facultyIds": [
+        6
+      ],
+      "sourceTimetableIds": [
+        136
+      ]
+    },
+    {
+      "id": "TTG098",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 3,
+      "slotId": 40,
+      "day": "FRI",
+      "batch": "C(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        47
+      ],
+      "sourceTimetableIds": [
+        137
+      ]
+    },
+    {
+      "id": "TTG099",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 7,
+      "roomId": 6,
+      "slotId": 42,
+      "day": "FRI",
+      "batch": "C2",
+      "sourceText": "OOPS(C2)(NP,KMMR)(LAB1)",
+      "isFixed": null,
+      "facultyIds": [
+        12,
+        17
+      ],
+      "sourceTimetableIds": [
+        138,
+        139
+      ]
+    },
+    {
+      "id": "TTG100",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 4,
+      "roomId": 7,
+      "slotId": 42,
+      "day": "FRI",
+      "batch": "C1",
+      "sourceText": "CN(C1)(AM,SHILPA)(CLAB2)(1.30-4.30)",
+      "isFixed": null,
+      "facultyIds": [
+        16,
+        39
+      ],
+      "sourceTimetableIds": [
+        140,
+        141
+      ]
+    },
+    {
+      "id": "TTG101",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 8,
+      "roomId": 8,
+      "slotId": 37,
+      "day": "FRI",
+      "batch": "D2",
+      "sourceText": "WT(D2)(( ASHRAF,VM) )(8-12) (LAB3)",
+      "isFixed": null,
+      "facultyIds": [
+        37,
+        41
+      ],
+      "sourceTimetableIds": [
+        142,
+        143
+      ]
+    },
+    {
+      "id": "TTG102",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 2,
+      "roomId": 10,
+      "slotId": 39,
+      "day": "FRI",
+      "batch": "D1",
+      "sourceText": "ML(D1)(NY,NT,Vijay)(LAB5)()(10.15-12.15 )",
+      "isFixed": null,
+      "facultyIds": [
+        22,
+        24
+      ],
+      "sourceTimetableIds": [
+        144,
+        145
+      ]
+    },
+    {
+      "id": "TTG103",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 4,
+      "slotId": 43,
+      "day": "FRI",
+      "batch": "D(full)",
+      "sourceText": "OOP(VS)",
+      "isFixed": null,
+      "facultyIds": [
+        25
+      ],
+      "sourceTimetableIds": [
+        146
+      ]
+    },
+    {
+      "id": "TTG104",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 28,
+      "roomId": 5,
+      "slotId": 38,
+      "day": "FRI",
+      "batch": "E(full)",
+      "sourceText": "MVC",
+      "isFixed": "Yes",
+      "facultyIds": [
+        48
+      ],
+      "sourceTimetableIds": [
+        147
+      ]
+    },
+    {
+      "id": "TTG105",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 5,
+      "slotId": 39,
+      "day": "FRI",
+      "batch": "E(full)",
+      "sourceText": "OOPS (KMMR)",
+      "isFixed": null,
+      "facultyIds": [
+        12
+      ],
+      "sourceTimetableIds": [
+        148
+      ]
+    },
+    {
+      "id": "TTG106",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 5,
+      "slotId": 40,
+      "day": "FRI",
+      "batch": "E(full)",
+      "sourceText": "CN(AM)",
+      "isFixed": null,
+      "facultyIds": [
+        16
+      ],
+      "sourceTimetableIds": [
+        149
+      ]
+    },
+    {
+      "id": "TTG107",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 5,
+      "roomId": 5,
+      "slotId": 42,
+      "day": "FRI",
+      "batch": "E(full)",
+      "sourceText": "SE(SARALA)(1.30 \u2013 3.30)",
+      "isFixed": null,
+      "facultyIds": [
+        38
+      ],
+      "sourceTimetableIds": [
+        150
+      ]
+    },
+    {
+      "id": "TTG108",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 1,
+      "slotId": 48,
+      "day": "SAT",
+      "batch": "A(full)",
+      "sourceText": "CN(PYR)",
+      "isFixed": null,
+      "facultyIds": [
+        26
+      ],
+      "sourceTimetableIds": [
+        151
+      ]
+    },
+    {
+      "id": "TTG109",
+      "divisionId": 1,
+      "divisionName": "A",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 1,
+      "slotId": 49,
+      "day": "SAT",
+      "batch": "A(full)",
+      "sourceText": "OOP(MKG)",
+      "isFixed": null,
+      "facultyIds": [
+        14
+      ],
+      "sourceTimetableIds": [
+        152
+      ]
+    },
+    {
+      "id": "TTG110",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 3,
+      "slotId": 47,
+      "day": "SAT",
+      "batch": "C(full)",
+      "sourceText": "OOP(NP)",
+      "isFixed": null,
+      "facultyIds": [
+        17
+      ],
+      "sourceTimetableIds": [
+        153
+      ]
+    },
+    {
+      "id": "TTG111",
+      "divisionId": 3,
+      "divisionName": "C",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 3,
+      "slotId": 48,
+      "day": "SAT",
+      "batch": "C(full)",
+      "sourceText": "CN(AM)",
+      "isFixed": null,
+      "facultyIds": [
+        16
+      ],
+      "sourceTimetableIds": [
+        154
+      ]
+    },
+    {
+      "id": "TTG112",
+      "divisionId": 4,
+      "divisionName": "D",
+      "semester": 4,
+      "courseId": 3,
+      "roomId": 4,
+      "slotId": 48,
+      "day": "SAT",
+      "batch": "D(full)",
+      "sourceText": "CN(SNK)",
+      "isFixed": null,
+      "facultyIds": [
+        23
+      ],
+      "sourceTimetableIds": [
+        155
+      ]
+    },
+    {
+      "id": "TTG113",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 6,
+      "roomId": 5,
+      "slotId": 46,
+      "day": "SAT",
+      "batch": "E(full)",
+      "sourceText": "OOP (KMMR )",
+      "isFixed": null,
+      "facultyIds": [
+        12
+      ],
+      "sourceTimetableIds": [
+        156
+      ]
+    },
+    {
+      "id": "TTG114",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 8,
+      "roomId": 8,
+      "slotId": 47,
+      "day": "SAT",
+      "batch": "E2",
+      "sourceText": "WT(E2)((ASHRAF,SHILPA) (9.15-1.15) (LAB3)",
+      "isFixed": null,
+      "facultyIds": [
+        37,
+        39
+      ],
+      "sourceTimetableIds": [
+        157,
+        158
+      ]
+    },
+    {
+      "id": "TTG115",
+      "divisionId": 5,
+      "divisionName": "E",
+      "semester": 4,
+      "courseId": 2,
+      "roomId": 10,
+      "slotId": 47,
+      "day": "SAT",
+      "batch": "E1",
+      "sourceText": "ML(E1)(LAB5)(PP,PN,vijay)(9.15-11.15)",
+      "isFixed": null,
+      "facultyIds": [
+        20,
+        21
+      ],
+      "sourceTimetableIds": [
+        159,
+        160
+      ]
+    },
+    {
+      "id": "TTG116",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 9,
+      "roomId": 13,
+      "slotId": 3,
+      "day": "MON",
+      "batch": "A(full)",
+      "sourceText": "GENAI(GK)",
+      "isFixed": null,
+      "facultyIds": [
+        13
+      ],
+      "sourceTimetableIds": [
+        161
+      ]
+    },
+    {
+      "id": "TTG117",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 13,
+      "roomId": 13,
+      "slotId": 4,
+      "day": "MON",
+      "batch": "A(full)",
+      "sourceText": "EIOT(SDD)",
+      "isFixed": null,
+      "facultyIds": [
+        3
+      ],
+      "sourceTimetableIds": [
+        162
+      ]
+    },
+    {
+      "id": "TTG118",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 13,
+      "slotId": 7,
+      "day": "MON",
+      "batch": "A(full)",
+      "sourceText": "WMN(VSH)",
+      "isFixed": null,
+      "facultyIds": [
+        11
+      ],
+      "sourceTimetableIds": [
+        163
+      ]
+    },
+    {
+      "id": "TTG119",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 31,
+      "roomId": 13,
+      "slotId": 9,
+      "day": "MON",
+      "batch": "A(full)",
+      "sourceText": "PALR(A)",
+      "isFixed": null,
+      "facultyIds": [
+        3
+      ],
+      "sourceTimetableIds": [
+        164
+      ]
+    },
+    {
+      "id": "TTG120",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 12,
+      "roomId": 14,
+      "slotId": 3,
+      "day": "MON",
+      "batch": "B1",
+      "sourceText": "WMN LAB(B1)(MMR, KK)(CLH308)",
+      "isFixed": null,
+      "facultyIds": [
+        9,
+        40
+      ],
+      "sourceTimetableIds": [
+        165,
+        166
+      ]
+    },
+    {
+      "id": "TTG121",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 14,
+      "roomId": 15,
+      "slotId": 3,
+      "day": "MON",
+      "batch": "B2",
+      "sourceText": "EIOT LAB(B2)(NP, SWATI GS) (LAB 2)",
+      "isFixed": null,
+      "facultyIds": [
+        29,
+        33,
+        42
+      ],
+      "sourceTimetableIds": [
+        167,
+        168,
+        169
+      ]
+    },
+    {
+      "id": "TTG122",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 17,
+      "roomId": 16,
+      "slotId": 6,
+      "day": "MON",
+      "batch": "B(full)",
+      "sourceText": "BLOCKCHAIN(ST)",
+      "isFixed": null,
+      "facultyIds": [
+        32
+      ],
+      "sourceTimetableIds": [
+        170
+      ]
+    },
+    {
+      "id": "TTG123",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 10,
+      "roomId": 19,
+      "slotId": 7,
+      "day": "MON",
+      "batch": "B1",
+      "sourceText": "GENAI LAB(B1)(SUMAYA, CM)",
+      "isFixed": null,
+      "facultyIds": [
+        44
+      ],
+      "sourceTimetableIds": [
+        171
+      ]
+    },
+    {
+      "id": "TTG124",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 9,
+      "roomId": 17,
+      "slotId": 3,
+      "day": "MON",
+      "batch": "C(full)",
+      "sourceText": "GENAI (SUMAYA P)",
+      "isFixed": null,
+      "facultyIds": [
+        44
+      ],
+      "sourceTimetableIds": [
+        172
+      ]
+    },
+    {
+      "id": "TTG125",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 17,
+      "slotId": 4,
+      "day": "MON",
+      "batch": "C(full)",
+      "sourceText": "WMN (JGN)",
+      "isFixed": null,
+      "facultyIds": [
+        7
+      ],
+      "sourceTimetableIds": [
+        173
+      ]
+    },
+    {
+      "id": "TTG126",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 12,
+      "roomId": 15,
+      "slotId": 6,
+      "day": "MON",
+      "batch": "C2",
+      "sourceText": "WMN LAB(C2)(JGN ,KK)",
+      "isFixed": null,
+      "facultyIds": [
+        7,
+        40
+      ],
+      "sourceTimetableIds": [
+        174,
+        175
+      ]
+    },
+    {
+      "id": "TTG127",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 14,
+      "roomId": 15,
+      "slotId": 6,
+      "day": "MON",
+      "batch": "C1",
+      "sourceText": "EIOTLAB(C1)(MMR, GS ) (LAB2 )(1.30-3.30)",
+      "isFixed": null,
+      "facultyIds": [
+        9,
+        29
+      ],
+      "sourceTimetableIds": [
+        176,
+        177
+      ]
+    },
+    {
+      "id": "TTG128",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 31,
+      "roomId": 18,
+      "slotId": 4,
+      "day": "MON",
+      "batch": "D(full)",
+      "sourceText": "PALR(D)",
+      "isFixed": null,
+      "facultyIds": [
+        23
+      ],
+      "sourceTimetableIds": [
+        178
+      ]
+    },
+    {
+      "id": "TTG129",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 9,
+      "roomId": 18,
+      "slotId": 7,
+      "day": "MON",
+      "batch": "D(full)",
+      "sourceText": "GENAI(GK)",
+      "isFixed": null,
+      "facultyIds": [
+        13
+      ],
+      "sourceTimetableIds": [
+        179
+      ]
+    },
+    {
+      "id": "TTG130",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 18,
+      "roomId": 19,
+      "slotId": 3,
+      "day": "MON",
+      "batch": "E(full)",
+      "sourceText": "BLOCKCHAIN LAB ( SG,ST, Sumaya K)",
+      "isFixed": null,
+      "facultyIds": [
+        32,
+        35,
+        36
+      ],
+      "sourceTimetableIds": [
+        180,
+        181,
+        182
+      ]
+    },
+    {
+      "id": "TTG131",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 10,
+      "roomId": 19,
+      "slotId": 6,
+      "day": "MON",
+      "batch": "E1",
+      "sourceText": "GENAI LAB(E1)(CLAB1) (SGK, SG )",
+      "isFixed": null,
+      "facultyIds": [
+        5,
+        35
+      ],
+      "sourceTimetableIds": [
+        183,
+        184
+      ]
+    },
+    {
+      "id": "TTG132",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 13,
+      "roomId": 13,
+      "slotId": 10,
+      "day": "TUE",
+      "batch": "A(full)",
+      "sourceText": "EIOT(SDD)",
+      "isFixed": null,
+      "facultyIds": [
+        3
+      ],
+      "sourceTimetableIds": [
+        185
+      ]
+    },
+    {
+      "id": "TTG133",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 13,
+      "slotId": 11,
+      "day": "TUE",
+      "batch": "A(full)",
+      "sourceText": "WMN(VSH)",
+      "isFixed": null,
+      "facultyIds": [
+        11
+      ],
+      "sourceTimetableIds": [
+        186
+      ]
+    },
+    {
+      "id": "TTG134",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 12,
+      "roomId": 15,
+      "slotId": 12,
+      "day": "TUE",
+      "batch": "A1",
+      "sourceText": "WMN(A1)(VSH,KK)",
+      "isFixed": null,
+      "facultyIds": [
+        11,
+        40
+      ],
+      "sourceTimetableIds": [
+        187,
+        188
+      ]
+    },
+    {
+      "id": "TTG135",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 14,
+      "roomId": 15,
+      "slotId": 12,
+      "day": "TUE",
+      "batch": "A2",
+      "sourceText": "EIOT LAB(A2)(SDD, SWATI )",
+      "isFixed": null,
+      "facultyIds": [
+        3,
+        42
+      ],
+      "sourceTimetableIds": [
+        189,
+        190
+      ]
+    },
+    {
+      "id": "TTG136",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 10,
+      "roomId": 13,
+      "slotId": 15,
+      "day": "TUE",
+      "batch": "A1",
+      "sourceText": "GENAI LAB (A1)(GK,CM )(CLH303)",
+      "isFixed": null,
+      "facultyIds": [
+        13
+      ],
+      "sourceTimetableIds": [
+        191
+      ]
+    },
+    {
+      "id": "TTG137",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 32,
+      "roomId": 13,
+      "slotId": 18,
+      "day": "TUE",
+      "batch": "A(full)",
+      "sourceText": "APS",
+      "isFixed": null,
+      "facultyIds": [
+        32
+      ],
+      "sourceTimetableIds": [
+        192
+      ]
+    },
+    {
+      "id": "TTG138",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 13,
+      "roomId": 16,
+      "slotId": 11,
+      "day": "TUE",
+      "batch": "B(full)",
+      "sourceText": "EIOT(NP)",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        193
+      ]
+    },
+    {
+      "id": "TTG139",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 9,
+      "roomId": 16,
+      "slotId": 13,
+      "day": "TUE",
+      "batch": "B(full)",
+      "sourceText": "GENAI (SUMAYA)",
+      "isFixed": null,
+      "facultyIds": [
+        44
+      ],
+      "sourceTimetableIds": [
+        194
+      ]
+    },
+    {
+      "id": "TTG140",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 12,
+      "roomId": 14,
+      "slotId": 15,
+      "day": "TUE",
+      "batch": "B2",
+      "sourceText": "WMN LAB(B2)(MMR,JGN)(CLH308)",
+      "isFixed": null,
+      "facultyIds": [
+        7,
+        9
+      ],
+      "sourceTimetableIds": [
+        195,
+        196
+      ]
+    },
+    {
+      "id": "TTG141",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 14,
+      "roomId": 15,
+      "slotId": 15,
+      "day": "TUE",
+      "batch": "B1",
+      "sourceText": "EIOT LAB(B1 )(NP, GS ) (LAB 2)",
+      "isFixed": null,
+      "facultyIds": [
+        29,
+        33
+      ],
+      "sourceTimetableIds": [
+        197,
+        198
+      ]
+    },
+    {
+      "id": "TTG142",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 10,
+      "roomId": 19,
+      "slotId": 11,
+      "day": "TUE",
+      "batch": "C1",
+      "sourceText": "GENAI LAB (C1)(SUMAYA P,GK ) (9-11)",
+      "isFixed": null,
+      "facultyIds": [
+        13,
+        44
+      ],
+      "sourceTimetableIds": [
+        199,
+        200
+      ]
+    },
+    {
+      "id": "TTG143",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 17,
+      "slotId": 13,
+      "day": "TUE",
+      "batch": "C(full)",
+      "sourceText": "WMN(JGN)",
+      "isFixed": null,
+      "facultyIds": [
+        7
+      ],
+      "sourceTimetableIds": [
+        201
+      ]
+    },
+    {
+      "id": "TTG144",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 9,
+      "roomId": 17,
+      "slotId": 16,
+      "day": "TUE",
+      "batch": "C(full)",
+      "sourceText": "GENAI(SUMAYA)",
+      "isFixed": null,
+      "facultyIds": [
+        44
+      ],
+      "sourceTimetableIds": [
+        202
+      ]
+    },
+    {
+      "id": "TTG145",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 12,
+      "roomId": 15,
+      "slotId": 10,
+      "day": "TUE",
+      "batch": "D1",
+      "sourceText": "WMN(D1)(VM,SNK,KK)",
+      "isFixed": null,
+      "facultyIds": [
+        1,
+        23,
+        40
+      ],
+      "sourceTimetableIds": [
+        203,
+        204,
+        205
+      ]
+    },
+    {
+      "id": "TTG146",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 14,
+      "roomId": 15,
+      "slotId": 10,
+      "day": "TUE",
+      "batch": "D2",
+      "sourceText": "EIOT LAB(D2)( GS, SWATI) (LAB 2)",
+      "isFixed": null,
+      "facultyIds": [
+        29,
+        42
+      ],
+      "sourceTimetableIds": [
+        206,
+        207
+      ]
+    },
+    {
+      "id": "TTG147",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 17,
+      "roomId": 18,
+      "slotId": 13,
+      "day": "TUE",
+      "batch": "D(full)",
+      "sourceText": "BLOCKCHAIN(UMA)",
+      "isFixed": null,
+      "facultyIds": [
+        27
+      ],
+      "sourceTimetableIds": [
+        208
+      ]
+    },
+    {
+      "id": "TTG148",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 18,
+      "roomId": 18,
+      "slotId": 15,
+      "day": "TUE",
+      "batch": "D(full)",
+      "sourceText": "BLOCKCHAIN LAB(D) (UMA,VM,SG)(CLH310)",
+      "isFixed": null,
+      "facultyIds": [
+        27,
+        35,
+        41
+      ],
+      "sourceTimetableIds": [
+        209,
+        210,
+        211
+      ]
+    },
+    {
+      "id": "TTG149",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 17,
+      "roomId": 19,
+      "slotId": 13,
+      "day": "TUE",
+      "batch": "E(full)",
+      "sourceText": "BLOCKCHAIN(SG)",
+      "isFixed": null,
+      "facultyIds": [
+        35
+      ],
+      "sourceTimetableIds": [
+        212
+      ]
+    },
+    {
+      "id": "TTG150",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 31,
+      "roomId": 19,
+      "slotId": 16,
+      "day": "TUE",
+      "batch": "E(full)",
+      "sourceText": "PALR(E)",
+      "isFixed": null,
+      "facultyIds": [
+        10
+      ],
+      "sourceTimetableIds": [
+        213
+      ]
+    },
+    {
+      "id": "TTG151",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 31,
+      "roomId": 13,
+      "slotId": 25,
+      "day": "WED",
+      "batch": "A(full)",
+      "sourceText": "PALR(A)",
+      "isFixed": null,
+      "facultyIds": [
+        3
+      ],
+      "sourceTimetableIds": [
+        214
+      ]
+    },
+    {
+      "id": "TTG152",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 18,
+      "roomId": 19,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "B(full)",
+      "sourceText": "BLOCKCHAIN LAB ( ST ,SG, VM )",
+      "isFixed": null,
+      "facultyIds": [
+        32,
+        35,
+        41
+      ],
+      "sourceTimetableIds": [
+        215,
+        216,
+        217
+      ]
+    },
+    {
+      "id": "TTG153",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 31,
+      "roomId": 16,
+      "slotId": 27,
+      "day": "WED",
+      "batch": "B(full)",
+      "sourceText": "PALR( B)",
+      "isFixed": null,
+      "facultyIds": [
+        28
+      ],
+      "sourceTimetableIds": [
+        218
+      ]
+    },
+    {
+      "id": "TTG154",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 12,
+      "roomId": 15,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "C1",
+      "sourceText": "WMN(C1)(JGN,KK)",
+      "isFixed": null,
+      "facultyIds": [
+        7,
+        40
+      ],
+      "sourceTimetableIds": [
+        219,
+        220
+      ]
+    },
+    {
+      "id": "TTG155",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 14,
+      "roomId": 15,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "C2",
+      "sourceText": "EIOT(C2)(MMR, SWATI )",
+      "isFixed": null,
+      "facultyIds": [
+        9,
+        42
+      ],
+      "sourceTimetableIds": [
+        221,
+        222
+      ]
+    },
+    {
+      "id": "TTG156",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 13,
+      "roomId": 18,
+      "slotId": 25,
+      "day": "WED",
+      "batch": "D(full)",
+      "sourceText": "EIOT(GS)",
+      "isFixed": null,
+      "facultyIds": [
+        29
+      ],
+      "sourceTimetableIds": [
+        223
+      ]
+    },
+    {
+      "id": "TTG157",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 10,
+      "roomId": 19,
+      "slotId": 26,
+      "day": "WED",
+      "batch": "D1",
+      "sourceText": "GENAI LAB(D1)(GK,CM )(3.30-5.30)",
+      "isFixed": null,
+      "facultyIds": [
+        13
+      ],
+      "sourceTimetableIds": [
+        224
+      ]
+    },
+    {
+      "id": "TTG158",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 9,
+      "roomId": 19,
+      "slotId": 24,
+      "day": "WED",
+      "batch": "E(full)",
+      "sourceText": "GENAI(SGK)",
+      "isFixed": null,
+      "facultyIds": [
+        5
+      ],
+      "sourceTimetableIds": [
+        225
+      ]
+    },
+    {
+      "id": "TTG159",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 19,
+      "slotId": 25,
+      "day": "WED",
+      "batch": "E(full)",
+      "sourceText": "WMN(VSH)",
+      "isFixed": null,
+      "facultyIds": [
+        11
+      ],
+      "sourceTimetableIds": [
+        226
+      ]
+    },
+    {
+      "id": "TTG160",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 12,
+      "roomId": 14,
+      "slotId": 26,
+      "day": "WED",
+      "batch": "E1",
+      "sourceText": "WMN(E1)(VSH,KK)(CLH308)",
+      "isFixed": null,
+      "facultyIds": [
+        11,
+        40
+      ],
+      "sourceTimetableIds": [
+        227,
+        228
+      ]
+    },
+    {
+      "id": "TTG161",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 14,
+      "roomId": 15,
+      "slotId": 26,
+      "day": "WED",
+      "batch": "E2",
+      "sourceText": "EIOT LAB(E2)(GS,SDD )(LAB2)(3.30-5.30)",
+      "isFixed": null,
+      "facultyIds": [
+        3,
+        29
+      ],
+      "sourceTimetableIds": [
+        229,
+        230
+      ]
+    },
+    {
+      "id": "TTG162",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 10,
+      "roomId": 19,
+      "slotId": 28,
+      "day": "THU",
+      "batch": "A2",
+      "sourceText": "GENAI LAB(A2) (GK, CM) (CLH303",
+      "isFixed": null,
+      "facultyIds": [
+        13
+      ],
+      "sourceTimetableIds": [
+        231
+      ]
+    },
+    {
+      "id": "TTG163",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 12,
+      "roomId": 14,
+      "slotId": 30,
+      "day": "THU",
+      "batch": "A2",
+      "sourceText": "WMN LAB(A2)(VSH,KK)(CLH308)",
+      "isFixed": null,
+      "facultyIds": [
+        11,
+        40
+      ],
+      "sourceTimetableIds": [
+        232,
+        233
+      ]
+    },
+    {
+      "id": "TTG164",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 14,
+      "roomId": 15,
+      "slotId": 30,
+      "day": "THU",
+      "batch": "A1",
+      "sourceText": "EIOT LAB (A1)(SDD, SWATI )",
+      "isFixed": null,
+      "facultyIds": [
+        3,
+        42
+      ],
+      "sourceTimetableIds": [
+        234,
+        235
+      ]
+    },
+    {
+      "id": "TTG165",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 17,
+      "roomId": 13,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "A(full)",
+      "sourceText": "Blockchain( SG)",
+      "isFixed": null,
+      "facultyIds": [
+        35
+      ],
+      "sourceTimetableIds": [
+        236
+      ]
+    },
+    {
+      "id": "TTG166",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 17,
+      "roomId": 16,
+      "slotId": 29,
+      "day": "THU",
+      "batch": "B(full)",
+      "sourceText": "BLOCKCHAIN (ST)",
+      "isFixed": null,
+      "facultyIds": [
+        32
+      ],
+      "sourceTimetableIds": [
+        237
+      ]
+    },
+    {
+      "id": "TTG167",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 16,
+      "slotId": 31,
+      "day": "THU",
+      "batch": "B(full)",
+      "sourceText": "WMN(MMR)",
+      "isFixed": null,
+      "facultyIds": [
+        9
+      ],
+      "sourceTimetableIds": [
+        238
+      ]
+    },
+    {
+      "id": "TTG168",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 31,
+      "roomId": 16,
+      "slotId": 34,
+      "day": "THU",
+      "batch": "B(full)",
+      "sourceText": "PALR(B)",
+      "isFixed": null,
+      "facultyIds": [
+        28
+      ],
+      "sourceTimetableIds": [
+        239
+      ]
+    },
+    {
+      "id": "TTG169",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 10,
+      "roomId": 19,
+      "slotId": 28,
+      "day": "THU",
+      "batch": "C2",
+      "sourceText": "GENAI LAB( C2)(SUMAYA, SGK)",
+      "isFixed": null,
+      "facultyIds": [
+        5,
+        44
+      ],
+      "sourceTimetableIds": [
+        240,
+        241
+      ]
+    },
+    {
+      "id": "TTG170",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 31,
+      "roomId": 17,
+      "slotId": 31,
+      "day": "THU",
+      "batch": "C(full)",
+      "sourceText": "PALR(C)",
+      "isFixed": null,
+      "facultyIds": [
+        19
+      ],
+      "sourceTimetableIds": [
+        242
+      ]
+    },
+    {
+      "id": "TTG171",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 17,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "C(full)",
+      "sourceText": "WMN(JGN)",
+      "isFixed": null,
+      "facultyIds": [
+        7
+      ],
+      "sourceTimetableIds": [
+        243
+      ]
+    },
+    {
+      "id": "TTG172",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 18,
+      "roomId": 19,
+      "slotId": 34,
+      "day": "THU",
+      "batch": "C(full)",
+      "sourceText": "BLOCKCHAIN LAB(MKP,SG,Sumaya K.) (2.30 \u2013 4.30)",
+      "isFixed": null,
+      "facultyIds": [
+        19,
+        35,
+        36
+      ],
+      "sourceTimetableIds": [
+        244,
+        245,
+        246
+      ]
+    },
+    {
+      "id": "TTG173",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 31,
+      "roomId": 18,
+      "slotId": 28,
+      "day": "THU",
+      "batch": "D(full)",
+      "sourceText": "PALR(D)",
+      "isFixed": null,
+      "facultyIds": [
+        23
+      ],
+      "sourceTimetableIds": [
+        247
+      ]
+    },
+    {
+      "id": "TTG174",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 18,
+      "slotId": 31,
+      "day": "THU",
+      "batch": "D(full)",
+      "sourceText": "WMN(VM)",
+      "isFixed": null,
+      "facultyIds": [
+        1
+      ],
+      "sourceTimetableIds": [
+        248
+      ]
+    },
+    {
+      "id": "TTG175",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 9,
+      "roomId": 18,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "D(full)",
+      "sourceText": "GENAI(GK)",
+      "isFixed": null,
+      "facultyIds": [
+        13
+      ],
+      "sourceTimetableIds": [
+        249
+      ]
+    },
+    {
+      "id": "TTG176",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 10,
+      "roomId": 18,
+      "slotId": 34,
+      "day": "THU",
+      "batch": "D2",
+      "sourceText": "GENAI LAB(D2)(GK, CM)(CLH310)",
+      "isFixed": null,
+      "facultyIds": [
+        13
+      ],
+      "sourceTimetableIds": [
+        250
+      ]
+    },
+    {
+      "id": "TTG177",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 13,
+      "roomId": 19,
+      "slotId": 29,
+      "day": "THU",
+      "batch": "E(full)",
+      "sourceText": "EIOT(GS)",
+      "isFixed": null,
+      "facultyIds": [
+        29
+      ],
+      "sourceTimetableIds": [
+        251
+      ]
+    },
+    {
+      "id": "TTG178",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 9,
+      "roomId": 19,
+      "slotId": 31,
+      "day": "THU",
+      "batch": "E(full)",
+      "sourceText": "GENAI(SGK)",
+      "isFixed": null,
+      "facultyIds": [
+        5
+      ],
+      "sourceTimetableIds": [
+        252
+      ]
+    },
+    {
+      "id": "TTG179",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 12,
+      "roomId": 14,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "E2",
+      "sourceText": "WMN LAB(E2)(VSH,KK)(CLH308)",
+      "isFixed": null,
+      "facultyIds": [
+        11,
+        40
+      ],
+      "sourceTimetableIds": [
+        253,
+        254
+      ]
+    },
+    {
+      "id": "TTG180",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 14,
+      "roomId": 15,
+      "slotId": 33,
+      "day": "THU",
+      "batch": "E1",
+      "sourceText": "EIOT LAB(E1)(GS, SWATI)",
+      "isFixed": null,
+      "facultyIds": [
+        29,
+        42
+      ],
+      "sourceTimetableIds": [
+        255,
+        256
+      ]
+    },
+    {
+      "id": "TTG181",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 9,
+      "roomId": 13,
+      "slotId": 37,
+      "day": "FRI",
+      "batch": "A(full)",
+      "sourceText": "GENAI(GK)",
+      "isFixed": null,
+      "facultyIds": [
+        13
+      ],
+      "sourceTimetableIds": [
+        257
+      ]
+    },
+    {
+      "id": "TTG182",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 27,
+      "roomId": 13,
+      "slotId": 40,
+      "day": "FRI",
+      "batch": "A(full)",
+      "sourceText": "MINOR PROJECT",
+      "isFixed": null,
+      "facultyIds": [
+        18
+      ],
+      "sourceTimetableIds": [
+        258
+      ]
+    },
+    {
+      "id": "TTG183",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 18,
+      "roomId": 19,
+      "slotId": 42,
+      "day": "FRI",
+      "batch": "A(full)",
+      "sourceText": "BLOCKCHAIN LAB(SG)",
+      "isFixed": null,
+      "facultyIds": [
+        35
+      ],
+      "sourceTimetableIds": [
+        259
+      ]
+    },
+    {
+      "id": "TTG184",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 18,
+      "roomId": 19,
+      "slotId": 43,
+      "day": "FRI",
+      "batch": "A(full)",
+      "sourceText": "BLOCKCHAIN LAB(SG, ST, VM)(2.45 -4.45)",
+      "isFixed": null,
+      "facultyIds": [
+        32,
+        35,
+        41
+      ],
+      "sourceTimetableIds": [
+        260,
+        261,
+        262
+      ]
+    },
+    {
+      "id": "TTG185",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 9,
+      "roomId": 16,
+      "slotId": 37,
+      "day": "FRI",
+      "batch": "B(full)",
+      "sourceText": "GENAI(SUMAYA)",
+      "isFixed": null,
+      "facultyIds": [
+        44
+      ],
+      "sourceTimetableIds": [
+        263
+      ]
+    },
+    {
+      "id": "TTG186",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 27,
+      "roomId": 16,
+      "slotId": 40,
+      "day": "FRI",
+      "batch": "B(full)",
+      "sourceText": "MINOR PROJECT",
+      "isFixed": null,
+      "facultyIds": [
+        18
+      ],
+      "sourceTimetableIds": [
+        264
+      ]
+    },
+    {
+      "id": "TTG187",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 16,
+      "slotId": 42,
+      "day": "FRI",
+      "batch": "B(full)",
+      "sourceText": "WMN(MMR)",
+      "isFixed": null,
+      "facultyIds": [
+        9
+      ],
+      "sourceTimetableIds": [
+        265
+      ]
+    },
+    {
+      "id": "TTG188",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 10,
+      "roomId": 9,
+      "slotId": 43,
+      "day": "FRI",
+      "batch": "B2",
+      "sourceText": "GENAI LAB ( B2) (SUMAYA, GK )(LAB4)(2.45-4.45)",
+      "isFixed": null,
+      "facultyIds": [
+        13,
+        44
+      ],
+      "sourceTimetableIds": [
+        266,
+        267
+      ]
+    },
+    {
+      "id": "TTG189",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 17,
+      "roomId": 17,
+      "slotId": 37,
+      "day": "FRI",
+      "batch": "C(full)",
+      "sourceText": "BLOCKCHAIN(MKP)",
+      "isFixed": null,
+      "facultyIds": [
+        19
+      ],
+      "sourceTimetableIds": [
+        268
+      ]
+    },
+    {
+      "id": "TTG190",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 27,
+      "roomId": 17,
+      "slotId": 40,
+      "day": "FRI",
+      "batch": "C(full)",
+      "sourceText": "MINOR PROJECT",
+      "isFixed": null,
+      "facultyIds": [
+        18
+      ],
+      "sourceTimetableIds": [
+        269
+      ]
+    },
+    {
+      "id": "TTG191",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 31,
+      "roomId": 17,
+      "slotId": 43,
+      "day": "FRI",
+      "batch": "C(full)",
+      "sourceText": "PALR(C )",
+      "isFixed": null,
+      "facultyIds": [
+        19
+      ],
+      "sourceTimetableIds": [
+        270
+      ]
+    },
+    {
+      "id": "TTG192",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 13,
+      "roomId": 17,
+      "slotId": 44,
+      "day": "FRI",
+      "batch": "C(full)",
+      "sourceText": "EIOT(MMR)(3.30-5.30)",
+      "isFixed": null,
+      "facultyIds": [
+        9
+      ],
+      "sourceTimetableIds": [
+        271
+      ]
+    },
+    {
+      "id": "TTG193",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 18,
+      "slotId": 37,
+      "day": "FRI",
+      "batch": "D(full)",
+      "sourceText": "WMN(VM)",
+      "isFixed": null,
+      "facultyIds": [
+        1
+      ],
+      "sourceTimetableIds": [
+        272
+      ]
+    },
+    {
+      "id": "TTG194",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 27,
+      "roomId": 18,
+      "slotId": 40,
+      "day": "FRI",
+      "batch": "D(full)",
+      "sourceText": "MINOR PROJECT",
+      "isFixed": null,
+      "facultyIds": [
+        18
+      ],
+      "sourceTimetableIds": [
+        273
+      ]
+    },
+    {
+      "id": "TTG195",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 12,
+      "roomId": 15,
+      "slotId": 42,
+      "day": "FRI",
+      "batch": "D2",
+      "sourceText": "WMN(D2)(VM, SNK,KK)",
+      "isFixed": null,
+      "facultyIds": [
+        1,
+        23,
+        40
+      ],
+      "sourceTimetableIds": [
+        274,
+        275,
+        276
+      ]
+    },
+    {
+      "id": "TTG196",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 14,
+      "roomId": 15,
+      "slotId": 42,
+      "day": "FRI",
+      "batch": "D1",
+      "sourceText": "EIOT LAB(D1)(GS, SWATI) (LAB 2)",
+      "isFixed": null,
+      "facultyIds": [
+        29,
+        42
+      ],
+      "sourceTimetableIds": [
+        277,
+        278
+      ]
+    },
+    {
+      "id": "TTG197",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 31,
+      "roomId": 19,
+      "slotId": 37,
+      "day": "FRI",
+      "batch": "E(full)",
+      "sourceText": "PALR(E)",
+      "isFixed": null,
+      "facultyIds": [
+        10
+      ],
+      "sourceTimetableIds": [
+        279
+      ]
+    },
+    {
+      "id": "TTG198",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 27,
+      "roomId": 19,
+      "slotId": 40,
+      "day": "FRI",
+      "batch": "E(full)",
+      "sourceText": "MINOR PROJECT",
+      "isFixed": null,
+      "facultyIds": [
+        18
+      ],
+      "sourceTimetableIds": [
+        280
+      ]
+    },
+    {
+      "id": "TTG199",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 11,
+      "roomId": 19,
+      "slotId": 43,
+      "day": "FRI",
+      "batch": "E(full)",
+      "sourceText": "WMN(VSH)",
+      "isFixed": null,
+      "facultyIds": [
+        11
+      ],
+      "sourceTimetableIds": [
+        281
+      ]
+    },
+    {
+      "id": "TTG200",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 10,
+      "roomId": 19,
+      "slotId": 44,
+      "day": "FRI",
+      "batch": "E2",
+      "sourceText": "GENAI LAB(E2)(CLAB1) (SGK, SGG ) (3.30 \u2013 5.30)",
+      "isFixed": null,
+      "facultyIds": [
+        5,
+        10
+      ],
+      "sourceTimetableIds": [
+        282,
+        283
+      ]
+    },
+    {
+      "id": "TTG201",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 23,
+      "roomId": 13,
+      "slotId": 1,
+      "day": "MON",
+      "batch": "D(full)",
+      "sourceText": "WS(NP) (D,E) 2 HRS (8-10) (CLH303)",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        284
+      ]
+    },
+    {
+      "id": "TTG202",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 23,
+      "roomId": 13,
+      "slotId": 1,
+      "day": "MON",
+      "batch": "E(full)",
+      "sourceText": "WS(NP) (D,E) 2 HRS (8-10) (CLH303)",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        285
+      ]
+    },
+    {
+      "id": "TTG203",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 21,
+      "roomId": 20,
+      "slotId": 1,
+      "day": "MON",
+      "batch": "A(full)",
+      "sourceText": "ACM(SRC) 2HRS (8-10)(CAIR LAB)",
+      "isFixed": null,
+      "facultyIds": [
+        2
+      ],
+      "sourceTimetableIds": [
+        286
+      ]
+    },
+    {
+      "id": "TTG204",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 19,
+      "roomId": 16,
+      "slotId": 2,
+      "day": "MON",
+      "batch": "B(full)",
+      "sourceText": "EIS(SVG) 1HR (9-10)(CLH304)",
+      "isFixed": null,
+      "facultyIds": [
+        18
+      ],
+      "sourceTimetableIds": [
+        287
+      ]
+    },
+    {
+      "id": "TTG205",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 15,
+      "roomId": 18,
+      "slotId": 2,
+      "day": "MON",
+      "batch": "D(full)",
+      "sourceText": "IIMDC(CB) 1 HR(9-10)(CLH310)",
+      "isFixed": null,
+      "facultyIds": [
+        28
+      ],
+      "sourceTimetableIds": [
+        288
+      ]
+    },
+    {
+      "id": "TTG206",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 32,
+      "roomId": 19,
+      "slotId": 19,
+      "day": "WED",
+      "batch": "E(full)",
+      "sourceText": "APS(CLAB1)(MA, X)",
+      "isFixed": null,
+      "facultyIds": [
+        32
+      ],
+      "sourceTimetableIds": [
+        289
+      ]
+    },
+    {
+      "id": "TTG207",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 15,
+      "roomId": 17,
+      "slotId": 19,
+      "day": "WED",
+      "batch": "C(full)",
+      "sourceText": "IIDMC(8-12)",
+      "isFixed": null,
+      "facultyIds": [
+        28
+      ],
+      "sourceTimetableIds": [
+        290
+      ]
+    },
+    {
+      "id": "TTG208",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 16,
+      "roomId": 18,
+      "slotId": 19,
+      "day": "WED",
+      "batch": "A(full)",
+      "sourceText": "IIMDC(CB) LAB 2 (A,B,D)(CB, sumaya K)(CLH310)",
+      "isFixed": null,
+      "facultyIds": [
+        28,
+        36
+      ],
+      "sourceTimetableIds": [
+        291,
+        292
+      ]
+    },
+    {
+      "id": "TTG209",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 16,
+      "roomId": 18,
+      "slotId": 19,
+      "day": "WED",
+      "batch": "B(full)",
+      "sourceText": "IIMDC(CB) LAB 2 (A,B,D)(CB, sumaya K)(CLH310)",
+      "isFixed": null,
+      "facultyIds": [
+        28,
+        36
+      ],
+      "sourceTimetableIds": [
+        293,
+        294
+      ]
+    },
+    {
+      "id": "TTG210",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 16,
+      "roomId": 18,
+      "slotId": 19,
+      "day": "WED",
+      "batch": "D(full)",
+      "sourceText": "IIMDC(CB) LAB 2 (A,B,D)(CB, sumaya K)(CLH310)",
+      "isFixed": null,
+      "facultyIds": [
+        28,
+        36
+      ],
+      "sourceTimetableIds": [
+        295,
+        296
+      ]
+    },
+    {
+      "id": "TTG211",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 16,
+      "roomId": 15,
+      "slotId": 47,
+      "day": "SAT",
+      "batch": "C(full)",
+      "sourceText": "IIMDC(CB) LAB 2(C,E) (Sumaya K)",
+      "isFixed": null,
+      "facultyIds": [
+        28,
+        36
+      ],
+      "sourceTimetableIds": [
+        297,
+        298
+      ]
+    },
+    {
+      "id": "TTG212",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 16,
+      "roomId": 15,
+      "slotId": 47,
+      "day": "SAT",
+      "batch": "E(full)",
+      "sourceText": "IIMDC(CB) LAB 2(C,E) (Sumaya K)",
+      "isFixed": null,
+      "facultyIds": [
+        28,
+        36
+      ],
+      "sourceTimetableIds": [
+        299,
+        300
+      ]
+    },
+    {
+      "id": "TTG213",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 25,
+      "roomId": 18,
+      "slotId": 46,
+      "day": "SAT",
+      "batch": "D(full)",
+      "sourceText": "EC(TH)(8-10)",
+      "isFixed": null,
+      "facultyIds": [
+        45
+      ],
+      "sourceTimetableIds": [
+        301
+      ]
+    },
+    {
+      "id": "TTG214",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 26,
+      "roomId": 15,
+      "slotId": 48,
+      "day": "SAT",
+      "batch": "D(full)",
+      "sourceText": "EC LAB(10-12)",
+      "isFixed": null,
+      "facultyIds": [
+        45
+      ],
+      "sourceTimetableIds": [
+        302
+      ]
+    },
+    {
+      "id": "TTG215",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 20,
+      "roomId": 19,
+      "slotId": 46,
+      "day": "SAT",
+      "batch": "E(full)",
+      "sourceText": "EIS(SVG) 4HRS LAB",
+      "isFixed": null,
+      "facultyIds": [
+        18
+      ],
+      "sourceTimetableIds": [
+        303
+      ]
+    },
+    {
+      "id": "TTG216",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 23,
+      "roomId": 13,
+      "slotId": 46,
+      "day": "SAT",
+      "batch": "A(full)",
+      "sourceText": "WS(NP)(8-10)(A,B,C) TH",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        304
+      ]
+    },
+    {
+      "id": "TTG217",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 23,
+      "roomId": 16,
+      "slotId": 46,
+      "day": "SAT",
+      "batch": "B(full)",
+      "sourceText": "WS(NP)(8-10)(A,B,C) TH",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        305
+      ]
+    },
+    {
+      "id": "TTG218",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 23,
+      "roomId": 17,
+      "slotId": 46,
+      "day": "SAT",
+      "batch": "C(full)",
+      "sourceText": "WS(NP)(8-10)(A,B,C) TH",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        306
+      ]
+    },
+    {
+      "id": "TTG219",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 24,
+      "roomId": 15,
+      "slotId": 48,
+      "day": "SAT",
+      "batch": "A(full)",
+      "sourceText": "WS(NP)(10-12)(A,B,C) LAB",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        307
+      ]
+    },
+    {
+      "id": "TTG220",
+      "divisionId": 7,
+      "divisionName": "B",
+      "semester": 6,
+      "courseId": 24,
+      "roomId": 15,
+      "slotId": 48,
+      "day": "SAT",
+      "batch": "B(full)",
+      "sourceText": "WS(NP)(10-12)(A,B,C) LAB",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        308
+      ]
+    },
+    {
+      "id": "TTG221",
+      "divisionId": 8,
+      "divisionName": "C",
+      "semester": 6,
+      "courseId": 24,
+      "roomId": 15,
+      "slotId": 48,
+      "day": "SAT",
+      "batch": "C(full)",
+      "sourceText": "WS(NP)(10-12)(A,B,C) LAB",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        309
+      ]
+    },
+    {
+      "id": "TTG222",
+      "divisionId": 9,
+      "divisionName": "D",
+      "semester": 6,
+      "courseId": 24,
+      "roomId": 15,
+      "slotId": 50,
+      "day": "SAT",
+      "batch": "D(full)",
+      "sourceText": "WS(NP)(12-2)(D,E) LAB",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        310
+      ]
+    },
+    {
+      "id": "TTG223",
+      "divisionId": 10,
+      "divisionName": "E",
+      "semester": 6,
+      "courseId": 24,
+      "roomId": 15,
+      "slotId": 50,
+      "day": "SAT",
+      "batch": "E(full)",
+      "sourceText": "WS(NP)(12-2)(D,E) LAB",
+      "isFixed": null,
+      "facultyIds": [
+        33
+      ],
+      "sourceTimetableIds": [
+        311
+      ]
+    },
+    {
+      "id": "TTG224",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 22,
+      "roomId": 15,
+      "slotId": 46,
+      "day": "SAT",
+      "batch": "A(full)",
+      "sourceText": "ACM LAB(8-10)",
+      "isFixed": null,
+      "facultyIds": [
+        2
+      ],
+      "sourceTimetableIds": [
+        312
+      ]
+    },
+    {
+      "id": "TTG225",
+      "divisionId": 6,
+      "divisionName": "A",
+      "semester": 6,
+      "courseId": 32,
+      "roomId": 19,
+      "slotId": 51,
+      "day": "SAT",
+      "batch": "A(full)",
+      "sourceText": "APS(1- 5)",
+      "isFixed": null,
+      "facultyIds": [
+        32
+      ],
+      "sourceTimetableIds": [
+        313
+      ]
+    }
+  ],
+  "approvedExceptions": [
+    "TTG222",
+    "TTG223"
+  ]
+}
