@@ -12,14 +12,24 @@ function selectNextSession(graph, domains, assignments) {
   return remaining[0];
 }
 
-function backtracking(graph, domains, initialAssignments = new Map()) {
+/**
+ * MRV + forward-checking backtracking (legacy slot-only API).
+ * options.timeLimitMs (default 60 s) and options.maxNodes bound the search so
+ * an unsolvable input can never hang the caller; the outcome is exposed on
+ * backtracking.lastRun = { status: 'SOLVED' | 'EXHAUSTED' | 'TIMEOUT', nodes }.
+ */
+function backtracking(graph, domains, initialAssignments = new Map(), options = {}) {
+  const deadline = Date.now() + (options.timeLimitMs ?? 60000);
+  const maxNodes = options.maxNodes ?? Infinity;
+  let nodes = 0, stopped = false;
+  backtracking.lastRun = { status: 'RUNNING', nodes: 0 };
   const initial = new Map(initialAssignments);
   // Verify pinned assignments against one another.
   const pinned = [...initial.entries()];
   for (let i = 0; i < pinned.length; i++) for (let j = i + 1; j < pinned.length; j++) {
     const [a, av] = pinned[i], [b, bv] = pinned[j];
     const edge = (graph.get(a) || []).find(e => e.sessionId === b);
-    if (edge && hasConstraintConflict(edge, av, bv)) return null;
+    if (edge && hasConstraintConflict(edge, av, bv)) { backtracking.lastRun = { status: 'EXHAUSTED', nodes: 0 }; return null; }
   }
   const seededDomains = new Map([...domains].map(([id, values]) => [id, [...values]]));
   for (const [id, value] of initial) seededDomains.set(id, [value]);
@@ -29,6 +39,8 @@ function backtracking(graph, domains, initialAssignments = new Map()) {
     const id = selectNextSession(graph, currentDomains, assignments);
     if (id === undefined) return null;
     for (const candidate of currentDomains.get(id) || []) {
+      if (stopped) return null;
+      if (++nodes > maxNodes || ((nodes & 255) === 0 && Date.now() > deadline)) { stopped = true; return null; }
       let conflict = false;
       for (const edge of graph.get(id) || []) {
         if (assignments.has(edge.sessionId) && hasConstraintConflict(edge, candidate, assignments.get(edge.sessionId))) { conflict = true; break; }
@@ -43,7 +55,9 @@ function backtracking(graph, domains, initialAssignments = new Map()) {
     }
     return null;
   }
-  return solve(seededDomains, initial);
+  const result = solve(seededDomains, initial);
+  backtracking.lastRun = { status: result ? 'SOLVED' : stopped ? 'TIMEOUT' : 'EXHAUSTED', nodes };
+  return result;
 }
 
 module.exports = { backtracking, selectNextSession };

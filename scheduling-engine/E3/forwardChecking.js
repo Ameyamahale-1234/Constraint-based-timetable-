@@ -43,8 +43,10 @@ function hasConstraintConflict(edge, a, b) {
         // Legacy domains contain only slots: an edge means the sessions
         // cannot share any overlapping slot (preserves existing API behavior).
         if (!resourceCandidates) return true;
-        if (reasons.includes('FACULTY') && a.facultyId != null && a.facultyId === b.facultyId) return true;
-        if (reasons.includes('ROOM') && a.roomId != null && a.roomId === b.roomId) return true;
+        const facA = (a.facultyIds || [a.facultyId]).filter(x => x != null).map(String);
+        const facB = (b.facultyIds || [b.facultyId]).filter(x => x != null).map(String);
+        if (reasons.includes('FACULTY') && facA.some(id => facB.includes(id))) return true;
+        if (reasons.includes('ROOM') && a.roomId != null && String(a.roomId) === String(b.roomId)) return true;
         if (reasons.some(r => ['DIVISION', 'BATCH'].includes(r))) return true;
     }
     if (reasons.includes("DAY_SEPARATION")) {
