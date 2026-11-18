@@ -21,7 +21,7 @@ function getFacultyIds(session) {
             ? [session.facultyId]
             : []);
 
-    return ids.filter(id => id != null);
+    return ids.filter(id => id != null).map(id => String(id).trim());
 }
 
 // Get batch IDs from both supported formats.
@@ -29,7 +29,7 @@ function getBatchIds(session) {
     const batches = session.batchIds ??
         (session.batch ? [session.batch] : []);
 
-    return batches.filter(batch => {
+    return batches.map(String).filter(batch => {
         return !String(batch)
             .toLowerCase()
             .includes("(full)");
@@ -80,7 +80,7 @@ function getResourceConflicts(s1, s2) {
     if (
         s1.roomId != null &&
         s2.roomId != null &&
-        s1.roomId === s2.roomId
+        String(s1.roomId) === String(s2.roomId)
     ) {
         conflicts.push("ROOM");
     }
@@ -89,7 +89,7 @@ function getResourceConflicts(s1, s2) {
     const sameDivision =
         s1.divisionId != null &&
         s2.divisionId != null &&
-        s1.divisionId === s2.divisionId;
+        String(s1.divisionId) === String(s2.divisionId);
 
     if (sameDivision) {
         const batches1 = getBatchIds(s1);

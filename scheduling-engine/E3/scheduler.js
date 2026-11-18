@@ -48,14 +48,14 @@ function getResourceConflicts(a, b) {
     const facultyB = b.facultyIds ||
         (b.facultyId != null ? [b.facultyId] : []);
 
-    if (facultyA.some(id => facultyB.includes(id))) {
+    if (facultyA.some(id => facultyB.some(other => String(other) === String(id)))) {
         reasons.push("FACULTY");
     }
 
     if (
         a.roomId != null &&
         b.roomId != null &&
-        a.roomId === b.roomId
+        String(a.roomId) === String(b.roomId)
     ) {
         reasons.push("ROOM");
     }
@@ -63,7 +63,7 @@ function getResourceConflicts(a, b) {
     if (
         a.divisionId != null &&
         b.divisionId != null &&
-        a.divisionId === b.divisionId
+        String(a.divisionId) === String(b.divisionId)
     ) {
         const batchesA = a.batchIds ||
             (a.batch ? [a.batch] : []);
@@ -216,9 +216,9 @@ function buildDomains(
 }
 
 // Main solver delegates to the shared MRV + forward-checking implementation.
-function solveSchedule(sessions, domains, preassigned = new Map()) {
+function solveSchedule(sessions, domains, preassigned = new Map(), options = {}) {
     const graph = buildConflictGraph(sessions);
-    return backtracking(graph, domains, preassigned);
+    return backtracking(graph, domains, preassigned, options);
 }
 
 // Combine prepared source sessions with any extra caller-supplied metadata.
@@ -270,7 +270,8 @@ function generateTimetable(
     roomAvailability = null,
     blockedSlots = [],
     workingSlots = null,
-    sourceData = null
+    sourceData = null,
+    options = {}
 ) {
     let sourceValidation = null;
     let sourcePreparation = null;
@@ -377,7 +378,8 @@ function generateTimetable(
     const result = solveSchedule(
         sessions,
         domains,
-        preassigned
+        preassigned,
+        options
     );
 
     if (result !== null) {
@@ -419,7 +421,9 @@ function generateTimetable(
         success: false,
         method: "None",
         assignments: null,
-        errors: ["No valid timetable found."],
+        errors: [backtracking.lastRun && backtracking.lastRun.status === "TIMEOUT"
+            ? "No valid timetable found within the time limit."
+            : "No valid timetable found."],
         conflictReport,
         sourceValidation,
         sourcePreparation

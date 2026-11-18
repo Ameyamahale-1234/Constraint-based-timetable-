@@ -53,39 +53,75 @@ From the repository root:
 node scheduling-engine/E3/tests/runAllTests.js
 ```
 
-## Important integration boundaries / remaining application work
-
-- The adapters normalize academic reference data. Supabase table names in `data/supabaseAdapter.js` are defaults and must be aligned with the team's actual Supabase schema.
-- Excel parsing needs the optional `xlsx` dependency; the adapter also accepts already-parsed worksheet rows.
-- `eligibleFacultyIds` is emitted by session generation as eligibility metadata. The current core scheduler still expects a selected `facultyId`/`facultyIds` on each session; a full teacher-choice search dimension (faculty × room × time) must be added before claiming that the engine automatically chooses among multiple eligible teachers.
-- Room selection is likewise currently constrained by `roomId`/room availability supplied to the scheduler; automatic room-choice domains require the same resource-choice expansion.
-- Existing `sourceSessionPreparer.js` and the sample fixture tests support the legacy timetable-audit workflow. They are not the new requirements-to-timetable generation pipeline. Do not use sample TTG IDs as institutional rules.
-- A live Supabase connection, real production schema, and frontend integration were not available in this offline review and must be tested in the team's environment.
-
-## Resource-aware timetable generation
-
-The original `generateTimetable(sessions, ...)` API remains available for legacy slot-only scheduling and its existing tests.
-
-For new academic-data-driven generation, use the resource-aware entry point:
+## Resource-aware timetable generation (greedy + backtracking)
 
 ```js
-const { normalizeData } = require('./data/dataNormalizer');
-const { generateTimetableFromData } = require('./scheduler');
+const { generateTimetableFromData } = require('./resourceScheduler');
 
-const normalized = normalizeData(rawAcademicData);
-const result = generateTimetableFromData(normalized, {
-  // Optional: override the default code-generated college slots.
-  // availableSlots: getCollegeSlots(customTimeConfig)
+const result = generateTimetableFromData(rawAcademicData, {
+  timeLimitMs: 60000,            // hard limit; the engine never runs longer
+  // timeConfig: { ... },        // college periods (see "Flexible time configuration")
+  // labWindow: { start: '08:00', end: '12:00' },   or labWindows: [{ start, end, days }]
+  // labBatchesPerDivision: 2,   // default batch count when a division does not say
+  // maxFacultyHoursPerDay: 5,   // default limit when a teacher record does not say
+  // maxFacultyHoursPerWeek: 18,
+  // sameFacultyForCourse: true, // a course-division keeps the same teacher all week
+  // seed: 1                     // makes results reproducible
+  // preferenceWeights: { sameCourseTime: 150, divisionTime: 30, gapPerMinute: 0.6 }
+  //   soft preferences for timetable variety (theory classes): avoid the same
+  //   course at the same time on different days, spread a division's classes
+  //   over the whole day, avoid long idle gaps. Set a weight to 0 to disable it.
 });
-
-if (!result.success) {
-  console.error(result.errors);
-} else {
-  // Each assignment contains { slots, facultyId, roomId }.
-  console.log([...result.assignments]);
-}
 ```
 
-This path creates candidate combinations of eligible faculty, suitable rooms and valid time groups, then applies MRV backtracking with forward checking. Theory sessions require classroom-type rooms; lab sessions require lab-type rooms. Labs use uninterrupted one-, two- or three-hour blocks within the 08:00–12:00 lab window. The returned `assignments` map stores each combined assignment as `{ slots, facultyId, roomId }`.
+Raw data is normalized and validated inside the call, so Excel rows, Supabase rows or JSON can be passed directly.
 
-Availability inputs may be supplied through `options.facultyAvailability` and `options.roomAvailability` as maps keyed by resource ID, where each value is an array of allowed slot objects. The normalized data arrays `facultyAvailability` and `roomAvailability` are also supported when each row contains a resource ID and a `slot`, `timeSlot`, or slot-shaped record.
+### How it works
+
+1. **Input validation**: duplicate IDs, missing fields and broken references (a mapping that points to an unknown course, division or teacher) stop the run with a clear list of errors. All IDs are compared as trimmed strings, so `4`, `"4"` and `"4.0"` are the same teacher.
+2. **Session generation**: one 1-period session per theory credit (on different days, same teacher), one lab session per batch (1, 2 or 3 uninterrupted hours inside the lab window).
+3. **Options per session**: eligible teacher(s) × legal time blocks, filtered by availability and hour limits; suitable rooms by type and capacity.
+4. **Feasibility checks** (`feasibilityChecker.js`) catch impossible data in milliseconds, for example: a course with more weekly sessions than days, a teacher or group of teachers with more hours than they can teach, a division or batch with more hours than the week has, too few rooms of a type, or fixed sessions that collide.
+5. **Greedy construction**: the most constrained session (fewest options left) is placed next, at the least loaded day and time for its division and teacher.
+6. **Backtracking** with forward checking runs only when greedy gets stuck. It restarts with randomized ordering and learns from failures: sessions that caused dead ends get placed earlier. The time limit is always respected.
+7. **Independent audit** (`finalTimetableValidator.js`) re-checks every hard rule. `success` is `true` only if the audit passes.
+
+### Result
+
+| field | meaning |
+|---|---|
+| `success` | `true` only when a complete timetable passed the independent audit |
+| `stage` | `DONE`, `INPUT_VALIDATION`, `SESSION_GENERATION`, `FEASIBILITY`, `NO_SOLUTION` (proven impossible), `TIME_LIMIT`, `FINAL_VALIDATION` |
+| `errors` | human-readable reasons when `success` is `false` |
+| `warnings` | non-fatal notes (e.g. a room pool that is 95% full) |
+| `assignments` | `Map(sessionId → { slots, day, start, end, facultyId, facultyIds, roomId })` |
+| `timetable` | JSON-ready rows sorted by day and time, ready to send to a web front end |
+| `partialAssignments`, `unplacedSessions`, `diagnostics.hardestSessions` | on `TIME_LIMIT` / `NO_SOLUTION`: what was placed and which sessions blocked the rest |
+| `validation` | the full audit report |
+| `stats` | sessions placed greedily, backtracks, restarts, time |
+
+### Optional input fields
+
+| record | fields (any of the listed spellings) |
+|---|---|
+| course | `faculty_per_session` (team teaching), `split_batches` (`false` = whole-division lab), `required_room_type`, `duration_hours` (labs: 1, 2 or 3) |
+| division | `batches` (`"A1, A2, A3"`) or `batch_count`; `student_count` / `strength` |
+| room | `capacity` |
+| faculty | `max_hours_per_day`, `max_hours_per_week` |
+| courseFaculty | `division_batch` may name divisions (`"A, B"`), division IDs or batches (`"B1, B2"`); a batch is taught by its batch teachers and the division's teachers |
+| facultyAvailability / roomAvailability | rows `{ faculty_id, day, start, end, available }` or `{ faculty_id, day, slotId }`; `available: false` blocks time; a resource with no rows is always available |
+| fixedAssignments | `{ course_id, division_id, batch?, occurrence?, day, start | slotId, faculty_id?, room_id? }` pins a session |
+
+Lab batches are named after their division (`A1`, `A2`, `B1`, …). Availability is compared by day and clock time, so a teacher available in class periods is also available for lab hours at the same time. Gaps of 30 minutes or less, such as a short break, are bridged.
+
+### Limits (honest guarantees)
+
+- Every run ends within `timeLimitMs` with either an audited timetable or a reason.
+- Timetabling is NP-hard. Data that passes every feasibility check but leaves almost no slack (for example lab rooms 100% full) can still need more search time; the result then says `TIME_LIMIT` and lists the nearly-full resources. Raise `timeLimitMs` or add slack.
+- Elective sessions shared by several divisions are not modelled yet.
+
+## Legacy APIs
+
+The original `generateTimetable(sessions, ...)` in `scheduler.js` (slot-only scheduling) and the source-timetable audit tools (`sourceSessionPreparer.js`, `sourceDataValidator.js`) remain for their existing tests. Their backtracking now also has a time limit (`options.timeLimitMs`, default 60 s).
+
+Supabase table names in `data/supabaseAdapter.js` are defaults and must be aligned with the team's actual schema; a live Supabase connection was not available in this offline review.

@@ -13,7 +13,8 @@ assert.ok(sessions.length > 0);
 assert.ok(sessions.every(s => s.courseId != null && s.divisionId != null && s.durationHours > 0));
 const labs = sessions.filter(s => s.courseType === 'LAB');
 assert.ok(labs.length > 0);
-assert.ok(labs.every(s => ['A1', 'A2'].includes(s.batch)));
+// Lab batches are named after their division (A1/A2, B1/B2, ...), never reused across divisions.
+assert.ok(labs.every(s => [`${s.divisionName}1`, `${s.divisionName}2`].includes(s.batch)));
 assert.ok(labs.every(s => [1, 2, 3].includes(s.durationHours)));
 assert.ok(!labs.some(s => s.durationHours === 4));
 const theory = sessions.filter(s => s.courseType === 'THEORY');
