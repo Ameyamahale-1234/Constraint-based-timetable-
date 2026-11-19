@@ -1,0 +1,14 @@
+{
+  "name": "classsync-server",
+  "private": true,
+  "version": "1.0.0",
+  "description": "ClassSync API: reads an academic Excel workbook and generates a timetable with the E3 engine",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "sample": "node createSampleWorkbook.js && node createLargeSampleWorkbook.js"
+  },
+  "dependencies": {
+    "xlsx": "0.18.5"
+  }
+}
