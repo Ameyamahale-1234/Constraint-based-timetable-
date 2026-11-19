@@ -157,3 +157,25 @@
 .dev .cg-info .good{color:#16a34a;font-weight:600}
 .dev .cg-info .bad{color:#dc2626;font-weight:600}
 @media(max-width:900px){.dev .cg-bottom{grid-template-columns:1fr}.dev .cg-replay{margin-left:0}}
+
+/* ---------- E2 conflict report ---------- */
+.dev .tab-count{display:inline-block;margin-left:6px;background:#dc2626;color:#fff;border-radius:999px;font-size:11px;font-weight:700;padding:1px 7px}
+.dev .cr-alert{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0;padding:14px 16px;border-radius:10px;background:#fef2f2;border:1px solid #fecaca;border-left:5px solid #dc2626;color:#7f1d1d}
+.dev .cr{display:flex;flex-direction:column;gap:14px}
+.dev .cr-hero{display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.dev .cr-hero h3{margin:0 0 4px;font-size:20px}
+.dev .cr-hero p{margin:0;font-size:14px}
+.dev .cr-hero>div{flex:1}
+.dev .cr-hero.bad{background:#fef2f2;border:1px solid #fecaca;border-left:6px solid #dc2626;color:#7f1d1d}
+.dev .cr-hero.good{background:#f0fdf4;border:1px solid #bbf7d0;border-left:6px solid #16a34a;color:#14532d}
+.dev .cr-hero.idle{background:#fff;border-left:6px solid #94a3b8;color:#334155}
+.dev .cr-summary{display:flex;flex-wrap:wrap;gap:8px}
+.dev .cr-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid #fecaca;color:#991b1b;text-decoration:none;font-size:13px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.dev .cr-chip b{background:#dc2626;color:#fff;border-radius:999px;padding:0 7px;font-size:12px}
+.dev .cr-group{background:#fff;border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.dev .cr-group-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;color:#1c3a5e}
+.dev .cr-group-head h4{margin:0;font-size:16px;flex:1}
+.dev .cr-fix{margin:0 0 10px;padding:8px 12px;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;font-size:13px;color:#78350f}
+.dev .cr-group ol{margin:0;padding-left:22px;line-height:1.6;font-size:14px;color:#334155}
+.dev .cr-group ol li{padding:4px 0;border-bottom:1px dashed #eef2f7}
+.dev .cr-group ol li:last-child{border-bottom:0}
