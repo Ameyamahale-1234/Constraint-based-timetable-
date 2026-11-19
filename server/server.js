@@ -3,7 +3,8 @@
  *
  *   GET  /api/health            -> { ok: true }
  *   GET  /api/sample            -> sample Excel workbook (download)
- *   POST /api/generate          -> body JSON { fileName, fileBase64, divisions, collegeName, timeLimitSeconds }
+ *   POST /api/import            -> body JSON { fileBase64, divisions } -> E1 data (courses, faculty, rooms, divisions, assignments)
+ *   POST /api/generate          -> body JSON { data: <E1 data> | fileBase64 + divisions, collegeName, timeLimitSeconds }
  *
  * If ../frontend/dist exists (after `npm run build` in frontend/), the built
  * web app is served from the same port, so one command runs everything.
@@ -15,15 +16,16 @@ const { readWorkbook, applyDivisionCount, UserError } = require('./excelImport')
 const { generateTimetableFromData } = require('../scheduling-engine/E3/resourceScheduler');
 const { createSampleWorkbook, SAMPLE_PATH } = require('./createSampleWorkbook');
 const { getCollegeSlots, DEFAULT_CONFIG } = require('../scheduling-engine/E3/collegeTimeConfig');
+const { rawToE1, e1ToRaw } = require('./e1Adapter');
 
 /** The college's period layout, used by the printable timetable sheet. */
-function collegeLayout() {
-  const slots = getCollegeSlots();
+function collegeLayout(timeConfig) {
+  const slots = getCollegeSlots(timeConfig || {});
   const days = [...new Set(slots.map(s => s.day))];
   const periods = [...new Map(slots.map(s => [`${s.start}-${s.end}`, { start: s.start, end: s.end }])).values()]
     .sort((a, b) => a.start.localeCompare(b.start));
   const periodsByDay = Object.fromEntries(days.map(d => [d, slots.filter(s => s.day === d).map(s => `${s.start}-${s.end}`)]));
-  return { days, periods, periodsByDay, lunch: DEFAULT_CONFIG.lunch };
+  return { days, periods, periodsByDay, lunch: timeConfig && timeConfig.lunch !== undefined ? timeConfig.lunch : DEFAULT_CONFIG.lunch };
 }
 const { createLargeSampleWorkbook, LARGE_SAMPLE_PATH } = require('./createLargeSampleWorkbook');
 
@@ -50,21 +52,41 @@ function readBody(req) {
   });
 }
 
+function decodeWorkbook(fileBase64) {
+  if (!fileBase64) throw new UserError('Please choose an Excel file.');
+  return readWorkbook(Buffer.from(String(fileBase64).replace(/^data:.*?;base64,/, ''), 'base64'));
+}
+
+/** Excel workbook -> E1 data for the data-entry pages. */
+function importWorkbook(body) {
+  const { raw, found } = decodeWorkbook(body?.fileBase64);
+  const { notes } = applyDivisionCount(raw, body?.divisions);
+  const data = rawToE1(raw);
+  return { data, notes, sheetsUsed: found, counts: Object.fromEntries(Object.entries(data).map(([k, v]) => [k, v.length])) };
+}
+
 function generate(body) {
   const { fileBase64, divisions, collegeName, timeLimitSeconds } = body || {};
-  if (!fileBase64) throw new UserError('Please choose an Excel file.');
-  const { raw, found } = readWorkbook(Buffer.from(String(fileBase64).replace(/^data:.*?;base64,/, ''), 'base64'));
-  const { divisions: scheduled, notes } = applyDivisionCount(raw, divisions);
   const limit = Math.min(Math.max(Number(timeLimitSeconds) || 60, 5), 300);
+  let raw, found = null, scheduled, notes = [], options = {};
+  if (body && body.data) {
+    // Generate from the data entered / imported on the E1 pages.
+    ({ raw, options } = e1ToRaw(body.data));
+    raw.department = [];
+    scheduled = raw.divisions.map(d => ({ id: d.division_id, name: d.division_name, semester: d.semester }));
+  } else {
+    ({ raw, found } = decodeWorkbook(fileBase64));
+    ({ divisions: scheduled, notes } = applyDivisionCount(raw, divisions));
+  }
 
-  const result = generateTimetableFromData(raw, { timeLimitMs: limit * 1000 });
+  const result = generateTimetableFromData(raw, { ...options, timeLimitMs: limit * 1000 });
 
   const facultyNames = Object.fromEntries(raw.faculty.map(f => [String(f.faculty_id ?? f.facultyId ?? f.id).trim(), f.faculty_name ?? f.name ?? String(f.faculty_id)]));
   const roomNames = Object.fromEntries(raw.rooms.map(r => [String(r.room_id ?? r.roomId ?? r.id).trim(), r.room_name ?? r.name ?? String(r.room_id)]));
   return {
     collegeName: collegeName || 'College',
     department: (raw.department[0] && (raw.department[0].dept_name || raw.department[0].department_name || raw.department[0].name)) || null,
-    layout: collegeLayout(),
+    layout: collegeLayout(options.timeConfig),
     success: result.success,
     stage: result.stage,
     errors: result.errors || [],
@@ -83,6 +105,7 @@ function generate(body) {
       auditPassed: result.validation?.valid ?? false
     },
     hardestSessions: result.diagnostics?.hardestSessions || [],
+    audit: result.validation ? { conflicts: result.validation.conflicts, ruleViolations: result.validation.ruleViolations, totalErrors: result.validation.totalErrors } : null,
     timetable: (result.timetable || []).map(row => ({
       ...row,
       facultyNames: row.facultyIds.map(id => facultyNames[id] || id),
@@ -118,6 +141,12 @@ const server = http.createServer(async (req, res) => {
         'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         'Content-Disposition': 'attachment; filename="ClassSync_large_sample_input.xlsx"'
       });
+    }
+    if (req.url === '/api/import' && req.method === 'POST') {
+      const text = await readBody(req);
+      let body;
+      try { body = JSON.parse(text); } catch { throw new UserError('Invalid request body.'); }
+      return send(res, 200, importWorkbook(body));
     }
     if (req.url === '/api/generate' && req.method === 'POST') {
       const text = await readBody(req);
