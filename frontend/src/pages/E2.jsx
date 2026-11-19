@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { samplePayload, dirtyPayload, validate, detect } from '../e2/engine.js'
 import ConflictGraph from './ConflictGraph.jsx'
+import ConflictReport from './ConflictReport.jsx'
 import { e1ToPayload, payloadToE1, scheduleFromResult, generateWithE3 } from '../e2/bridge.js'
 
-const TABS = ['Pipeline', 'Input data', 'Validation report', 'Conflict graph', 'Schedule']
+const TABS = ['Pipeline', 'Input data', 'Validation report', 'Conflict report', 'Conflict graph', 'Schedule']
 
-export default function E2({ e2, setE2, e1, onGenerated }) {
+export default function E2({ e2, setE2, e1, wf, onGenerated }) {
   const [busy, setBusy] = useState(false)
   const [tab, setTab] = useState('Pipeline')
   const [text, setText] = useState(e2.payload ? JSON.stringify(e2.payload, null, 1) : '')
@@ -53,12 +54,18 @@ export default function E2({ e2, setE2, e1, onGenerated }) {
   return (
     <div>
       <h2>E2 · Constraint &amp; Validation Engine</h2>
-      <div className="tabs">{TABS.map((t) => <button key={t} className={tab === t ? 'on' : ''} onClick={() => setTab(t)}>{t}</button>)}</div>
+      <div className="tabs">{TABS.map((t) => <button key={t} className={tab === t ? 'on' : ''} onClick={() => setTab(t)}>{t}{t === 'Conflict report' && wf?.result && !wf.result.success ? <span className="tab-count">{(wf.result.errors || []).length}</span> : null}</button>)}</div>
 
       {tab === 'Pipeline' && (
         <div className="panel">
           <ol className="pipe">{steps.map(([t, st, d, act]) => (
             <li key={t} className={st}><div><b>{t}</b><div className="muted">{d}</div></div><div>{act}</div></li>))}</ol>
+          {wf?.result && !wf.result.success && (
+            <div className="cr-alert">
+              <span><b>E3 could not build a timetable.</b> {(wf.result.errors || []).length} problem(s) found. See the full conflict report.</span>
+              <button className="danger" onClick={() => setTab('Conflict report')}>View conflict report</button>
+            </div>
+          )}
           {log.length > 0 && <pre className="log">{log.join('\n')}</pre>}
           <p className="muted">E3 is the real scheduling engine on the ClassSync server. E2 re-checks every timetable E3 returns.</p>
         </div>
@@ -80,6 +87,8 @@ export default function E2({ e2, setE2, e1, onGenerated }) {
             {issues.length === 0 && <tr><td colSpan="2" className="empty">No nulls, duplicates or invalid references found.</td></tr>}
             {issues.map((i, k) => <tr key={k}><td>{i.where}</td><td>{i.msg}</td></tr>)}</tbody></table>
         </div>))}
+
+      {tab === 'Conflict report' && <ConflictReport wf={wf} issues={issues} det={det} onRun={() => setTab('Pipeline')} />}
 
       {tab === 'Conflict graph' && (!e2.schedule ? <p className="muted">Run E3 assignment first (Pipeline).</p> : <ConflictGraph sessions={e2.schedule} det={det} payload={p} />)}
 

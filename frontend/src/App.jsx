@@ -65,7 +65,7 @@ function App() {
   if (page.startsWith("entity:")) {
     const key = page.split(":")[1];
     content = <div className="dev"><EntityPage key={key} entity={ENTITIES[key]} rows={stores[key][0]} setRows={stores[key][1]} /></div>;
-  } else if (page === "e2") content = <div className="dev"><E2 e2={e2} setE2={setE2} e1={e1} onGenerated={(result) => setWf(fromResult(result))} /></div>;
+  } else if (page === "e2") content = <div className="dev"><E2 e2={e2} setE2={setE2} e1={e1} wf={wf} onGenerated={(result) => setWf(fromResult(result))} /></div>;
   else if (page === "generate") content = <GenerateTimetable e1={e1} setters={setters} wf={wf} setWf={setWf} go={setPage} />;
   else if (page === "timetable") content = <TimetablePage user={user} wf={wf} setWf={setWf} go={setPage} />;
   else if (page === "conflicts") content = <div className="dev"><Conflicts wf={wf} go={setPage} /></div>;
