@@ -66,6 +66,40 @@ Team Contributions
 
 The project is divided into four engines, with each team member responsible for the design and development of an assigned technical component.
 
+## Run the web app
+
+You need Node.js 18 or newer.
+
+**Option 1: one window (recommended)**
+
+```bash
+cd frontend && npm install && npm run build && cd ..
+cd server && npm install && npm start
+```
+
+Open http://localhost:5050.
+
+**Option 2: development mode, with live reload of the frontend**
+
+```bash
+# terminal 1
+cd server && npm install && npm start
+# terminal 2
+cd frontend && npm install && npm run dev
+```
+
+Open the address Vite prints, usually http://localhost:5173.
+
+**Using it**
+
+1. Sign in (demo accounts, front-end only): coordinator / `admin123`, faculty / `faculty123`, student / `student123`.
+2. **E1 · Academic data** (coordinator): enter Courses, Faculty, Rooms & Labs, Divisions & Batches, Time Slots and Teaching Assignments, or on **Generate Timetable** import an Excel workbook (`samples/ClassSync_sample_input.xlsx` or the larger template) to fill those pages. Leave Time Slots empty to use the default college periods.
+3. **E2 · Validation Engine**: load the E1 data, check it for missing values, duplicates and broken references, send it to E3, and re-check E3's result with the conflict graph.
+4. **Generate Timetable**: run E3 (greedy placement, backtracking when stuck, independent audit), then approve the conflict-free result. **Conflict Reports** lists the reasons if no timetable is possible.
+5. **Timetable**: view by division, teacher or room and download PDF/CSV. After approval, faculty see their own timetable and students see their division's timetable.
+
+Workbook sheets: `Faculty`, `Course`, `Room`, `Course_Faculty` (required); `Division`, `Course_Division` (optional). The `Instructions` sheet in the sample explains every column.
+
 ## Project Diagrams
 
 ### 1. Academic Scheduling System Architecture
