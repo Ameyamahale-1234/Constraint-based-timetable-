@@ -1,0 +1,36 @@
+
+===== CLASSSYNC E3 GENERATED SESSIONS =====
+Academic input: C:\Users\Hp\OneDrive\Desktop\Timetable new\ClassSync-Git\scheduling-engine\E3\fixtures\academic_input_example.json
+Courses: 32
+Divisions: 10
+Faculty: 48
+Rooms: 20
+Generated weekly sessions: 287
+Theory/project sessions: 173
+Lab batch sessions: 114
+Duration distribution: { '1h': 241, '2h': 46 }
+Lab batches: A1, A2, B1, B2, C1, C2, D1, D2, E1, E2
+Validation: PASS (no 4-hour labs; all lab durations are 1, 2 or 3 hours)
+
+Starting resource-aware scheduling (greedy + backtracking, time limit 60 s).
+Scheduling success: true
+Stage: DONE
+Method: GreedyBacktracking
+Search: 287 placed greedily before the first backtrack, 0 backtracks, 0 restarts, 672 ms
+
+===== FINAL TIMETABLE VALIDATION (independent audit) =====
+Total sessions: 287
+Assigned sessions: 287
+Unassigned sessions: 0
+Faculty conflicts: 0
+Room conflicts: 0
+Division conflicts: 0
+Batch conflicts: 0
+Time-rule violations: 0
+Duration violations: 0
+Lab-window violations: 0
+Room capacity violations: 0
+Faculty workload violations: 0
+Missing assignment/resource violations: 0
+Total validation errors: 0
+FINAL VALIDATION: PASS

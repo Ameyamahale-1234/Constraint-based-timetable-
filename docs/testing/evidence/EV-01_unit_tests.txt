@@ -1,0 +1,264 @@
+
+===== CLASSSYNC E3 TEST REPORT =====
+
+Academic-input generation test passed: 287 fresh sessions generated from master data.
+PASS: academicInputGeneration.test.js
+
+--- Actual College Data Tests ---
+PASS: CSE department
+PASS: Semester coverage
+PASS: Division coverage
+PASS: 225 grouped sessions
+PASS: Multi-faculty assignments
+PASS: Required session information
+
+All actual-data integration checks passed.
+PASS: actualCollegeData.test.js
+
+===== ACTUAL EXCEL LAB SLOT VALIDATION =====
+Total Excel time slots: 54
+Two-hour lab combinations: 22
+Four-hour lab combinations: 0
+All actual Excel lab-slot checks passed!
+PASS: actualLabSlots.test.js
+Actual slot object overlap tests passed!
+PASS: actualSlotObjectOverlap.test.js
+Fresh-session generation test passed: source timetable rows were ignored.
+PASS: actualTimetableValidation.test.js
+All faculty availability tests passed!
+PASS: availabilityChecker.test.js
+
+===== BACKTRACKING RESULT =====
+S1 -> 9-10 AM
+S2 -> 10-11 AM
+S3 -> 10-11 AM
+
+All backtracking tests passed!
+PASS: backtracking.test.js
+PASS: Backtracking finds a valid object-based schedule.
+PASS: Backtracking rejects an impossible schedule.
+All backtracking-forward-checking tests passed!
+PASS: backtrackingForwardChecking.test.js
+Batch assignments: [ [ 'S1', '9-10 AM' ], [ 'S2', '10-11 AM' ] ]
+Batch conflict tests passed!
+PASS: batchConflict.test.js
+Total class slots: 44
+Saturday slots: 4
+Two-hour lab combinations: 22
+Four-hour lab combinations: 0
+College time configuration tests passed!
+PASS: collegeTimeConfig.test.js
+Conflict report: {
+  totalConflicts: 2,
+  conflicts: [
+    {
+      sessionId: 'S2',
+      type: 'NO_AVAILABLE_SLOTS',
+      message: 'No available time slots for S2'
+    },
+    {
+      sessionId: 'S1',
+      relatedSession: 'S2',
+      type: 'RESOURCE_CONFLICT',
+      reasons: [Array]
+    }
+  ]
+}
+All conflict reporting tests passed!
+PASS: conflictReporter.test.js
+
+===== CONSTRAINT CHECK =====
+{
+  valid: false,
+  conflicts: [ { sessionId: 'S1', reason: 'FACULTY CONFLICT' } ]
+}
+
+All constraint tests passed!
+PASS: constraintChecker.test.js
+Credit-based session generation tests passed.
+PASS: dataPipeline.test.js
+Division assignments: [ [ 'S1', '9-10 AM' ], [ 'S2', '10-11 AM' ] ]
+Division conflict tests passed!
+PASS: divisionConflict.test.js
+Dynamic college configuration tests passed.
+PASS: dynamicCollegeConfig.test.js
+Method: Backtracking
+Timetable: [ [ 'S1', '10-11 AM' ], [ 'S2', '9-10 AM' ] ]
+Faculty scheduling tests passed!
+PASS: facultyScheduling.test.js
+Final timetable audit tests passed (valid schedule accepted; break and resource conflicts detected).
+PASS: finalTimetableValidation.test.js
+
+===== FORWARD CHECKING RESULT =====
+S1 -> [ '9-10 AM' ]
+S2 -> [ '10-11 AM' ]
+S3 -> [ '10-11 AM' ]
+
+All forward checking tests passed!
+Lab slot overlap tests passed!
+PASS: forwardChecking.test.js
+Main backtracking + forward-checking integration tests passed.
+PASS: forwardCheckingSchedulerIntegration.test.js
+
+===== E3 CONFLICT GRAPH =====
+S1 -> [
+  { sessionId: 'S2', reasons: [ 'FACULTY' ] },
+  { sessionId: 'S3', reasons: [ 'ROOM' ] }
+]
+S2 -> [ { sessionId: 'S1', reasons: [ 'FACULTY' ] } ]
+S3 -> [ { sessionId: 'S1', reasons: [ 'ROOM' ] } ]
+
+All graph tests passed!
+PASS: graphBuilder.test.js
+
+===== GRAPH COLORING RESULT =====
+S1 -> 9-10 AM
+S2 -> 10-11 AM
+S3 -> 10-11 AM
+
+All graph coloring tests passed!
+PASS: graphColoring.test.js
+
+===== GREEDY SCHEDULING RESULT =====
+S1 -> 9-10 AM
+S2 -> 10-11 AM
+S3 -> 10-11 AM
+
+All greedy scheduling tests passed!
+PASS: greedyScheduler.test.js
+Unable to schedule: S2
+
+===== CONFLICT REPORT =====
+{
+  "totalConflicts": 3,
+  "conflicts": [
+    {
+      "sessionId": "S1",
+      "relatedSession": "S2",
+      "type": "RESOURCE_CONFLICT",
+      "reasons": [
+        "FACULTY"
+      ]
+    },
+    {
+      "sessionId": "S1",
+      "relatedSession": "S3",
+      "type": "RESOURCE_CONFLICT",
+      "reasons": [
+        "FACULTY"
+      ]
+    },
+    {
+      "sessionId": "S2",
+      "relatedSession": "S3",
+      "type": "RESOURCE_CONFLICT",
+      "reasons": [
+        "FACULTY"
+      ]
+    }
+  ]
+}
+
+===== SCHEDULING RESULT =====
+{
+  "success": false,
+  "method": "None",
+  "assignments": null,
+  "errors": [
+    "No valid timetable found."
+  ],
+  "conflictReport": {
+    "totalConflicts": 3,
+    "conflicts": [
+      {
+        "sessionId": "S1",
+        "relatedSession": "S2",
+        "type": "RESOURCE_CONFLICT",
+        "reasons": [
+          "FACULTY"
+        ]
+      },
+      {
+        "sessionId": "S1",
+        "relatedSession": "S3",
+        "type": "RESOURCE_CONFLICT",
+        "reasons": [
+          "FACULTY"
+        ]
+      },
+      {
+        "sessionId": "S2",
+        "relatedSession": "S3",
+        "type": "RESOURCE_CONFLICT",
+        "reasons": [
+          "FACULTY"
+        ]
+      }
+    ]
+  },
+  "sourceValidation": null,
+  "sourcePreparation": null
+}
+
+Impossible scheduling tests passed!
+PASS: impossibleSchedule.test.js
+All A1/A2 laboratory rules passed!
+PASS: labBatchParallel.test.js
+Lab assignment: [ '9-10 AM', '10-11 AM' ]
+Theory assignment: 11-12 PM
+Lab integration tests passed!
+PASS: labIntegration.test.js
+PASS: labScheduler.test.js
+Assigned slot: 9-10 AM
+Lunch break integration tests passed!
+PASS: lunchBreakIntegration.test.js
+Resource assignment, credit-based theory, and A1/A2 lab tests passed.
+PASS: resourceAssignment.test.js
+Robustness tests passed: valid data solved and audited; impossible data explained instantly.
+PASS: robustness.test.js
+All room availability tests passed!
+PASS: roomAvailabilityChecker.test.js
+Scheduling method: Backtracking
+Assignments: [ [ 'S1', '10-11 AM' ], [ 'S2', '9-10 AM' ] ]
+Room and faculty integration tests passed!
+PASS: roomFacultyIntegration.test.js
+Scheduling method: Greedy
+Timetable:
+S1 -> 9-10 AM
+S2 -> 10-11 AM
+S3 -> 10-11 AM
+
+All scheduler tests passed!
+PASS: scheduler.test.js
+PASS: sourcePreparationSchedulerIntegration.test.js
+PASS: sourcePreparationSchedulerIntegration.test.js
+PASS: sourceSessionPreparer.test.js
+{
+  totalSourceSessions: 225,
+  sessionsForScheduling: 224,
+  manualReview: 1,
+  reschedulingRequired: 1,
+  approvedExceptions: 2
+}
+PASS: sourceSessionPreparer.test.js
+PASS: Source validation integration tests
+PASS: sourceValidationIntegration.test.js
+Allowed slots: [ '9-10 AM', '10-11 AM', '11-12 PM', '12-1 PM', '2-3 PM' ]
+All time restriction tests passed!
+PASS: timeRestrictions.test.js
+{ valid: true, errors: [] }
+All timetable validation tests passed!
+PASS: timetableValidator.test.js
+Valid lab slots: [ [ '9-10 AM', '10-11 AM' ] ]
+All working-hour tests passed!
+PASS: workingHours.test.js
+Assigned slot: 9-10 AM
+Working-hour integration tests passed!
+PASS: workingHoursIntegration.test.js
+
+===== FINAL SUMMARY =====
+Total tests: 39
+Passed: 39
+Failed: 0
+
+All ClassSync E3 tests passed!

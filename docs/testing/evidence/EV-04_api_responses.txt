@@ -1,0 +1,81 @@
+# TC-API-01  POST /api/generate  {fileBase64: <ClassSync_sample_input.xlsx>, divisions: 3}
+HTTP 200
+{
+  "success": true,
+  "stage": "DONE",
+  "summary": {
+    "sessions": 164,
+    "placed": 164,
+    "courses": 27,
+    "faculty": 48,
+    "rooms": 20,
+    "timeMs": 754,
+    "greedyPlaced": 164,
+    "backtracks": 0,
+    "auditPassed": true
+  },
+  "divisions": [
+    "4A",
+    "4B",
+    "4C",
+    "6A",
+    "6B",
+    "6C"
+  ],
+  "firstRow": {
+    "sessionId": "8-1-A1-1",
+    "courseId": "8",
+    "courseName": "Web Technology",
+    "courseType": "LAB",
+    "divisionId": "1",
+    "divisionName": "A",
+    "batch": "A1",
+    "day": "MON",
+    "start": "08:00",
+    "end": "10:00",
+    "facultyIds": [
+      "19"
+    ],
+    "roomId": "11",
+    "facultyNames": [
+      "Ms. Manjula Pawar"
+    ],
+    "roomName": "LAB6"
+  }
+}
+
+# TC-API-02  POST /api/generate  {fileBase64: <text file "not an excel file">}
+HTTP 400
+{
+  "stage": "UPLOAD",
+  "errors": [
+    "The workbook is missing required sheet(s): Faculty, Course, Room, Course_Faculty. Found sheets: Sheet1. Download the sample workbook to see the expected layout."
+  ]
+}
+
+# TC-API-03  POST /api/generate  {divisions: 0}
+HTTP 400
+{
+  "stage": "UPLOAD",
+  "errors": [
+    "Number of divisions must be a whole number between 1 and 26."
+  ]
+}
+
+# TC-API-04  POST /api/generate  body: "{not json"
+HTTP 400
+{
+  "stage": "UPLOAD",
+  "errors": [
+    "Invalid request body."
+  ]
+}
+
+# TC-API-06  GET /..%2f..%2fserver%2fserver.js
+HTTP 403
+{"error":"Forbidden"}
+
+# TC-API-07  5 x POST /api/generate sent concurrently
+status codes: 200, 200, 200, 200, 200
+success: true, true, true, true, true
+distinct timetables: 1
