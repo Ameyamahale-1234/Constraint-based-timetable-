@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { samplePayload, dirtyPayload, validate, detect } from '../e2/engine.js'
+import ConflictGraph from './ConflictGraph.jsx'
 import { e1ToPayload, payloadToE1, scheduleFromResult, generateWithE3 } from '../e2/bridge.js'
 
 const TABS = ['Pipeline', 'Input data', 'Validation report', 'Conflict graph', 'Schedule']
-const PAL = ['#4e79a7', '#f28e2b', '#59a14f', '#b07aa1', '#76b7b2', '#edc948', '#9c755f', '#bab0ac', '#af7aa1', '#ff9da7']
 
 export default function E2({ e2, setE2, e1, onGenerated }) {
   const [busy, setBusy] = useState(false)
@@ -81,37 +81,11 @@ export default function E2({ e2, setE2, e1, onGenerated }) {
             {issues.map((i, k) => <tr key={k}><td>{i.where}</td><td>{i.msg}</td></tr>)}</tbody></table>
         </div>))}
 
-      {tab === 'Conflict graph' && (!e2.schedule ? <p className="muted">Run E3 assignment first (Pipeline).</p> : <Graph sessions={e2.schedule} det={det} />)}
+      {tab === 'Conflict graph' && (!e2.schedule ? <p className="muted">Run E3 assignment first (Pipeline).</p> : <ConflictGraph sessions={e2.schedule} det={det} payload={p} />)}
 
       {tab === 'Schedule' && (!e2.schedule ? <p className="muted">No schedule yet.</p> : (
         <table><thead><tr><th>Session</th><th>Course</th><th>Faculty</th><th>Division</th><th>Batch</th><th>Slot</th><th>Room</th></tr></thead><tbody>
           {e2.schedule.map((s) => <tr key={s.id}><td>{s.id}</td><td>{s.course}</td><td>{s.faculty}</td><td>{s.division}</td><td>{s.batch || '-'}</td><td>{s.slot}</td><td>{s.room}</td></tr>)}</tbody></table>))}
-    </div>
-  )
-}
-
-function Graph({ sessions, det }) {
-  const n = sessions.length, R = 170, cx = 230, cy = 200
-  const pos = sessions.map((_, i) => [cx + R * Math.cos((2 * Math.PI * i) / n - Math.PI / 2), cy + R * Math.sin((2 * Math.PI * i) / n - Math.PI / 2)])
-  const slots = [...new Set(sessions.map((s) => s.slot).filter(Boolean))]
-  const bad = new Set(det.conflicts.filter((c) => c.edge).map((c) => c.edge.a + '-' + c.edge.b))
-  const deg = sessions.map((_, i) => det.edges.filter((e) => e.a === i || e.b === i).length)
-  return (
-    <div className="graphbox">
-      <svg viewBox="0 0 460 400" className="graph">
-        {det.edges.map((e) => <line key={e.a + '-' + e.b} x1={pos[e.a][0]} y1={pos[e.a][1]} x2={pos[e.b][0]} y2={pos[e.b][1]}
-          stroke={bad.has(e.a + '-' + e.b) ? '#e8453c' : '#c5ccd6'} strokeWidth={bad.has(e.a + '-' + e.b) ? 3 : 1.2} />)}
-        {sessions.map((s, i) => (<g key={s.id}><circle cx={pos[i][0]} cy={pos[i][1]} r="17" fill={s.slot ? PAL[slots.indexOf(s.slot) % PAL.length] : '#fff'} stroke="#1c3a5e" strokeWidth="1.5" />
-          <text x={pos[i][0]} y={pos[i][1] + 4} textAnchor="middle" fontSize="11" fill="#fff" fontWeight="700">{s.id}</text></g>))}
-      </svg>
-      <div>
-        <p><b>Vertices:</b> {n} sessions · <b>Edges:</b> {det.edges.length} · <b>Max degree:</b> {Math.max(...deg)}</p>
-        <p><b>Colours (slots) used:</b> {slots.length} · <b>Conflicting edges:</b> {bad.size}</p>
-        <p className="muted">Edge = two sessions that share a faculty or the same division/batch, so they must get different slots. Node colour = assigned slot. Red edge = both ends have the same slot.</p>
-        <table><thead><tr><th>Conflict</th><th>Details</th></tr></thead><tbody>
-          {det.conflicts.length === 0 && <tr><td colSpan="2" className="empty">Conflict-free</td></tr>}
-          {det.conflicts.map((c, i) => <tr key={i}><td>{c.type}</td><td>{c.details}</td></tr>)}</tbody></table>
-      </div>
     </div>
   )
 }
